@@ -1,4 +1,3 @@
-<!-- Dallas Scott - ds4015 -->
 {% extends "layout.html" %}
 {% block content %}
 <!DOCTYPE html>
@@ -11,23 +10,16 @@
 </head>
 <body>
     <h1>{{ question.question }}</h1>
-    <form action="" method="post">
+    {% if question.image %}
+    <img src="/static/{{ question.image }}" style="max-width: 100%; height: auto;">
+{% endif %}
+    <form action="/quiz/{{ question.quiz_id }}" method="post">
         {% for option in question.options %}
             <input type="radio" name="option" value="{{ option }}"> {{ option }}<br>
         {% endfor %}
         <button type="submit">Next question</button>
     </form>
 
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $('form').submit(function(event) {
-                if ("{{ question.next_question }}" == "end") {
-                    event.preventDefault();
-                    window.location.href = "/results";
-                }
-            });
-        });
-    </script>
 </body>
 </html>
 {% endblock %}
