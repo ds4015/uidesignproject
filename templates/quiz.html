@@ -11,27 +11,31 @@
             <span class="text-md">{{ question.question }}</span>
             <div class="box-bg-2 p-3 m-4">
                 <form action="" method="post">
-                    {% for option in question.options %}
-                    <input type="radio" name="option" value="{{ option }}"> {{ option }}<br>
-                    {% endfor %}
+                    {% if question.image %}
+                    <div class="text-center m-4"><img src="/static/{{ question.image }}" style="max-width: 100%; height: auto;"></div>
+                    {% endif %}
+                    <form action="/quiz/{{ question.quiz_id }}" method="post">
+                        {% for option in question.options %}
+                        <input type="radio" name="option" value="{{ option }}"> {{ option }}<br>
+                        {% endfor %}
             </div>
         </div>
     </div>
     <div class="row source-code white-text justify-content-center m-4">
         <div class="col-12 text-center">
-        <button type="submit" class="box-bg-2 d-inline-flex text-md source-code white-text">Next question</button>
-        </form>
-    </div>        
+            <button type="submit" class="box-bg-2 d-inline-flex text-md source-code white-text">Next question</button>
+            </form>
+        </div>
     </div>
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $('form').submit(function (event) {
-                    if ("{{ question.next_question }}" == "end") {
-                        event.preventDefault();
-                        window.location.href = "/results";
-                    }
-                });
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('form').submit(function (event) {
+                if ("{{ question.next_question }}" == "end") {
+                    event.preventDefault();
+                    window.location.href = "/results";
+                }
             });
-        </script>
+        });
+    </script>
 
-        {% endblock %}
+    {% endblock %}
