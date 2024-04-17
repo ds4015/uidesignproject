@@ -1,43 +1,43 @@
 {% extends "layout.html" %}
 {% block content %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Results</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-</head>
-<body>
-    <h1>Quiz Reuslts</h1>
+<div class="container">
+    <div class="row source-code text-center p-3">
+        <div class="col-12 sub-heading p-3 mt-2 mb-3">
+            <i>Quiz Results</i>
+        </div>
+    </div>
+    <div class="row source-code justify-content-center white-text">
+        <div class="col-6 text-center box-bg">
+            {% if score == 8 %}
+            <p">8/8<br><br>Great work!</p>
+                {% elif score == 7 %}
+                <p><span class="heading">7/8</span><br><br>Good work!</p>
+                {% elif score == 6 %}
+                <p><span class="heading">6/8</span><br><br>Not bad!</p>
+                {% elif score == 5 or score == 4 %}
+                <p><span class="heading">{{ score }}/8</span><br><br>Needs work!</p>
+                {% elif score == 3 %}
+                <p><span class="heading">3/8</span><br><br>Bad job!</p>
+                {% elif score == 2 or score == 1 %}
+                <p><span class="heading">{{ score }}/8</span><br><br>Terrible!</p>
+                {% else %}
+                <p><span class="heading">0/8</span><br><br>Are you sure you’re a Columbia student?</p>
+                {% endif %}
+        </div>
+    </div>
+    <div class="row source-code justify-content-center white-text m-4">
+        <div class="col-6 text-center">
+            <button id="answers" class="box-bg-2">View Answers</button>
+        </div>
+    </div>
+</div>
 
-    {% if score == 8 %}
-        <p>8/8 Great work!</p>
-    {% elif score == 7 %}
-        <p>7/8 Good work!</p>
-    {% elif score == 6 %}
-        <p>6/8 - Not bad!</p>
-    {% elif score == 5 or score == 4 %}
-        <p>{{ score }}/8 - Needs work!</p>
-    {% elif score == 3 %}
-        <p>3/8 - Bad job!</p>
-    {% elif score == 2 or score == 1 %}
-        <p>{{ score }}/8 - Terrible!</p>
-    {% else %}
-        <p>0/8 - Are you sure you’re a Columbia student?</p>
-    {% endif %}
-
-    <button id="answers">View Answers</button>
-
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $('#answers').click(function(event) {
-                window.location.href = '/answers';
-            });
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#answers').click(function (event) {
+            window.location.href = '/answers';
         });
-    </script>
-
-</body>
-</html>
+    });
+</script>
 
 {% endblock %}

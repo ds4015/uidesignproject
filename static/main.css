@@ -19,9 +19,18 @@
     font-weight: 400;
     font-style: normal;
   }
-
+  figcaption {
+    font-size: 14px;
+    color: #000;
+    margin-top: 5px;
+}
 .text-semi-light {
     color: #d6d6d6;
+}
+
+.concept-text {
+  font-size:12px;
+  color: #fff;
 }
 
 a:hover {
@@ -32,6 +41,10 @@ a:hover {
   font-family: "Source Code Pro", monospace;
   font-weight: 400;
   font-style: normal;
+}
+
+.score-size {
+  font-size: 65px;
 }
 
 .heading {
@@ -61,7 +74,7 @@ a:hover {
 .box-bg-2 {
   background-color: #F6AE2D;
   padding: 0.5em;  
-  border: 1px solid #33658A;  
+  border: 1.5px solid #33658A;  
 }
 
   .marcellus-rev{

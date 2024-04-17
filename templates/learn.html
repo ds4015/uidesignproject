@@ -1,16 +1,59 @@
 <!-- Dallas Scott - ds4015 -->
 {% extends "layout.html" %}
 {% block content %}
-<script>
-  let data = {{data|tojson}};
-</script>
 <div class="container">
-    <div class="row source-code text-center p-3">
-      <div class="col-12 sub-heading p-5">
-        <i>Learn</i>
+  <div class="row source-code text-center p-3">
+    <div class="col-12 sub-heading p-5">
+      <i>{{lesson.title}}</i>
+    </div>
+  </div>
+  <div class="row source-code white-text">
+    <div class="col-6">
+      <div class="box-bg text-center">
+        {{lesson.left_box|safe}}
+        {% if lesson.concept_title %}        
+        <div class="box-bg-2 concept-text m-5 p-4 justify-content-bottom">
+          <p>Key Concepts:</p>
+          <p>{{lesson.concept_title}}: {{lesson.concept_descr}}</p>
+        {% for c in lesson.concepts %}
+        <span class="concept-text">
+        <b>{{c}} {% if loop.index != loop.length %}→</span>{%endif%}</b>
+        {% endfor %}
+      </div>        
+        {% endif %}
+
       </div>
     </div>
+    <div class="col-6 text-center">
+      {% if lesson.video %}
+      <iframe width="560" height="315" src="{{lesson.video}}" frameborder="0" allowfullscreen></iframe>
+      {% else %}
+      <figure>
+      <img src="{{ url_for('static', filename=lesson.right_image) }}" width="60%" alt="lesson.concept_title">
+      <figcaption class="source-code">{% if lesson.concept_title %}{{lesson.concept_title}}{%endif%}</figcaption>
+    </figure>      
+    {%endif%}
+    </div>
+  </div>
+    <div class="row source-code justify-content-center text-center p-5">
+      <div class="col-4">  
+    <div class="d-inline-flex box-bg-2 white-text sub-heading p-3">
+      <a href="{{lesson.back}}">Back</a>
+    </div>
+      </div>
+      <div class="col-4">
+  <div class="d-inline-flex box-bg-2 white-text sub-heading p-3">
+    <a href="{{lesson.next}}">{{ next_text }}</a>
+  </div>
+</div>
+  <div class="row source-code text-center p-5">
+    <div class="col-12">
+      <div class="p-4">
+        It is now {{lesson.time}}.
+      </div>
+    </div>
+
+</div>
+
 </div>
 {% endblock %}
-
-
