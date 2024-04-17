@@ -33,7 +33,7 @@ quiz_questions = {
     },
     "3": {
         "quiz_id": "3",
-        "question": "Which area of the brain is highlighted here?  What is its function? ",
+        "question": "Which area of the brain is highlighted here?  What is its function?",
         "options" : ['Occipital lobe - hearing', 'Temporal lobe - sound', 'Occipital lobe - vision', 'Frontal lobe - reasoning'],
         "answer" : "Frontal lobe - reasoning", 
         "next_question": "4"
@@ -48,7 +48,7 @@ quiz_questions = {
     },
     "5": {
         "quiz_id": "5",
-        "question": "What is this structure called? ",
+        "question": "What is this structure called ",
         "options" : ['Amygdala', 'Cell Body', 'Thalamus ', 'Hippocampus'],
         "answer" : "Amygdala",
         "next_question": "6"
@@ -62,7 +62,7 @@ quiz_questions = {
     },
     "7": {
         "quiz_id": "7",
-        "question": "What tpyes of cells are bound in the brain?",
+        "question": "What types of cells are found in the brain?",
         "options" : ['Axons', 'Dendrites', 'Neurons', 'Neurotransmitters'],
         "answer" : "Neurons",
         "next_question": "8"
