@@ -232,7 +232,7 @@ quiz_questions = {
     },
     "5": {
         "quiz_id": "5",
-        "image": "amygdala.png",
+        "image": "amygdala_quiz.png",
         "question": "What is this structure called ",
         "options" : ['Amygdala', 'Cell Body', 'Thalamus ', 'Hippocampus'],
         "answer" : "Amygdala",
