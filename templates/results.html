@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Quiz Reuslts</h1>
+
+    {% if score == 8 %}
+        <p>8/8 Great work!</p>
+    {% elif score == 7 %}
+        <p>7/8 Good work!</p>
+    {% elif score == 6 %}
+        <p>6/8 - Not bad!</p>
+    {% elif score == 5 or score == 4 %}
+        <p>{{ score }}/8 - Needs work!</p>
+    {% elif score == 3 %}
+        <p>3/8 - Bad job!</p>
+    {% elif score == 2 or score == 1 %}
+        <p>{{ score }}/8 - Terrible!</p>
+    {% else %}
+        <p>0/8 - Are you sure you’re a Columbia student?</p>
+    {% endif %}
+
+    <button id="answers">View Answers</button>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#answers').click(function(event) {
+                window.location.href = '/answers';
+            });
+        });
+    </script>
+
+</body>
+</html>
+
+{% endblock %}
