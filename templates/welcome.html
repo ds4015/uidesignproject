@@ -1,0 +1,41 @@
+<!-- Dallas Scott - ds4015 -->
+{% extends "layout.html" %}
+{% block content %}
+<script type="text/javascript" src="{{ url_for('static', filename = 'arthouse.js') }}"></script>
+<script>
+  let data = {{ data| tojson}};
+</script>
+<div class="container">
+  <div class="row source-code text-center p-3">
+    <div class="col-12 sub-heading p-5">
+      <i>The Human Brain</i>
+    </div>
+  </div>
+  <div class="row source-code white-text">
+    <div class="col-6">
+      <div class="box-bg text-center">
+        <p>The brain is the most complex
+          organ in the human body.</p><br>
+
+        <p>It processes stimuli from the
+          senses, controls behavior, and
+          stores information.</p><br>
+        <p>Let’s learn some of the basics about
+          this organ and how it functions.</p>
+      </div>
+    </div>
+    <div class="col-6 text-center">
+      <img src="{{ url_for('static', filename='brain.png') }}" width="80%" alt="Human Brain">
+    </div>
+  </div>
+  <div class="row source-code text-center p-5">
+    <div class="col-12">
+      <div class="p-4">
+      It is now {{data}}.  
+    </div>
+    <div class="d-inline-flex box-bg-2 white-text sub-heading p-3">
+      <a href="/learn/1">Start</a></div>
+  </div>
+</div>
+
+{% endblock %}

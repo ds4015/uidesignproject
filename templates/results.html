@@ -1,0 +1,15 @@
+<!-- Dallas Scott - ds4015 -->
+{% extends "layout.html" %}
+{% block content %}
+<script type="text/javascript" src="{{ url_for('static', filename = 'display_results.js') }}"></script>
+<script>
+  let data = {{data|tojson}};
+</script>
+<div class="container">
+    <div class="row dm-serif"><p>Search Results for <i>{{ query}}</i></p><br></div>
+    <div id="results" class="m-2 eb-garamond"></div>
+
+</div>
+{% endblock %}
+
+

@@ -1,0 +1,91 @@
+
+.fredericka {
+    font-family: "Fredericka the Great", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 40px;
+  }
+
+  .dm-serif {
+    font-family: "DM Serif Display", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size:22px;
+    margin-top: 15px;
+  }
+
+  .marcellus {
+    font-family: "Marcellus", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+.text-semi-light {
+    color: #d6d6d6;
+}
+
+a:hover {
+  color: #F26419; /* Change link color when hovered */
+}
+
+.source-code {
+  font-family: "Source Code Pro", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.heading {
+  font-size: 46px;
+}
+.sub-heading {
+  font-size: 28px;
+}
+
+.text-md {
+  font-size: 19px;
+}
+
+.white-text {
+  color: #FFFFFF;
+}
+.navbar-bg {
+  background-color: #2F4858; 
+}
+
+.box-bg {
+  background-color: #33658A;
+  padding: 1em;
+  border: 1px solid black;
+}
+
+.box-bg-2 {
+  background-color: #F6AE2D;
+  padding: 0.5em;  
+  border: 1px solid #33658A;  
+}
+
+  .marcellus-rev{
+    font-family: "Marcellus", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+  }
+
+  .stars {
+    margin-left: 15px;
+
+  }
+  
+
+  a {
+    color: inherit; /* Use the default text color */
+    text-decoration: none; /* Remove underline */
+}
+  
+  
+.eb-garamond {
+    font-family: "EB Garamond", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-size: 18px;
+  }
