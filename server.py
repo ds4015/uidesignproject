@@ -11,8 +11,8 @@ import random
 import datetime
 
 
-learn_data = []
-quiz_data = []
+learn_data = ["This is the learn data"]
+quiz_data = ["This is the quiz data"]
 
 
 # ROUTES
@@ -28,20 +28,11 @@ def welcome():
 
 @app.route('/learn/<int:lesson_id>')
 def learn(lesson_id):
-    film = data[film_id - 1]
-    return render_template('film.html', film=film) 
+    return render_template('learn.html', data=learn_data) 
 
 @app.route('/quiz/<int:question_id>')
 def quiz(question_id):
-    results = []
-    for film in data:
-        print(film)
-        print(term.lower())
-        print(film['title'])
-        if (term.lower() in film['title'].lower()):
-            results.append( (film['id'], film['title'], film['year'], film['director']) )
-            print(results)
-    return render_template('results.html', data=results, query=term) 
+    return render_template('quiz.html', data=quiz_data) 
 
 
 
