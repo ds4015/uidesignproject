@@ -25,7 +25,11 @@ learn_data = [
         "id": 1,
         "title": "<span class='first-letter'>B</span> <span class='text-lg'>" +
                     "a s i c s </span>&nbsp;&nbsp;-&nbsp;&nbsp; <span class='first-letter'>" +
-                    "N</span> <span class='text-lg'>e u r o t r a n s m i t t e r s</span>",
+                    "C</span> <span class='text-lg'>e l l s</span>" +
+                    "<div class='row mt-0 pt-0'><div class='col-12 mt-0 pt-0'>" +
+                    "<span class='sub-heading'>L e s s o n &nbsp;&nbsp; 1 :&nbsp;&nbsp;" +
+                    "N e u r o n s &nbsp;&nbsp; a n d &nbsp;&nbsp; t h e i r &nbsp;&nbsp;" +
+                    "C o m p o n e n t s</span></div></div>",
         "left_box": "<p>The primary cell in the brain is known as a <b>neuron</b>.</p>" +
                     "<p>The neuron looks kind of like a scorpion.</p> <p>It has a main " +
                     "<b>body</b> with spindly projections called <b>dendrites</b> and a long tail "+
@@ -47,7 +51,11 @@ learn_data = [
         "id": 2,
         "title": "<span class='first-letter'>B</span> <span class='text-lg'>" +
                     "a s i c s </span>&nbsp;&nbsp;-&nbsp;&nbsp; <span class='first-letter'>" +
-                    "N</span> <span class='text-lg'>e u r o t r a n s m i s s i o n</span>",
+                    "N</span> <span class='text-lg'>e u r o t r a n s m i s s i o n</span>" +
+                    "<div class='row mt-0 pt-0'><div class='col-12 mt-0 pt-0'>" +
+                    "<span class='sub-heading'>L e s s o n &nbsp;&nbsp; 2 :&nbsp;&nbsp;" +
+                    "C o m m u n i c a t i o n &nbsp;&nbsp; B e t w e e n &nbsp;&nbsp;" +
+                    "C e l l s</span></div></div>",
         "left_box": "<br><p>At the end of each dendrite is a receptor for a chemical known as a <b>neurotransmitter</b>.</p>" +
                     "<p>Cells communicate by passing these neurotransmitters as signals.</p>" +
                     "<p>A small gap between neurons known as the <b>synapse</b> is where these transmitters" +
@@ -69,7 +77,11 @@ learn_data = [
         "id": 3,
         "title": "<span class='first-letter'>B</span> <span class='text-lg'>" +
                     "a s i c s </span>&nbsp;&nbsp;-&nbsp;&nbsp; <span class='first-letter'>" +
-                    "N</span> <span class='text-lg'>e u r o t r a n s m i t t e r s</span>",
+                    "N</span> <span class='text-lg'>e u r o t r a n s m i t t e r s</span>" +
+                    "<div class='row mt-0 pt-0'><div class='col-12 mt-0 pt-0'>" +
+                    "<span class='sub-heading'>L e s s o n &nbsp;&nbsp; 3 :&nbsp;&nbsp;" +
+                    "G a m m a - a m i n o b u t y r i c &nbsp;&nbsp; a c i d &nbsp;&nbsp;"
+                    "</span></div></div>",
         "left_box": "<p>Reduces the amount of activity a cell can transmit</p>",
         "right_image":"gaba.png",
         "model": "/static/models/gaba/scene.gltf",
@@ -90,7 +102,11 @@ learn_data = [
         "id": 4,
         "title": "<span class='first-letter'>B</span> <span class='text-lg'>" +
                     "a s i c s </span>&nbsp;&nbsp;-&nbsp;&nbsp; <span class='first-letter'>" +
-                    "N</span> <span class='text-lg'>e u r o t r a n s m i t t e r s</span>",
+                    "N</span> <span class='text-lg'>e u r o t r a n s m i t t e r s</span>" +
+                    "<div class='row mt-0 pt-0'><div class='col-12 mt-0 pt-0'>" +
+                    "<span class='sub-heading'>L e s s o n &nbsp;&nbsp; 4 :&nbsp;&nbsp;" +
+                    "S e r o t o n i n  &nbsp;&nbsp; a n d &nbsp;&nbsp; M o o d " +
+                    "</span></div></div>",
         "left_box": "<p>Regulates mood, sleep and digestion.</p>",
         "right_image":"serotonin.png",
         "model": "/static/models/serotonin2/scene.gltf",
@@ -111,7 +127,11 @@ learn_data = [
         "id": 5,
         "title": "<span class='first-letter'>B</span> <span class='text-lg'>" +
                     "a s i c s </span>&nbsp;&nbsp;-&nbsp;&nbsp; <span class='first-letter'>" +
-                    "N</span> <span class='text-lg'>e u r o t r a n s m i t t e r s</span>",
+                    "N</span> <span class='text-lg'>e u r o t r a n s m i t t e r s</span>" +
+                    "<div class='row mt-0 pt-0'><div class='col-12 mt-0 pt-0'>" +
+                    "<span class='sub-heading'>L e s s o n &nbsp;&nbsp; 5 :&nbsp;&nbsp;" +
+                    "D o p a m i n e &nbsp;&nbsp; a n d &nbsp;&nbsp; A t t e n t i o n" +
+                    "</span></div></div>",
         "left_box": "<p>Associated with attention and reward.</p>",
         "right_image":"dopamine.png",
         "model": "/static/models/dopamine/scene.gltf",
