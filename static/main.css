@@ -1,5 +1,7 @@
 /* Dallas Scott - ds4015 */
 
+
+/* Fonts used */
 .viaoda-libre-regular {
   font-family: "Viaoda Libre", serif;
   font-weight: 400;
@@ -27,16 +29,18 @@
   font-style: normal;
 }
 
-
+/* min vertical height of page to allow scrolling */
 body {
   background-color: #DDFFF7;
   min-height: 140vh;
 }
 
+/* line spacing */
 p {
   line-height: 2;
 }
 
+/* used for puzzle input boxes */
 .blank {
   display: inline-block;
   width: 30px;
@@ -49,6 +53,7 @@ p {
 }
 
 
+/* cross off found letters in puzzle */
 .crossed {
   position: relative;
 }
@@ -64,9 +69,12 @@ span.crossed::before {
   transform: translateY(-50%) rotate(-45deg);
 }
 
+/* used to flip navigation arrows */
 .flip-horizontal {
   transform: scaleX(-1);
 }
+
+/* CSS style arrows used in learning */
 .arrow-up {
   position: relative;
   display: inline-block;
@@ -81,21 +89,22 @@ span.crossed::before {
 .arrow-up::after {
   content: "";
   position: absolute;
-  top: 20px; /* Adjust this value to control the distance between the arrowhead and the shaft */
+  top: 20px; 
   left: -5px;
-  width: 10px; /* Adjust this value to control the width of the shaft */
-  height: 30px; /* Adjust this value to control the height of the shaft */
+  width: 10px; 
+  height: 30px; 
   
-  background-color: #48ADA9; /* Match the color of the shaft with the arrowhead */
+  background-color: #48ADA9; 
   display: block;
 }
+
 
 .arrow-down {
   width: 0;
   height: 0;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-top: 20px solid #48ADA9; /* Adjust the color and size as needed */
+  border-top: 20px solid #48ADA9;
   display: inline-block;
   position: relative;
 }
@@ -108,43 +117,52 @@ span.crossed::before {
   width: 10px;
   height: 40px;
 
-  background-color: #48ADA9;/* Match the color of the shaft with the arrowhead */
+  background-color: #48ADA9;
   display: block;
 }
 
 .btn.custom-btn {
   background-color: #ebf5ee; 
   color: #6c757d; 
-  padding: 20px 40px; /* Larger padding */
+  padding: 20px 40px; 
   border: 2px solid #f5c6cb; 
   border-radius: 10px; 
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   width:100%;
 }
 
+.p-justify {
+  text-align: justify
+}
+
+/* letter input styling for puzzle */
 input.puzzle {
   background-color: #ebf5ee;
-  border: 1px solid #ccc; /* Example border style */
-  padding: 5px; /* Example padding */
-  border-radius: 3px; /* Example border radius */
-  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1); /* Example box shadow */
+  border: 1px solid #ccc;
+  padding: 5px; 
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1); 
   width: 20px;
   height: 25px;
 }
 
+/* red background for wrong letters in puzzle */
 input.incorrect {
   background-color: #FF7377;
   width: 26px;
 }
+
+/* old implementation */
 .box-bg {
   background-color: #33658A;
   padding: 1em;
   border: 1px solid black;
 }
+
 .gray {
   background-color: darkgray;
 }
 
+/* used for puzzle solution */
 .green {
   color: green;
   font-weight: bold;
@@ -158,6 +176,7 @@ input.incorrect {
   background-color: #2ba19f; 
 }
 
+/* top navigation/title bars */
 .top-bar {
   background-color: #07393cff;
 }
@@ -220,7 +239,7 @@ a:hover {
 }
 
 
-
+/* text sizing for different screen sizes */
 
 /* small screens */
 @media screen and (max-width: 768px) {
@@ -309,7 +328,7 @@ a:hover {
   }
 }
 
-
+/* old implementation */
 .white-text {
   color: #FFFFFF;
 }
@@ -317,6 +336,7 @@ a:hover {
   background-color: #2F4858; 
 }
 
+/* left and right boxes with dashed borders */
 .box-left {
   background-color: #ebf5ee;
   border: 1.5px dashed #07393cff;
@@ -327,7 +347,7 @@ a:hover {
   border: 1.5px dashed #07393cff;
 }
 
-
+/* old implentation */
 .box-bg-2 {
   background-color: #F6AE2D;
   padding: 0.5em;  
@@ -335,9 +355,9 @@ a:hover {
 }
 
   
-
+/* remove underline from links */
   a {
-    color: inherit; /* Use the default text color */
-    text-decoration: none; /* Remove underline */
+    color: inherit; 
+    text-decoration: none;
 }
   
