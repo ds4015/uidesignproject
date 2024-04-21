@@ -1,24 +1,184 @@
+/* Dallas Scott - ds4015 */
 
-.fredericka {
-    font-family: "Fredericka the Great", serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 40px;
-  }
+.viaoda-libre-regular {
+  font-family: "Viaoda Libre", serif;
+  font-weight: 400;
+  font-style: normal;
+}
 
-  .dm-serif {
-    font-family: "DM Serif Display", serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size:22px;
-    margin-top: 15px;
-  }
+.quintessential-regular {
+  font-family: "Quintessential", serif;
+  font-weight: 400;
+  font-style: normal;
+}
 
-  .marcellus {
-    font-family: "Marcellus", serif;
-    font-weight: 400;
-    font-style: normal;
-  }
+
+.cinzel-400 {
+  font-family: "Cinzel", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.newsreader-400 {
+  font-family: "Newsreader", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+body {
+  background-color: #DDFFF7;
+  min-height: 140vh;
+}
+
+p {
+  line-height: 2;
+}
+
+.blank {
+  display: inline-block;
+  width: 30px;
+  text-align: center;
+  border-bottom: 1px solid black;
+  margin-right: 5px;
+}
+.correct {
+  background-color: green;
+}
+
+
+.crossed {
+  position: relative;
+}
+
+span.crossed::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 140%;
+  height: 1px;
+  background-color: red; 
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+.flip-horizontal {
+  transform: scaleX(-1);
+}
+.arrow-up {
+  position: relative;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 20px solid #48ADA9;
+}
+
+
+.arrow-up::after {
+  content: "";
+  position: absolute;
+  top: 20px; /* Adjust this value to control the distance between the arrowhead and the shaft */
+  left: -5px;
+  width: 10px; /* Adjust this value to control the width of the shaft */
+  height: 30px; /* Adjust this value to control the height of the shaft */
+  
+  background-color: #48ADA9; /* Match the color of the shaft with the arrowhead */
+  display: block;
+}
+
+.arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 20px solid #48ADA9; /* Adjust the color and size as needed */
+  display: inline-block;
+  position: relative;
+}
+
+.arrow-down::after {
+  content: "";
+  position: absolute;
+  top: -50px;
+  left: -5px;
+  width: 10px;
+  height: 40px;
+
+  background-color: #48ADA9;/* Match the color of the shaft with the arrowhead */
+  display: block;
+}
+
+.btn.custom-btn {
+  background-color: #ebf5ee; 
+  color: #6c757d; 
+  padding: 20px 40px; /* Larger padding */
+  border: 2px solid #f5c6cb; 
+  border-radius: 10px; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width:100%;
+}
+
+input.puzzle {
+  background-color: #ebf5ee;
+  border: 1px solid #ccc; /* Example border style */
+  padding: 5px; /* Example padding */
+  border-radius: 3px; /* Example border radius */
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1); /* Example box shadow */
+  width: 20px;
+  height: 25px;
+}
+
+input.incorrect {
+  background-color: #FF7377;
+  width: 26px;
+}
+.box-bg {
+  background-color: #33658A;
+  padding: 1em;
+  border: 1px solid black;
+}
+.gray {
+  background-color: darkgray;
+}
+
+.green {
+  color: green;
+  font-weight: bold;
+}
+
+.btn.custom-btn:hover {
+  background-color: #07393cff; 
+  color: #ffffff;
+}
+.btn.custom-btn:active {
+  background-color: #2ba19f; 
+}
+
+.top-bar {
+  background-color: #07393cff;
+}
+
+.title-bar {
+  background-color: #2ba19f;
+}
+
+.col-bar {
+  border-right: 1px solid #2ba19f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.col-body-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
   figcaption {
     font-size: 14px;
     color: #000;
@@ -28,35 +188,127 @@
     color: #d6d6d6;
 }
 
+.concept-box {
+  background-color: #FF7377;
+  border: 1.5px solid #07393cff;
+}
+
 .concept-text {
   font-size:12px;
   color: #fff;
 }
 
 a:hover {
-  color: #F26419; /* Change link color when hovered */
+  color: #D3DCD6; 
 }
 
-.source-code {
-  font-family: "Source Code Pro", monospace;
-  font-weight: 400;
-  font-style: normal;
+.bullet1 {
+  font-size: 20px;
+  color: #86615c;
+  padding: 1em;
 }
+
+.bullet2 {
+  font-size: 20px;
+  color: #9b287b;
+  padding: 1em;
+}
+
 
 .score-size {
   font-size: 65px;
 }
 
-.heading {
-  font-size: 46px;
+
+
+
+/* small screens */
+@media screen and (max-width: 768px) {
+  .text {
+      font-size: 14px; 
+  }
+  .sub-heading {
+    font-size: 15px;
+  }
+  .heading {
+    font-size: 33px;
+  }
+  .first-letter {
+    font-size: 42px; 
+    font-weight: bold;
+  }
+  
+  .first-letter-btn {
+    font-size: 27px; 
+    font-weight: bold;
+  }  
+  .text-md {
+    font-size: 14px;
+  }
+  .text-sm {
+    font-size: 12px;
 }
-.sub-heading {
-  font-size: 28px;
 }
 
-.text-md {
-  font-size: 19px;
+/* medium screens */
+@media screen and (min-width: 810px) and (max-width: 1280px) {
+  .text {
+      font-size: 18px;       
+  }
+  .sub-heading {
+    font-size: 21px;
+  }
+  .heading {
+    font-size: 39px;
+  }
+  .first-letter {
+    font-size: 46px; 
+    font-weight: bold;
+  }
+  .first-letter-btn {
+    font-size: 31px; 
+    font-weight: bold;
+  }  
+  .text-md {
+    font-size: 18px;
+  }
+  .text-sm {
+    font-size: 14px;
 }
+  
+}
+
+/* large screens */
+@media screen and (min-width: 1281px) {
+  .text {
+      font-size: 25px; 
+  }
+  .sub-heading {
+    font-size: 28px;
+  }
+  .heading {
+    font-size: 46px;
+  }
+  .first-letter {
+    font-size: 53px; 
+    font-weight: bold;
+  }  
+  .first-letter-btn {
+    font-size: 38px; 
+    font-weight: bold;
+  }
+  .text-md {
+    font-size: 22px;
+  }
+    
+  .text-lg {
+    font-size: 25px;
+  }
+  .text-sm {
+    font-size: 16px;
+  }
+}
+
 
 .white-text {
   color: #FFFFFF;
@@ -65,11 +317,16 @@ a:hover {
   background-color: #2F4858; 
 }
 
-.box-bg {
-  background-color: #33658A;
-  padding: 1em;
-  border: 1px solid black;
+.box-left {
+  background-color: #ebf5ee;
+  border: 1.5px dashed #07393cff;
 }
+
+.box-right {
+  background-color: #DDFFF7;
+  border: 1.5px dashed #07393cff;
+}
+
 
 .box-bg-2 {
   background-color: #F6AE2D;
@@ -77,17 +334,6 @@ a:hover {
   border: 1.5px solid #33658A;  
 }
 
-  .marcellus-rev{
-    font-family: "Marcellus", serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 16px;
-  }
-
-  .stars {
-    margin-left: 15px;
-
-  }
   
 
   a {
@@ -95,10 +341,3 @@ a:hover {
     text-decoration: none; /* Remove underline */
 }
   
-  
-.eb-garamond {
-    font-family: "EB Garamond", serif;
-    font-optical-sizing: auto;
-    font-style: normal;
-    font-size: 18px;
-  }

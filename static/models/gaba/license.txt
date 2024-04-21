@@ -1,0 +1,11 @@
+Model Information:
+* title:	Rivotril Tablets
+* source:	https://sketchfab.com/3d-models/rivotril-tablets-cc9d3e0368124bf8a339d4f1fc85743f
+* author:	CohiTrippy (https://sketchfab.com/CohiTrippy)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Rivotril Tablets" (https://sketchfab.com/3d-models/rivotril-tablets-cc9d3e0368124bf8a339d4f1fc85743f) by CohiTrippy (https://sketchfab.com/CohiTrippy) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

@@ -1,7 +1,7 @@
 # Dallas Scott - ds4015
 # Larry Chen - Lc3718
 # UI Design - Spring 2024
-# HW 10 Main
+# HW 11 Main
 
 from flask import Flask
 from flask import render_template
@@ -13,77 +13,121 @@ app = Flask(__name__)
 
 app.secret_key = os.urandom(24)
 
+start_time = datetime.datetime.now()
+end_time = datetime.datetime.now()
+
+
+###################   TBC - Dallas  ##################
+
 
 learn_data = [
-    {
+ {
         "id": 1,
-        "title": "Basics - Cells",
-        "left_box": "<p>The primary cell in the brain is known as a neuron.</p>" +
-                    "<p>The neuron looks kind of like a scorpion. It has a main" +
-                    "body with spindly projections called dendrites and a long tail "+
-                    "called an axon</p>",
+        "title": "<span class='first-letter'>B</span> <span class='text-lg'>" +
+                    "a s i c s </span>&nbsp;&nbsp;-&nbsp;&nbsp; <span class='first-letter'>" +
+                    "N</span> <span class='text-lg'>e u r o t r a n s m i t t e r s</span>",
+        "left_box": "<p>The primary cell in the brain is known as a <b>neuron</b>.</p>" +
+                    "<p>The neuron looks kind of like a scorpion.</p> <p>It has a main " +
+                    "<b>body</b> with spindly projections called <b>dendrites</b> and a long tail "+
+                    "called an <b>axon</b></p>",
         "right_image":"cell.png",
-        "concept_title": "Neuron",
-        "concept_descr": "The main cell of the brain.",
-        "concepts": ["Body","Axon","Dendrites"],
+        "model": "/static/models/neuron/scene.gltf",
+        "model_bg": "0xDDFFF7",
+        "puzzle" : ["IBDLUGIN","KBCOL"],
+        "solution": ["BUILDING", "BLOCK"],
+        "concept_title" : "Neuron",
+        "mnemonic":["<span class='first-letter-btn'>N</span>euron - ","<span class='first-letter-btn'>N</span>erve"],
         "next": "/learn/2",
         "back": "/",
+        "next_num": "Lesson 2",
+        "back_num": "Home",
         "time": None
-    },
-   {
+    }, 
+     {
         "id": 2,
-        "title": "Basics - Neurotransmission",
-        "left_box": "<br><p>At the end of each dendrite is a receptor for a chemical known as a neurotransmitter</p>" +
-                    "<p>Cells communicate by passing these neurotransmitters as signals.</p>",
-        "video":"https://www.youtube.com/embed/cNaFnRKwpFk?si=m4ffjoYmlKQMhbmq",
-        "concept_title": None,
-        "concepts":None,
+        "title": "<span class='first-letter'>B</span> <span class='text-lg'>" +
+                    "a s i c s </span>&nbsp;&nbsp;-&nbsp;&nbsp; <span class='first-letter'>" +
+                    "N</span> <span class='text-lg'>e u r o t r a n s m i s s i o n</span>",
+        "left_box": "<br><p>At the end of each dendrite is a receptor for a chemical known as a <b>neurotransmitter</b>.</p>" +
+                    "<p>Cells communicate by passing these neurotransmitters as signals.</p>" +
+                    "<p>A small gap between neurons known as the <b>synapse</b> is where these transmitters" +
+                    " are transferred.</p>",
+        "right_image": None,
+        "model": "/static/models/synapse/scene.gltf",
+        "model_bg": "0xDDFFF7",
+        "puzzle" : ["ETFGRRIEFTEH","TGIERWREOHTE"],
+        "solution": ["FIRETOGETHER", "WIRETOGETHER"],
+        "concept_title" : "Transmission",
+        "mnemonic":["<span class='first-letter-btn'>T</span>ransmission - ","<span class='first-letter-btn'>T</span>hinking"],
         "next": "/learn/3",
         "back": "/learn/1",
+        "next_num": "Lesson 3",
+        "back_num": "Lesson 1",
         "time": None
-    },    
-   {
+     },
+  {
         "id": 3,
-        "title": "Basics - Neurotransmitters",
-        "left_box": "<p class='sub-heading'>GABA</p>" + 
-                    "<p>Reduces the amount of activity a cell can transmit.</p>" +
-                    "<p>An increase in GABA reduces stress and anxiety.</p>",
+        "title": "<span class='first-letter'>B</span> <span class='text-lg'>" +
+                    "a s i c s </span>&nbsp;&nbsp;-&nbsp;&nbsp; <span class='first-letter'>" +
+                    "N</span> <span class='text-lg'>e u r o t r a n s m i t t e r s</span>",
+        "left_box": "<p>Reduces the amount of activity a cell can transmit</p>",
         "right_image":"gaba.png",
-        "concept_title": "GABA",
-        "concept_descr": "Slows down brain activity.",
-        "concepts":["stress","anxiety"],
+        "model": "/static/models/gaba/scene.gltf",
+        "model_bg": "0xDDFFF7",        
+        "puzzle" : ["MGMMA","OBCONYMIIART","DCIA"],
+        "solution": ["GAMMA", "AMINOBUTYRIC", "ACID"],
+        "concept_title" : "GABA",
+        "nt_effect": "Stress and anxiety",
+        "nt_dir": "Down",
+        "mnemonic":["<span class='first-letter-btn'>G</span>ABA - ","<span class='first-letter-btn'>G</span>reatly eases anxiety"],
         "next": "/learn/4",
         "back": "/learn/2",
+        "next_num": "Lesson 4",
+        "back_num": "Lesson 2",        
         "time": None
     },    
   {
         "id": 4,
-        "title": "Basics - Neurotransmitters",
-        "left_box": "<p class='sub-heading'>Serotonin</p>" + 
-                    "<p>Regulates mood, sleep and digestion.</p>" +
-                    "<p>An increase in serotonin alleviates depression, improves sleep and bowel function.</p>",
+        "title": "<span class='first-letter'>B</span> <span class='text-lg'>" +
+                    "a s i c s </span>&nbsp;&nbsp;-&nbsp;&nbsp; <span class='first-letter'>" +
+                    "N</span> <span class='text-lg'>e u r o t r a n s m i t t e r s</span>",
+        "left_box": "<p>Regulates mood, sleep and digestion.</p>",
         "right_image":"serotonin.png",
-        "concept_title": "Serotonin",
-        "concept_descr": "Regulates mood.",
-        "concepts":["depression","sleep"],
+        "model": "/static/models/serotonin2/scene.gltf",
+        "model_bg": "0xDDFFF7",
+        "puzzle" : ["NROOEINST","OSNTLOCR","ISHPAENPS"],
+        "solution": ["SEROTONIN", "CONTROLS", "HAPPINESS"],
+        "concept_title" : "Serotonin",
+        "nt_effect": "Depression",
+        "nt_dir": "Down",
+        "mnemonic":["<span class='first-letter-btn'>S</span>erotonin - ","<span class='first-letter-btn'>S</span>adness"],
         "next": "/learn/5",
         "back": "/learn/3",
+        "next_num": "Lesson 5",
+        "back_num": "Lesson 3",        
         "time": None
     },    
-   {
+     {
         "id": 5,
-        "title": "Basics - Neurotransmitters",
-        "left_box": "<p class='sub-heading'>Dopamine</p>" + 
-                    "<p>Associated with attention and reward.</p>" +
-                    "<p>An increase in dopamaine increases motivation, alertness, and makes you feel good.</p>",
+        "title": "<span class='first-letter'>B</span> <span class='text-lg'>" +
+                    "a s i c s </span>&nbsp;&nbsp;-&nbsp;&nbsp; <span class='first-letter'>" +
+                    "N</span> <span class='text-lg'>e u r o t r a n s m i t t e r s</span>",
+        "left_box": "<p>Associated with attention and reward.</p>",
         "right_image":"dopamine.png",
-        "concept_title": "Dopamine",
-        "concept_descr": "Reward center.",
-        "concepts":["motivation","alertness"],
+        "model": "/static/models/dopamine/scene.gltf",
+        "model_bg": "0xDDFFF7",
+        "puzzle" : ["UIGBNSRT","HWTI", "YREENG"],
+        "solution": ["BURSTING", "WITH", "ENERGY"],
+        "concept_title" : "Dopamine",
+        "nt_effect": "Motivation",
+        "nt_dir": "Up",
+        "mnemonic":["<span class='first-letter-btn'>D</span>opamaine - ","<span class='first-letter-btn'>D</span>ynamic"],
         "next": "/learn/6",
         "back": "/learn/4",
+        "next_num": "Lesson 6",
+        "back_num": "Lesson 4",        
         "time": None
-    },           
+    },    
    {
         "id": 6,
         "title": "Senses - Vision",
@@ -93,6 +137,7 @@ learn_data = [
                     "<p>→ Color vision</p>" +                                        
                     "<p>→ Shapes and depth</p>",
         "right_image":"occipital.png",
+        "model": None, 
         "concept_title": "Vision",
         "concept_descr": "Occipital Lobe",
         "concepts":["faces","colors","shapes"],
@@ -109,6 +154,7 @@ learn_data = [
                     "<p>→ Associated with speech</p>" +                                        
                     "<p>→ Located behind the ears</p>",
         "right_image":"temporal.png",
+        "model": None, 
         "concept_title": "Hearing",
         "concept_descr": "Temporal Lobe",
         "concepts":["music","speech","hearing"],
@@ -125,6 +171,7 @@ learn_data = [
                     "<p>→ Symbol recognition - reading and math</p>" +                                        
                     "<p>→ Navigation of physical space</p>",
         "right_image":"parietal.png",
+        "model": None, 
         "concept_title": "Touch",
         "concept_descr": "Parietal Lobe",
         "concepts":["pain","writing","symbols"],
@@ -141,6 +188,7 @@ learn_data = [
                     "<p>→ Being able to imagine the future</p>" +                                        
                     "<p>→ Storage of information in working memory.</p>",
         "right_image":"frontal.png",
+        "model": None, 
         "concept_title": "Intelligence",
         "concept_descr": "Frontal Lobe",
         "concepts":["reason","planning","imagination"],
@@ -155,6 +203,7 @@ learn_data = [
                     "<p>→ Small structure in the inner brain</p>" +
                     "<p>→ Responsible for fear and aggression</p>",
         "right_image":"amygdala.png",
+        "model": None, 
         "concept_title": "Emotions",
         "concept_descr": "Amygdala",
         "concepts":["fear","anxiety","aggression"],
@@ -171,6 +220,7 @@ learn_data = [
                     "<p>→ Processed in hypothalamus as reward</p>" +                                        
                     "<p>→ Also responsible for hunger/thirst</p>",
         "right_image":"hypothalamus.png",
+        "model": None, 
         "concept_title": "Emotions",
         "concept_descr": "Hypothalamus",
         "concepts":["love","reward","hunger"],
@@ -186,6 +236,7 @@ learn_data = [
                     "<p>→ Spatial/navigational mental maps</p>" +
                     "<p>→ Important in learning</p>",                                        
         "right_image":"hippocampus.png",
+        "model": None,         
         "concept_title": "Memory",
         "concept_descr": "Hippocampus",
         "concepts":["mental maps","learning","long-term memory"],
@@ -193,8 +244,12 @@ learn_data = [
         "back": "/learn/11",
         "time": None
     }
-
 ]
+
+
+
+###################   TBC - Larry  ##################
+
 
 quiz_questions = {
     "1": {
@@ -269,27 +324,57 @@ quiz_questions = {
 
 # ROUTES
 
+###################   TBC - Dallas  ###################
+
+
 @app.route('/')
 def welcome():
+    title = ('<div class="row m-0 p-0"><div class="col-12 m-0 p-0 reduce-space">' +
+              '<b><span class="first-letter">B</span>'+
+                '<span class="bullet1">&bull;</span>' + 
+            'r <span class="bullet1">&bull;</span>' +
+            'a <span class="bullet1">&bull;</span>' +
+            'i <span class="bullet1">&bull;</span>' +
+            'n &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' +
+            '<span class="first-letter">B</span>' +
+            '<span class="bullet2">&bull;</span>' +
+            'u <span class="bullet2">&bull;</span>' +
+            'i <span class="bullet2">&bull;</span>' +
+            'l <span class="bullet2">&bull;</span>' +
+            'd</b></div></div>' +
+            '<div class="row mt-0 pt-0"><div class="col-12 mt-0 pt-0">' +
+            '<span class="sub-heading">T h e &nbsp;&nbsp;' +
+            'A n a t o m y &nbsp;&nbsp;a n d &nbsp;&nbsp;' +
+            'F u n c t i o n &nbsp;&nbsp;o f &nbsp;&nbsp;' +
+            't h e &nbsp;&nbsp;H u m a n &nbsp;&nbsp;B r a i n</span></div></div>')
     session.clear()
-    access_time = datetime.datetime.now()
-    print(access_time)
-    access_time = access_time.strftime("%m/%d/%Y at %H:%M")
-    learn_data.append(access_time)
-    return render_template('welcome.html', data=access_time)   
+    start_time = datetime.datetime.now()
+    access_time = start_time.strftime("%B %d, %Y at %I:%M %p")
+    model = "/static/models/human_brain/scene.gltf"
+    return render_template('welcome.html', data=access_time, title=title, model=model)   
 
 
 @app.route('/learn/<int:lesson_id>')
 def learn(lesson_id):
     int(lesson_id)
-    next_text = "Next"
-    access_time = datetime.datetime.now()
-    access_time = access_time.strftime("%m/%d/%Y at %H:%M")
+    end_time = datetime.datetime.now()
+    print(end_time)
+    access_time = end_time.strftime("%B %d, %Y at %I:%M %p")
     data = next((item for item in learn_data if item['id'] == lesson_id), None)
-    data['time'] = access_time
+    duration = end_time - start_time
+    duration = round(duration.seconds/60)
+    durPrint = 'It is currently ' + access_time + '.  You have been learning' + ' for <b>' + str(duration) + '</b> minutes.'
+    model = data['model']    
+    title = data['title'] 
     if (lesson_id == len(learn_data)):
         next_text = "Quiz Me"
-    return render_template('learn.html', lesson=data, next_text=next_text) 
+    return render_template('learn.html', lesson=data, duration=durPrint, title=title, model=model) 
+
+
+
+
+###################   TBC - Larry  ####################
+
 
 @app.route('/quiz/<quiz_id>', methods=['GET', 'POST'])
 def quiz(quiz_id):
