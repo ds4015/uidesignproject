@@ -142,9 +142,9 @@ learn_data = [
         "nt_effect": "Motivation",
         "nt_dir": "Up",
         "mnemonic":["<span class='first-letter-btn'>D</span>opamaine - ","<span class='first-letter-btn'>D</span>ynamic"],
-        "next": "/learn/6",
+        "next": "/quiz/1",
         "back": "/learn/4",
-        "next_num": "Lesson 6",
+        "next_num": "Quiz",
         "back_num": "Lesson 4",        
         "time": None
     },    

@@ -54,6 +54,9 @@
   display: inline-block;
   margin-right: 10px;
   cursor: pointer;
+  font-family: "Newsreader", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .box-bg-2 {
