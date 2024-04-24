@@ -1,6 +1,109 @@
 /* Dallas Scott - ds4015 */
 
 
+/* Larry Chen - LC3718 */
+
+/* styling for quiz pages */
+.box-bg {
+  background-color: #ebf5ee;
+  padding: 1em;
+  border: 1px solid black;
+  color: black;
+}
+
+.quiz-question {
+  font-weight: bold;
+  text-align: center;
+  display: block;
+  width: 100%;
+}
+
+/* for feedback message */
+.feedback-message {
+  padding: 10px;
+  margin: 50px auto;
+  border-radius: 5px;
+  color: #FFF;
+  text-align: center;
+  font-size: 20px;
+  width: 50%;
+}
+
+.correct-feedback {
+  background-color: #4CAF50; /* Green for correct */
+}
+
+.incorrect-feedback {
+  background-color: #f44336; /* Red for incorrect */
+}
+
+/* for next question buton */
+.btn-primary {
+  color: black;
+  background-color: #DDFFF7;
+  border: 1px solid black;
+  font-size: 20px;
+  padding: 15px 30px;
+  border-radius: 5px;
+  margin: 50px auto;
+}
+
+.option-text label {
+  font-size: 22px;
+  display: inline-block;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.box-bg-2 {
+  background-color: #ebf5ee;
+  padding: 0.5em;  
+  border: 1.5px solid black;  
+}
+/* progress bar */
+.progress-bar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 75%;
+  margin: 100px auto;
+  background-color: #f0f0f0;
+}
+
+.progress-bar-item {
+  flex-grow: 1;
+  height: 20px;
+  background-color: #ddd;
+  margin: 2px;
+}
+
+.progress-bar-item.active {
+  background-color: #5C4033;
+}
+
+/* for /results page feedback message */
+.feedback {
+  color: black;
+  font-family: "Viaoda Libre", serif;
+  font-size: 50px;
+  margin: 30px auto;
+}
+
+/* for results page score */
+.score {
+  font-size: 100px;
+  font-weight: bold;
+  font-family: "Cinzel", serif;
+  padding: 10px;
+  border: 1px dashed black;
+  margin: 100px auto 20px auto;
+}
+
+/* for home page link on results page */
+.blue {
+  color: blue;
+}
+
 /* Fonts used */
 .viaoda-libre-regular {
   font-family: "Viaoda Libre", serif;
@@ -152,11 +255,11 @@ input.incorrect {
 }
 
 /* old implementation */
-.box-bg {
+/* .box-bg {
   background-color: #33658A;
   padding: 1em;
   border: 1px solid black;
-}
+} */
 
 .gray {
   background-color: darkgray;
@@ -347,7 +450,7 @@ a:hover {
   border: 1.5px dashed #07393cff;
 }
 
-/* old implentation */
+old implentation
 .box-bg-2 {
   background-color: #F6AE2D;
   padding: 0.5em;  

@@ -1,32 +1,54 @@
 {% extends "layout.html" %}
 {% block content %}
 <div class="container">
-    <div class="row source-code text-center p-3">
-        <div class="col-12 sub-heading p-3 mt-2 mb-3">
-            <i>Quiz - Question {{qnum}}</i>
-        </div>
-    </div>
-    <div class="row source-code white-text justify-content-center">
-        <div class="col-7 box-bg p-4">
-            <span class="text-md">{{ question.question }}</span>
-            <div class="box-bg-2 p-3 m-4">
-                <form action="" method="post">
-                    {% if question.image %}
-                    <div class="text-center m-4"><img src="/static/{{ question.image }}" style="max-width: 100%; height: auto;"></div>
-                    {% endif %}
-                    <form action="/quiz/{{ question.quiz_id }}" method="post">
-                        {% for option in question.options %}
-                        <input type="radio" name="option" value="{{ option }}"> {{ option }}<br>
-                        {% endfor %}
+    <!-- add progress bar -->
+    <div class="row">
+        <div class="col-12">
+            <div class="progress-bar-container">
+                {% for i in range(1, 9) %}
+                <div class="progress-bar-item{% if i == question.quiz_id|int %} active{% endif %}"></div>
+                {% endfor %}
             </div>
         </div>
     </div>
-    <div class="row source-code white-text justify-content-center m-4">
-        <div class="col-12 text-center">
-            <button type="submit" class="box-bg-2 d-inline-flex text-md source-code white-text">Next question</button>
-            </form>
+
+    <!-- Flash messages for feedback -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="feedback-message {{ category }}" style="margin-bottom: 20px;">{{ message|safe }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+
+    <form action="/quiz/{{ question.quiz_id }}" method="post">
+        <div class="row source-code white-text justify-content-center">
+            <div class="col-7 box-bg p-4">
+                <span class="text-lg quiz-question">{{ question.question }}</span>
+                <div class="box-bg-2 p-3 m-4">
+                    {% if question.image %}
+                    <div class="text-center m-4">
+                        <img src="/static/{{ question.image }}" style="max-width: 100%; height: auto;">
+                    </div>
+                    {% endif %}
+                    {% for option in question.options %}
+                    <div class="option-text">
+                        <input type="radio" name="option" id="option{{ loop.index }}" value="{{ option }}">
+                        <label for="option{{ loop.index }}">{{ option }}</label><br>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
         </div>
-    </div>
+        <!-- Button moved outside of box -->
+        <div class="row justify-content-center mt-4">
+            <div class="col-12 text-center">
+                <button type="submit" class="btn btn-primary">Next question</button>
+            </div>
+        </div>
+    </form>
+
     <script type="text/javascript">
         $(document).ready(function () {
             $('form').submit(function (event) {
@@ -37,5 +59,5 @@
             });
         });
     </script>
-
-    {% endblock %}
+</div>
+{% endblock %}

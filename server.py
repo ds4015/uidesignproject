@@ -5,7 +5,7 @@
 
 from flask import Flask
 from flask import render_template
-from flask import Response, request, jsonify, session, redirect
+from flask import Response, request, jsonify, session, redirect, flash
 import random
 import datetime
 import os
@@ -278,7 +278,14 @@ quiz_questions = {
         "question": "Which neurotransmitter reduces anxiety and stress?",
         "options" : ['Serotonin', 'Norepinerpheine', 'GABA', 'Thalamus'],
         "answer" : "GABA",
-        "next_question": "2"
+        "next_question": "2",
+        # go back to last learning page
+        "previous_question": '/learn/12',
+        "title" : "<span class='first-letter'>Q</span> <span class='text-lg'>" +  
+          "u i z </span>&nbsp;&nbsp;-&nbsp;&nbsp; <span class='first-letter'>Q</span> <span class='text-lg'>" +
+          "u e s t i o n &nbsp;&nbsp;N o .&nbsp;1</span>" +
+          "<div class='row mt-0 pt-0'><div class='col-12 mt-0 pt-0'>" + 
+          "<span class='sub-heading'></span></div></div>",
     },
     "2": {
         "quiz_id": "2",
@@ -286,7 +293,12 @@ quiz_questions = {
         "question": "What are these called?",
         "options" : ['Neurons', 'Dendrites', 'Limbic System', 'Axons' ],
         "answer" : "Dendrites",
-        "next_question": "3"
+        "next_question": "3",
+         "previous_question": "1",
+         "title" : "<span class='first-letter'>Q</span> <span class='text-lg'>" +  "u i z </span>&nbsp;&nbsp;-&nbsp;&nbsp; <span class='first-letter'>Q</span> <span class='text-lg'>" +
+              "u e s t i o n &nbsp;&nbsp;N o .&nbsp;2</span>" +
+               "<div class='row mt-0 pt-0'><div class='col-12 mt-0 pt-0'>" + 
+          "<span class='sub-heading'></span></div></div>"
     },
     "3": {
         "quiz_id": "3",
@@ -294,7 +306,12 @@ quiz_questions = {
         "question": "Which area of the brain is highlighted here?  What is its function?",
         "options" : ['Occipital lobe - hearing', 'Temporal lobe - sound', 'Occipital lobe - vision', 'Frontal lobe - reasoning'],
         "answer" : "Frontal lobe - reasoning", 
-        "next_question": "4"
+        "next_question": "4",
+        "previous_question" : "2",
+        "title" : "<span class='first-letter'>Q</span> <span class='text-lg'>" +  "u i z </span>&nbsp;&nbsp;-&nbsp;&nbsp; <span class='first-letter'>Q</span> <span class='text-lg'>" +
+              "u e s t i o n &nbsp;&nbsp;N o .&nbsp;3</span>" +
+               "<div class='row mt-0 pt-0'><div class='col-12 mt-0 pt-0'>" + 
+          "<span class='sub-heading'></span></div></div>"
     },
     "4": {
         "quiz_id": "4",
@@ -303,7 +320,12 @@ quiz_questions = {
         "options" : ['Midbrain - processes memory',
 'Limbic System - controls hunger', 'Temporal lobe - controls body temperature', 'Thalamus - processes emotion'],
         "answer" : "Limbic System - controls hunger",
-        "next_question": "5"
+        "next_question": "5",
+        "previous_question" : "3",
+        "title" : "<span class='first-letter'>Q</span> <span class='text-lg'>" +  "u i z </span>&nbsp;&nbsp;-&nbsp;&nbsp; <span class='first-letter'>Q</span> <span class='text-lg'>" +
+              "u e s t i o n &nbsp;&nbsp;N o .&nbsp;4</span>" +
+               "<div class='row mt-0 pt-0'><div class='col-12 mt-0 pt-0'>" + 
+          "<span class='sub-heading'></span></div></div>"
     },
     "5": {
         "quiz_id": "5",
@@ -311,7 +333,12 @@ quiz_questions = {
         "question": "What is this structure called ",
         "options" : ['Amygdala', 'Cell Body', 'Thalamus ', 'Hippocampus'],
         "answer" : "Amygdala",
-        "next_question": "6"
+        "next_question": "6",
+        "previous_question" : "4",
+        "title" : "<span class='first-letter'>Q</span> <span class='text-lg'>" +  "u i z </span>&nbsp;&nbsp;-&nbsp;&nbsp; <span class='first-letter'>Q</span> <span class='text-lg'>" +
+              "u e s t i o n &nbsp;&nbsp;N o .&nbsp;5</span>" +
+               "<div class='row mt-0 pt-0'><div class='col-12 mt-0 pt-0'>" + 
+          "<span class='sub-heading'></span></div></div>"
     },
     "6": {
         "quiz_id": "6",
@@ -319,7 +346,12 @@ quiz_questions = {
         "question": "A young man presents to the hospital saying he cannot see.  Which part of of the brain did he injure?",
         "options" : ['Temporal Lobe', 'Hippocampus', 'Occipital Lobe', 'Frontal Lobe'],
         "answer" : "Occipital Lobe",
-        "next_question": "7"
+        "next_question": "7",
+        "previous_question" : "5",
+         "title" : "<span class='first-letter'>Q</span> <span class='text-lg'>" +  "u i z </span>&nbsp;&nbsp;-&nbsp;&nbsp; <span class='first-letter'>Q</span> <span class='text-lg'>" +
+              "u e s t i o n &nbsp;&nbsp;N o .&nbsp;6</span>" +
+               "<div class='row mt-0 pt-0'><div class='col-12 mt-0 pt-0'>" + 
+          "<span class='sub-heading'></span></div></div>"
     },
     "7": {
         "quiz_id": "7",
@@ -327,7 +359,12 @@ quiz_questions = {
         "question": "What types of cells are found in the brain?",
         "options" : ['Axons', 'Dendrites', 'Neurons', 'Neurotransmitters'],
         "answer" : "Neurons",
-        "next_question": "8"
+        "next_question": "8",
+         "previous_question" : "6",
+          "title" : "<span class='first-letter'>Q</span> <span class='text-lg'>" +  "u i z </span>&nbsp;&nbsp;-&nbsp;&nbsp; <span class='first-letter'>Q</span> <span class='text-lg'>" +
+              "u e s t i o n &nbsp;&nbsp;N o .&nbsp;7</span>" +
+               "<div class='row mt-0 pt-0'><div class='col-12 mt-0 pt-0'>" + 
+          "<span class='sub-heading'></span></div></div>"
     },
     "8": {
         "quiz_id": "8",
@@ -335,7 +372,13 @@ quiz_questions = {
         "question": "Which area of the brain is highlighted here?  What is its function?",
         "options" : ['Occipital lobe - hearing', 'Temporal lobe - sound', 'Occipital lobe - vision', 'Frontal lobe - reasoning'],
         "answer" : "Temporal lobe - sound",
-        "next_question": "end"
+        "next_question": "end",
+         "previous_question" : "7",
+         "title" : "<span class='first-letter'>Q</span> <span class='text-lg'>" +  "u i z </span>&nbsp;&nbsp;-&nbsp;&nbsp; <span class='first-letter'>Q</span> <span class='text-lg'>" +
+              "u e s t i o n &nbsp;&nbsp;N o .&nbsp;7</span>" +
+               "<div class='row mt-0 pt-0'><div class='col-12 mt-0 pt-0'>" + 
+          "<span class='sub-heading'></span></div></div>"
+         
     },
     
 }
@@ -398,31 +441,34 @@ def learn(lesson_id):
 
 @app.route('/quiz/<quiz_id>', methods=['GET', 'POST'])
 def quiz(quiz_id):
+    question = quiz_questions.get(quiz_id)
     if request.method == 'POST':
-        user_answer = request.form['option']
-        correct_answer = quiz_questions[quiz_id]['answer']
-        # Increment the correct answers count if user answered correctly
+        user_answer = request.form.get('option')
+        correct_answer = question['answer']
         if user_answer == correct_answer:
             session['score'] = session.get('score', 0) + 1
-        next_question = quiz_questions[quiz_id]['next_question']
-        next_question = quiz_questions[quiz_id]['next_question']
-        if next_question == "end":
+            flash('Correct! Good job.', 'correct-feedback')
+        else:
+            flash(f'Incorrect! The correct answer is <strong>{correct_answer}</strong>.', 'incorrect-feedback')
+        if question['next_question'] == "end":
             return redirect('/results')
         else:
-            return redirect(f"/quiz/{next_question}")
+            return redirect(f'/quiz/{question["next_question"]}')
     else:
-        question = quiz_questions.get(quiz_id)
-        if question:
-            return render_template('quiz.html', question=question, qnum=quiz_id)
-        else:
-            return "Question not found", 404
+        # Extract title from the specific question
+        title = question.get('title', "Quiz Question")  # 
+        # Provide default 'lesson' context as None
+        return render_template('quiz.html', question=question, quiz=question, title=title, lesson=None)
 
 @app.route('/results')
 def results():
+    title = ("<span class='first-letter'>Q</span> <span class='text-lg'>u i z </span>&nbsp;&nbsp;-&nbsp;&nbsp; " +
+         "<span class='first-letter'>R</span> <span class='text-lg'>e s u l t s</span>" +
+         "<div class='row mt-0 pt-0'><div class='col-12 mt-0 pt-0'><span class='sub-heading'></span></div></div>")
     score = session.get('score', 0)
     total = 8
     return render_template('results.html', score=score, 
-                          total=total)
+                          total=total, title=title)
 
 @app.route('/answers')
 def answers():

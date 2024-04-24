@@ -1,33 +1,38 @@
 {% extends "layout.html" %}
 {% block content %}
 <div class="container">
-    <div class="row source-code text-center p-3">
-        <div class="col-12 sub-heading p-3 mt-2 mb-3">
-            <i>Quiz Results</i>
-        </div>
-    </div>
+    
+
     <div class="row source-code justify-content-center white-text">
-        <div class="col-6 text-center box-bg">
-            {% if score == 8 %}
-            <p">8/8<br><br>Great work!</p>
-                {% elif score == 7 %}
-                <p><span class="heading">7/8</span><br><br>Good work!</p>
-                {% elif score == 6 %}
-                <p><span class="heading">6/8</span><br><br>Not bad!</p>
-                {% elif score == 5 or score == 4 %}
-                <p><span class="heading">{{ score }}/8</span><br><br>Needs work!</p>
-                {% elif score == 3 %}
-                <p><span class="heading">3/8</span><br><br>Bad job!</p>
-                {% elif score == 2 or score == 1 %}
-                <p><span class="heading">{{ score }}/8</span><br><br>Terrible!</p>
-                {% else %}
-                <p><span class="heading">0/8</span><br><br>Are you sure you’re a Columbia student?</p>
-                {% endif %}
+        <!-- box to hold the score -->
+        <div class="col-6 text-center box-bg score">
+            <p>{{ score }} / 8</p>
         </div>
     </div>
-    <div class="row source-code justify-content-center white-text m-4">
+
+    <div class="row source-code justify-content-center white-text mt-2">
         <div class="col-6 text-center">
-            <button id="answers" class="box-bg-2">View Answers</button>
+            {% if score == 8 %}
+                <p class="feedback">Great work!</p>
+            {% elif score == 7 %}
+                <p class="feedback">Good work!</p>
+            {% elif score == 6 %}
+                <p class="feedback">Not bad!</p>
+            {% elif score == 5 or score == 4 %}
+                <p class="feedback">Needs work!</p>
+            {% elif score == 3 %}
+                <p class="feedback">Bad job!</p>
+            {% elif score == 2 or score == 1 %}
+                <p class="feedback">Terrible!</p>
+            {% else %}
+                <p class="feedback">Are you sure you’re a Columbia student?</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="row source-code justify-content-center black-text text-md m-4">
+        <div class="col-6 text-center">
+            <p>Head back to the <a class="blue" href="/">home page</a> to brush up on your learning.</p>
         </div>
     </div>
 </div>

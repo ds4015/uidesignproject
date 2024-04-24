@@ -66,6 +66,7 @@
       </div>
     </div>
 
+
     <div class="row viaoda-libre-regular title-bar heading p-4">
       {% if lesson %}
       <div class="col-2 sub-heading">
@@ -80,13 +81,25 @@
       </div>
       {%endif%}
 
-      {% if lesson %}
-      <div class="col-8 text-center">
-      {% else %}
-      <div class="col-12 text-center">
-      {%endif%}
-        {{ title | safe }}
+      {% if quiz %}
+      <div class="col-2 sub-heading">
+        <div class="row">
+          <div class="col-12">
+            <a href="{{quiz.previous_question}}"><img class="col-12" src="/static/arro2.png"></a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 text-center"><a href="{{quiz.previous_question}}">Previous</a></div>
+        </div>
       </div>
+      {%endif%}
+
+
+
+      <!-- Dynamic title section based on presence of lesson or quiz -->
+    <div class="{% if lesson or quiz %}col-8{% else %}col-12{% endif %} text-center">
+      {{ title | safe }}
+    </div>
 
       {% if lesson %}
       <div class="col-2 align-right sub-heading">
@@ -101,18 +114,20 @@
       </div>
       {%endif%}
 
-
+      {% if quiz %}
+      <div class="col-2 align-right sub-heading">
+        <div class="row">
+          <div class="col-12">
+            <a href="{{quiz.next_question}}"><img class="col-12 flip-horizontal" src="/static/arro2.png"></a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 text-center"><a href="{{quiz.next_question}}">Next</a></div>
+        </div>
+      </div>
+      {%endif%}
     </div>
-
-
   </div>
-
-
-
-
-
-
-
 
 
   <div class="container-fluid">
