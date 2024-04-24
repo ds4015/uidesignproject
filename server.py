@@ -375,7 +375,7 @@ quiz_questions = {
         "next_question": "end",
          "previous_question" : "7",
          "title" : "<span class='first-letter'>Q</span> <span class='text-lg'>" +  "u i z </span>&nbsp;&nbsp;-&nbsp;&nbsp; <span class='first-letter'>Q</span> <span class='text-lg'>" +
-              "u e s t i o n &nbsp;&nbsp;N o .&nbsp;7</span>" +
+              "u e s t i o n &nbsp;&nbsp;N o .&nbsp;8</span>" +
                "<div class='row mt-0 pt-0'><div class='col-12 mt-0 pt-0'>" + 
           "<span class='sub-heading'></span></div></div>"
          
