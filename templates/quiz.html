@@ -37,6 +37,17 @@
                         <input type="hidden" id="rotSpeed" value=0.00>
                         <div class="col-7 justify-content-center col-min" id="model" data-path='/static/{{ question.model }}'>
                         </div>                        
+                        <div class="row justify-content-center mb-3">
+                            <div class="col-3 tool-boxQ">
+                              <img class="tool-boxQ" src="/static/leftclick.png">Rotate
+                            </div>
+                            <div class="col-3 tool-boxQ">
+                              <img class="tool-boxQ" src="/static/rightclick.png">Pan
+                            </div>        
+                            <div class="col-3 tool-boxQ">
+                              <img class="tool-boxQ" src="/static/magnify.png">Zoom
+                            </div>        
+                          </div>                        
                     </div>
                     {% elif question.image %}
                     <div class="row justify-content-center">                        
@@ -45,10 +56,13 @@
                     </div>
                     </div>
                         {% endif %}
+                        <div class="row p-4 m-4 box-right light-gray">                        
                         {% for option in question.options %}
                         <div class="col-12 option-text">
-                            <input type="radio" name="option" id="option{{ loop.index }}" value="{{ option }}">
-                            <label for="option{{ loop.index }}">{{ option }}</label><br>
+                            <label class="rad-container">{{ option }}
+                                <input type="radio" name="option" id="option{{ loop.index }}" value="{{ option }}">
+                                <span class="checkmark"></span>
+                              </label>                            
                         </div>
                         {% endfor %}
                     </div>

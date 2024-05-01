@@ -30,8 +30,8 @@ learn_data = [
                     "<span class='sub-heading'>L e s s o n &nbsp;&nbsp; 1 :&nbsp;&nbsp;" +
                     "N e u r o n s &nbsp;&nbsp; a n d &nbsp;&nbsp; t h e i r &nbsp;&nbsp;" +
                     "C o m p o n e n t s</span></div></div>",
-        "left_box": "<p>The primary cell in the brain is known as a <b>neuron</b>.</p>" +
-                    "<p>The neuron looks kind of like a scorpion.</p> <p>It has a main " +
+        "left_box": "<p><img class='bpoint' src='/static/bulletpoint.png'>The primary cell in the brain is known as a <b>neuron</b>.</p>" +
+                    "<p><img class='bpoint' src='/static/bulletpoint.png'>The neuron looks kind of like a scorpion.</p> <p><img class='bpoint' src='/static/bulletpoint.png'>It has a main " +
                     "<b>body</b> with spindly projections called <b>dendrites</b> and a long tail "+
                     "called an <b>axon</b></p>",
         "right_image":"cell.png",
@@ -56,9 +56,9 @@ learn_data = [
                     "<span class='sub-heading'>L e s s o n &nbsp;&nbsp; 2 :&nbsp;&nbsp;" +
                     "C o m m u n i c a t i o n &nbsp;&nbsp; B e t w e e n &nbsp;&nbsp;" +
                     "C e l l s</span></div></div>",
-        "left_box": "<br><p>At the end of each dendrite is a receptor for a chemical known as a <b>neurotransmitter</b>.</p>" +
-                    "<p>Cells communicate by passing these neurotransmitters as signals.</p>" +
-                    "<p>A small gap between neurons known as the <b>synapse</b> is where these transmitters" +
+        "left_box": "<br><p><img class='bpoint' src='/static/bulletpoint.png'>At the end of each dendrite is a receptor for a chemical known as a <b>neurotransmitter</b>.</p>" +
+                    "<p><img class='bpoint' src='/static/bulletpoint.png'>Cells communicate by passing these neurotransmitters as signals.</p>" +
+                    "<p><img class='bpoint' src='/static/bulletpoint.png'>A small gap between neurons known as the <b>synapse</b> is where these transmitters" +
                     " are transferred.</p>",
         "right_image": None,
         "model": "/static/models/synapse/scene.gltf",
