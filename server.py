@@ -82,7 +82,7 @@ learn_data = [
                     "<span class='sub-heading'>L e s s o n &nbsp;&nbsp; 3 :&nbsp;&nbsp;" +
                     "G a m m a - a m i n o b u t y r i c &nbsp;&nbsp; a c i d &nbsp;&nbsp;"
                     "</span></div></div>",
-        "left_box": "<p>Reduces the amount of activity a cell can transmit</p>",
+        "left_box": "<p><img class='bpoint' src='/static/bulletpoint.png'>Reduces the amount of activity a cell can transmit</p>",
         "right_image":"gaba.png",
         "model": "/static/models/gaba/scene.gltf",
         "model_bg": "0xDDFFF7",        
@@ -107,7 +107,7 @@ learn_data = [
                     "<span class='sub-heading'>L e s s o n &nbsp;&nbsp; 4 :&nbsp;&nbsp;" +
                     "S e r o t o n i n  &nbsp;&nbsp; a n d &nbsp;&nbsp; M o o d " +
                     "</span></div></div>",
-        "left_box": "<p>Regulates mood, sleep and digestion.</p>",
+        "left_box": "<p><img class='bpoint' src='/static/bulletpoint.png'>Regulates mood, sleep and digestion.</p>",
         "right_image":"serotonin.png",
         "model": "/static/models/serotonin2/scene.gltf",
         "model_bg": "0xDDFFF7",
@@ -132,7 +132,7 @@ learn_data = [
                     "<span class='sub-heading'>L e s s o n &nbsp;&nbsp; 5 :&nbsp;&nbsp;" +
                     "D o p a m i n e &nbsp;&nbsp; a n d &nbsp;&nbsp; A t t e n t i o n" +
                     "</span></div></div>",
-        "left_box": "<p>Associated with attention and reward.</p>",
+        "left_box": "<p><img class='bpoint' src='/static/bulletpoint.png'>Associated with attention and reward.</p>",
         "right_image":"dopamine.png",
         "model": "/static/models/dopamine/scene.gltf",
         "model_bg": "0xDDFFF7",
@@ -156,8 +156,10 @@ learn_data = [
                     "<div class='row mt-0 pt-0'><div class='col-12 mt-0 pt-0'>" +
                     "<span class='sub-heading'>L e s s o n &nbsp;&nbsp; 6 :&nbsp;&nbsp;" +
                     "O c c i p i t a l &nbsp;&nbsp; L o b e</span></div></div>",
-        "left_box": "<p>Recognize faces</p><p>Process input from the eyes</p>" +
-                    "<p>Color vision</p><p>Shapes and depth</p>",
+        "left_box": "<p><img class='bpoint' src='/static/bulletpoint.png'>Recognize faces</p>" +
+                    "<p><img class='bpoint' src='/static/bulletpoint.png'>Process input from the eyes</p>" +
+                    "<p><img class='bpoint' src='/static/bulletpoint.png'>Color vision</p>" +
+                    "<p><img class='bpoint' src='/static/bulletpoint.png'>Shapes and depth</p>",
         "right_image": None,
         "model": "/static/models/occipital_bone/scene.gltf",
         "model_bg": "0xDDFFF7",
@@ -181,9 +183,10 @@ learn_data = [
                     "<div class='row mt-0 pt-0'><div class='col-12 mt-0 pt-0'>" +
                     "<span class='sub-heading'>L e s s o n &nbsp;&nbsp; 7 :&nbsp;&nbsp;" +
                     "P a r i e t a l &nbsp;&nbsp; L o b e</span></div></div>",
-        "left_box": "<p>Sensation of temperature, pressure, vibration, pain</p>" +
-                    "<p>Writing and precise hand movement</p>" +
-                    "<p>Symbol recognition - reading and math</p><p>Navigation of physical space</p>",
+        "left_box": "<p><img class='bpoint' src='/static/bulletpoint.png'>Sensation of temperature, pressure, vibration, pain</p>" +
+                    "<p><img class='bpoint' src='/static/bulletpoint.png'>Writing and precise hand movement</p>" +
+                    "<p><img class='bpoint' src='/static/bulletpoint.png'>Symbol recognition - reading and math</p>" +
+                    "<p><img class='bpoint' src='/static/bulletpoint.png'>Navigation of physical space</p>",
         "right_image": None,
         "model": "/static/models/parietal_bone/scene.gltf",
         "model_bg": "0xDDFFF7",
@@ -208,9 +211,10 @@ learn_data = [
                     "<div class='row mt-0 pt-0'><div class='col-12 mt-0 pt-0'>" +
                     "<span class='sub-heading'>L e s s o n &nbsp;&nbsp; 8 :&nbsp;&nbsp;" +
                     "T e m p o r a l &nbsp;&nbsp; L o b e</span></div></div>",
-        "left_box": "<p>Understand music and harmonies</p>" +
-                    "<p>Process input from the ears</p>" +
-                    "<p>Associated with speech</p><p>Located behind the temples</p>",
+        "left_box": "<p><img class='bpoint' src='/static/bulletpoint.png'>Understand music and harmonies</p>" +
+                    "<p><img class='bpoint' src='/static/bulletpoint.png'>Process input from the ears</p>" +
+                    "<p><img class='bpoint' src='/static/bulletpoint.png'>Associated with speech</p>" +
+                    "<p><img class='bpoint' src='/static/bulletpoint.png'>Located behind the temples</p>",
         "right_image": None,
         "model": "/static/models/temporal_bone/scene.gltf",
         "model_bg": "0xDDFFF7",
@@ -235,10 +239,10 @@ learn_data = [
                     "<div class='row mt-0 pt-0'><div class='col-12 mt-0 pt-0'>" +
                     "<span class='sub-heading'>L e s s o n &nbsp;&nbsp; 9 :&nbsp;&nbsp;" +
                     "F r o n t a l &nbsp;&nbsp; L o b e</span></div></div>",
-        "left_box": "<p>Reasoning and logical arguments</p>" +
-                    "<p>Planning and making schedules</p>" +
-                    "<p>Being able to imagine the future</p>" +
-                    "<p>Storage of information in working memory.</p>",
+        "left_box": "<p><img class='bpoint' src='/static/bulletpoint.png'>Reasoning and logical arguments</p>" +
+                    "<p><img class='bpoint' src='/static/bulletpoint.png'>Planning and making schedules</p>" +
+                    "<p><img class='bpoint' src='/static/bulletpoint.png'>Being able to imagine the future</p>" +
+                    "<p><img class='bpoint' src='/static/bulletpoint.png'>Storage of information in working memory.</p>",
         "right_image": None,
         "model": "/static/models/frontal_bone/scene.gltf",
         "model_bg": "0xDDFFF7",
@@ -262,9 +266,9 @@ learn_data = [
                     "<div class='row mt-0 pt-0'><div class='col-12 mt-0 pt-0'>" +
                     "<span class='sub-heading'>L e s s o n &nbsp;&nbsp; 10 :&nbsp;&nbsp;" +
                     "T h e &nbsp;&nbsp; A m y g d a l a &nbsp;&nbsp;</span></div></div>",
-        "left_box": "<p>Almond-shaped structure in the inner brain</p>" 
-                    "<p>Located at the end of the hippocampus<p>" +
-                    "<p>Responsbie for fear and aggression</p>",
+        "left_box": "<p><img class='bpoint' src='/static/bulletpoint.png'>Almond-shaped structure in the inner brain</p>" 
+                    "<p><img class='bpoint' src='/static/bulletpoint.png'>Located at the end of the hippocampus<p>" +
+                    "<p><img class='bpoint' src='/static/bulletpoint.png'>Responsible for fear and aggression</p>",
         "right_image": None,
         "model": "/static/models/amygdala/scene.gltf",
         "model_bg": "0xDDFFF7",
@@ -288,11 +292,11 @@ learn_data = [
                     "<div class='row mt-0 pt-0'><div class='col-12 mt-0 pt-0'>" +
                     "<span class='sub-heading'>L e s s o n &nbsp;&nbsp; 11 :&nbsp;&nbsp;" +
                     "T h e &nbsp;&nbsp; H y p o t h a l a m u s &nbsp;&nbsp;</span></div></div>",
-        "left_box": "<p>Reward center of the brain</p>" + 
-                    "<p>Love increases dopamaine</p>" +
-                    "<p>Processed in hypothalamus as reward</p>" +
-                    "<p>Also responsible for hunger/thirst/sex drive</p>" +
-                    "<p>Responsible for releasing hormones",
+        "left_box": "<p><img class='bpoint' src='/static/bulletpoint.png'>Reward center of the brain</p>" + 
+                    "<p><img class='bpoint' src='/static/bulletpoint.png'>Love increases dopamaine</p>" +
+                    "<p><img class='bpoint' src='/static/bulletpoint.png'>Processed in hypothalamus as reward</p>" +
+                    "<p><img class='bpoint' src='/static/bulletpoint.png'>Also responsible for hunger/thirst/sex drive</p>" +
+                    "<p><img class='bpoint' src='/static/bulletpoint.png'>Responsible for releasing hormones",
         "right_image": None,
         "model": "/static/models/hypothalamus/scene.gltf",
         "model_bg": "0xDDFFF7",
@@ -315,10 +319,10 @@ learn_data = [
                     "<div class='row mt-0 pt-0'><div class='col-12 mt-0 pt-0'>" +
                     "<span class='sub-heading'>L e s s o n &nbsp;&nbsp; 12 :&nbsp;&nbsp;" +
                     "T h e &nbsp;&nbsp; H i p p o c a m p u s &nbsp;&nbsp;</span></div></div>",
-        "left_box": "<p>Sliver-shaped structure in inner brain</p>" + 
-                    "<p>Long-term memory</p>" +
-                    "<p>Spatial/navigational mental maps</p>" +
-                    "<p>Important in learning</p>",
+        "left_box": "<p><img class='bpoint' src='/static/bulletpoint.png'>Sliver-shaped structure in inner brain</p>" + 
+                    "<p><img class='bpoint' src='/static/bulletpoint.png'>Long-term memory</p>" +
+                    "<p><img class='bpoint' src='/static/bulletpoint.png'>Spatial/navigational mental maps</p>" +
+                    "<p><img class='bpoint' src='/static/bulletpoint.png'>Important in learning</p>",
         "right_image": None,
         "model": "/static/models/hippocampus/scene.gltf",
         "model_bg": "0xDDFFF7",

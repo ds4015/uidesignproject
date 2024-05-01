@@ -5,18 +5,43 @@
   var puzzleList = {{ lesson['puzzle'] | tojson }};
   var solution = {{ lesson['solution'] | tojson }};
 </script>
-{% if lesson.id >= 6 and lesson.id <=9 %} <div class="d-flex flex-row pt-3 pb-3">
+{% if lesson.id >= 6 and lesson.id <=9 %} <div class="row pt-1 pb-1 custom-muted-bg">
   <div class="col-3 col-md-3 col-lg-3 text-center">
-    <a href="/learn/6"><img src="/static/eye.jpg" class="img-fluid custom-col m-0 home-box" alt="Vision"></a>
+    <a href="/learn/6">
+    <div class="image-container">
+    <img src="/static/eye.png" class="img-fluid custom-col m-0" alt="Vision">
+    <div class="overlay">
+      <div class="overlay-text">Vision</div>
+    </div>
+    </div></a>
   </div>
   <div class="col-3 col-md-3 col-lg-3 text-center">
-    <a href="/learn/8"><img src="/static/ear.jpg" class="img-fluid custom-col home-box" alt="Hearing"></a>
+    <a href="/learn/8">
+    <div class="image-container">
+    <img src="/static/ear.png" class="img-fluid custom-col" alt="Hearing">
+    <div class="overlay">
+      <div class="overlay-text">Sound</div>
+    </div></a>
+  </div>
   </div>
   <div class="col-3 col-md-3 col-lg-3 text-center">
-    <a href="/learn/7"><img src="/static/hand.jpg" class="img-fluid custom-col home-box" alt="Touch"></a>
-  </div>
+    <a href="/learn/7">
+    <div class="image-container">
+    <img src="/static/finger.png" class="img-fluid darker-image custom-col" alt="Touch">
+    <div class="overlay">
+      <div class="overlay-text">Touch</div>
+    </div>
+  </div></a>
+  </div>  
   <div class="col-3 col-md-3 col-lg-3 text-center">
-    <a href="/learn/9"><img src="/static/brain2.png" class="img-fluid custom-col home-box" alt="Intelligence"></a>
+    <a href="/learn/9">
+    <div class="image-container">
+    <img src="/static/thinker.png" class="img-fluid lighter-image custom-col" alt="Intelligence">
+    <div class="overlay">
+      <div class="overlay-text">Int</div>
+    </div>
+
+  </div></a>
   </div>
   </div>
   {%endif%}
