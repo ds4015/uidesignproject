@@ -5,18 +5,21 @@
   var puzzleList = {{ lesson['puzzle'] | tojson }};
   var solution = {{ lesson['solution'] | tojson }};
 </script>
-{% if lesson.id >= 6 and lesson.id <=9 %}
-<div class="d-flex flex-row pt-3 pb-3">
+{% if lesson.id >= 6 and lesson.id <=9 %} <div class="d-flex flex-row pt-3 pb-3">
   <div class="col-3 col-md-3 col-lg-3 text-center">
-    <a href="/learn/6"><img src="/static/eye.jpg" class="img-fluid custom-col m-0 home-box" alt="Vision"></a></div>
-    <div class="col-3 col-md-3 col-lg-3 text-center">
-      <a href="/learn/8"><img src="/static/ear.jpg" class="img-fluid custom-col home-box" alt="Hearing"></a></div>    
-      <div class="col-3 col-md-3 col-lg-3 text-center">
-        <a href="/learn/7"><img src="/static/hand.jpg" class="img-fluid custom-col home-box" alt="Touch"></a></div>     
-        <div class="col-3 col-md-3 col-lg-3 text-center">
-          <a href="/learn/9"><img src="/static/brain2.png" class="img-fluid custom-col home-box" alt="Intelligence"></a></div>             
+    <a href="/learn/6"><img src="/static/eye.jpg" class="img-fluid custom-col m-0 home-box" alt="Vision"></a>
   </div>
-{%endif%}
+  <div class="col-3 col-md-3 col-lg-3 text-center">
+    <a href="/learn/8"><img src="/static/ear.jpg" class="img-fluid custom-col home-box" alt="Hearing"></a>
+  </div>
+  <div class="col-3 col-md-3 col-lg-3 text-center">
+    <a href="/learn/7"><img src="/static/hand.jpg" class="img-fluid custom-col home-box" alt="Touch"></a>
+  </div>
+  <div class="col-3 col-md-3 col-lg-3 text-center">
+    <a href="/learn/9"><img src="/static/brain2.png" class="img-fluid custom-col home-box" alt="Intelligence"></a>
+  </div>
+  </div>
+  {%endif%}
   <div class="d-flex flex-row p-3 mt-2">
     <div class="col-12 col-md-6 col-lg-4 p-4">
       <div class="row">
@@ -43,7 +46,7 @@
           <div class="row justify-content-center">
             <div class="col-1"></div>
             <div class="col-7 text-left text-sm text-muted">
-              Increase leads to 
+              Increase leads to
               {% if lesson.nt_dir == "Down" %}
               decrease
               {%else%}
@@ -69,20 +72,35 @@
       </div>
     </div>
 
-   
+
     {% if lesson.model %}
-    <input type="hidden"  id="rotSpeed" value=0.01>
-    <input type="hidden"  id="modelTest" value="yes_model">
-    <input type="hidden"  id="modelBg" value="{{lesson.model_bg}}">
-    <div class="col-12 col-md-6 col-lg-5 d-flex justify-content-center model-height" id="model" data-path='{{ model }}'>
+    <input type="hidden" id="rotSpeed" value=0.01>
+    <input type="hidden" id="modelTest" value="yes_model">
+    <input type="hidden" id="modelBg" value="{{lesson.model_bg}}">
+    <div class="col-12 col-md-6 col-lg-5 d-flex justify-content-center">
+      <div class="row">
+        <div class="col model-height mb-5" id="model" data-path='{{ model }}'>
+        </div>
+      <div class="row tool-box justify-content-center">
+        <div class="col-3 tool-box">
+          <img class="tool-box" src="/static/leftclick.png">Rotate
+        </div>
+        <div class="col-3 tool-box">
+          <img class="tool-box" src="/static/rightclick.png">Pan
+        </div>        
+        <div class="col-3 tool-box">
+          <img class="tool-box" src="/static/magnify.png">Zoom
+        </div>        
+      </div>        
+      </div>
     </div>
     {% elif lesson.video %}
-    <input type="hidden"  id="modelTest" value="no_model">
+    <input type="hidden" id="modelTest" value="no_model">
     <div class="col-12 col-md-6 col-lg-5 p-4">
       <iframe width="560" height="315" src="{{ lesson.video }}"></iframe>
     </div>
     {% else %}
-    <input type="hidden"  id="modelTest" value="no_model">
+    <input type="hidden" id="modelTest" value="no_model">
     <div class="col-12 col-md-6 col-lg-5 p-4">
       <img class="col-12" src="/static/{{lesson.right_image}}" alt="{{ lesson.concept_title}}">
     </div>
@@ -90,7 +108,7 @@
 
     {% if lesson.puzzle %}
     <div class="col-12 col-md-6 col-lg-3 p-4">
-    
+
       <div class="row box-right">
         <div class="col-12 cinzel-400 text-md pt-3" id="puzzle">
         </div>
@@ -101,34 +119,34 @@
       {% endif %}
 
       {% if lesson.mnemonic %}
-    <div class="row justify-content-center">
-      <div class="col-10 concept-box mt-4 pt-2 pl-3 concept-text">
-        <div clas="row">
-          <div class="col-12 quintessential-regular text-sm">Mnemonic</div>
-        </div>
-        <div class="row">
-          <div class="col-12 text-center cinzel-400 p-2 text-sm">
-            {% for m in lesson.mnemonic %}
-            {{m | safe}}
-            {%endfor%}
+      <div class="row justify-content-center">
+        <div class="col-10 concept-box mt-4 pt-2 pl-3 concept-text">
+          <div clas="row">
+            <div class="col-12 quintessential-regular text-sm">Mnemonic</div>
           </div>
+          <div class="row">
+            <div class="col-12 text-center cinzel-400 p-2 text-sm">
+              {% for m in lesson.mnemonic %}
+              {{m | safe}}
+              {%endfor%}
+            </div>
+          </div>
+
         </div>
+        {%endif%}
+
 
       </div>
-      {%endif%}
-
-
-    </div>
     </div>
 
 
   </div>
   <div class="row p-3 pt-5 justify-content-center">
     <div class="col-12 viaoda-libre-regular text-center text-md text-muted">
-          {{ duration | safe }}
+      {{ duration | safe }}
     </div>
   </div>
 
 
 
-{% endblock %}
+  {% endblock %}

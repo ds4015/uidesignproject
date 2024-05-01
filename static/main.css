@@ -482,6 +482,9 @@ a:hover {
 }
 
 
+.tool-box {
+  max-height:50px;
+}
 
 .box-right {
   background-color: #DDFFF7;
