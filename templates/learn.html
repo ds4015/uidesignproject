@@ -5,17 +5,29 @@
   var puzzleList = {{ lesson['puzzle'] | tojson }};
   var solution = {{ lesson['solution'] | tojson }};
 </script>
-  <div class="d-flex flex-row p-3 mt-5">
+{% if lesson.id >= 6 and lesson.id <=9 %}
+<div class="d-flex flex-row pt-3 pb-3">
+  <div class="col-3 col-md-3 col-lg-3 text-center">
+    <a href="/learn/6"><img src="/static/eye.jpg" class="img-fluid custom-col m-0 home-box" alt="Vision"></a></div>
+    <div class="col-3 col-md-3 col-lg-3 text-center">
+      <a href="/learn/8"><img src="/static/ear.jpg" class="img-fluid custom-col home-box" alt="Hearing"></a></div>    
+      <div class="col-3 col-md-3 col-lg-3 text-center">
+        <a href="/learn/7"><img src="/static/hand.jpg" class="img-fluid custom-col home-box" alt="Touch"></a></div>     
+        <div class="col-3 col-md-3 col-lg-3 text-center">
+          <a href="/learn/9"><img src="/static/brain2.png" class="img-fluid custom-col home-box" alt="Intelligence"></a></div>             
+  </div>
+{%endif%}
+  <div class="d-flex flex-row p-3 mt-2">
     <div class="col-12 col-md-6 col-lg-4 p-4">
       <div class="row">
         <div class="col-12 box-left quintessential-regular text">
           <div class="row">
-            <div class="col-12 heading text-center p-3">
+            <div class="col-12 sub-heading text-center p-3">
               {{ lesson.concept_title}}
             </div>
           </div>
           <div class="row p-3 pt-0">
-            <div class="col-12">
+            <div class="col-12 text-lg">
               {{ lesson.left_box | safe }}
             </div>
           </div>
@@ -59,9 +71,10 @@
 
    
     {% if lesson.model %}
+    <input type="hidden"  id="rotSpeed" value=0.01>
     <input type="hidden"  id="modelTest" value="yes_model">
     <input type="hidden"  id="modelBg" value="{{lesson.model_bg}}">
-    <div class="col-12 col-md-6 col-lg-5 d-flex justify-content-center" id="model" data-path='{{ model }}'>
+    <div class="col-12 col-md-6 col-lg-5 d-flex justify-content-center model-height" id="model" data-path='{{ model }}'>
     </div>
     {% elif lesson.video %}
     <input type="hidden"  id="modelTest" value="no_model">

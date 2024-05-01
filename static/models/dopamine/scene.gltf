@@ -59,15 +59,15 @@
 			],
 			"name":"Sketchfab_model.003",
 			"rotation":[
-				0.4295656681060791,
+				0.4295656979084015,
 				-0.5142293572425842,
 				0.5226772427558899,
-				0.5271148681640625
+				0.5271146893501282
 			],
 			"scale":[
-				0.017593560740351677,
-				0.017593564465641975,
-				0.017593560740351677
+				0.01345573365688324,
+				0.013455735519528389,
+				0.01345573365688324
 			],
 			"translation":[
 				0,
@@ -130,7 +130,7 @@
 	],
 	"meshes":[
 		{
-			"name":"Object_0.002",
+			"name":"Object_0.010",
 			"primitives":[
 				{
 					"attributes":{
@@ -143,7 +143,7 @@
 			]
 		},
 		{
-			"name":"Object_1.002",
+			"name":"Object_1.010",
 			"primitives":[
 				{
 					"attributes":{
@@ -156,7 +156,7 @@
 			]
 		},
 		{
-			"name":"Object_2.002",
+			"name":"Object_2.010",
 			"primitives":[
 				{
 					"attributes":{
@@ -169,7 +169,7 @@
 			]
 		},
 		{
-			"name":"Object_3.002",
+			"name":"Object_3.010",
 			"primitives":[
 				{
 					"attributes":{
@@ -182,7 +182,7 @@
 			]
 		},
 		{
-			"name":"Object_4.001",
+			"name":"Object_4.010",
 			"primitives":[
 				{
 					"attributes":{
@@ -195,7 +195,7 @@
 			]
 		},
 		{
-			"name":"Object_5.001",
+			"name":"Object_5.010",
 			"primitives":[
 				{
 					"attributes":{
@@ -208,7 +208,7 @@
 			]
 		},
 		{
-			"name":"Object_6.001",
+			"name":"Object_6.010",
 			"primitives":[
 				{
 					"attributes":{

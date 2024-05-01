@@ -23,6 +23,7 @@ if (lessonModel !== "no_model") {
     const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
 
     var modelBgColor = document.querySelector('#modelBg').value;
+    var rotationSpeed = document.querySelector('#rotSpeed').value;
     var color = new THREE.Color().setHex(modelBgColor);
     renderer.setClearColor(color);
 
@@ -44,7 +45,7 @@ if (lessonModel !== "no_model") {
             requestAnimationFrame(animate);
             renderer.render(scene, camera);
             if (rotateEnabled) {
-                model.rotation.y -= 0.01;
+                model.rotation.y -= rotationSpeed;
             }
             controls.update();
         }
@@ -136,6 +137,7 @@ if (lessonModel !== "no_model") {
 
 
 // puzzle display and solving
+if (puzzleList != "No puzzle") {
 
 var wordBlanks = puzzleList.map(function (word) {
     return Array(word.length).fill('_');
@@ -387,3 +389,4 @@ function displayWordsAndBlanks() {
 
 
 displayWordsAndBlanks();
+}

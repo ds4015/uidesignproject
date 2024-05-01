@@ -1,0 +1,20 @@
+<!-- Dallas Scott - ds4015 -->
+{% extends "layout.html" %}
+{% block content %}
+<input type="hidden"  id="modelTest" value="yes_model">
+<input type="hidden"  id="modelBg" value="0xDDFFF7">
+
+<div class="row p-4 mt-5 justify-content-center">
+    <div class="col-6 text-center sub-heading quintessential-regular" id="model" data-path='/static/models/parietal_quiz/scene.gltf'">
+        <input type="hidden"  id="rotSpeed" value=0.00>
+    </div>
+    <div class="col-6 text-center sub-heading quintessential-regular" id="model" data-path='/static/models/lobes/scene.gltf'">
+        <input type="hidden"  id="rotSpeed" value=0.00>
+    </div>
+
+</div>
+
+
+
+{% endblock %}
+

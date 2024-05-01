@@ -19,6 +19,8 @@
   width: 100%;
 }
 
+
+
 /* for feedback message */
 .feedback-message {
   padding: 10px;
@@ -58,6 +60,7 @@
   font-weight: 400;
   font-style: normal;
 }
+
 
 .box-bg-2 {
   background-color: #ebf5ee;
@@ -382,7 +385,7 @@ a:hover {
       font-size: 18px;       
   }
   .sub-heading {
-    font-size: 21px;
+    font-size: 25px;
   }
   .heading {
     font-size: 39px;
@@ -401,6 +404,18 @@ a:hover {
   .text-sm {
     font-size: 14px;
 }
+  .text-lg {
+    font-size: 20px;
+  }
+.col-min {
+  min-height: 250px;
+  max-height: 300px;
+}
+
+.model-height {
+  min-height: 450px;
+  max-height: 500px;
+}
   
 }
 
@@ -410,7 +425,7 @@ a:hover {
       font-size: 25px; 
   }
   .sub-heading {
-    font-size: 28px;
+    font-size: 30px;
   }
   .heading {
     font-size: 46px;
@@ -424,15 +439,28 @@ a:hover {
     font-weight: bold;
   }
   .text-md {
-    font-size: 22px;
+    font-size: 20px;
   }
     
   .text-lg {
-    font-size: 25px;
+    font-size: 23px;
   }
   .text-sm {
     font-size: 16px;
   }
+  .col-min {
+    min-height: 300px;
+    max-height: 350px;
+  }
+  .model-height {
+    min-height: 500px;
+    max-height: 550px;
+  }
+
+}
+
+.custom-col {
+  max-height: 50px;
 }
 
 /* old implementation */
@@ -449,16 +477,15 @@ a:hover {
   border: 1.5px dashed #07393cff;
 }
 
+.home-box{
+  border: 1.5px solid #07393cff;
+}
+
+
+
 .box-right {
   background-color: #DDFFF7;
   border: 1.5px dashed #07393cff;
-}
-
-old implentation
-.box-bg-2 {
-  background-color: #F6AE2D;
-  padding: 0.5em;  
-  border: 1.5px solid #33658A;  
 }
 
   

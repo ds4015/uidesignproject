@@ -1,548 +1,403 @@
 {
-  "accessors": [
-    {
-      "bufferView": 2,
-      "componentType": 5126,
-      "count": 27580,
-      "max": [
-        0.032837945967912674,
-        0.04026167467236519,
-        0.025253280997276306
-      ],
-      "min": [
-        -0.032837945967912674,
-        -0.04206560552120209,
-        -0.02620759792625904
-      ],
-      "type": "VEC3"
-    },
-    {
-      "bufferView": 2,
-      "byteOffset": 330960,
-      "componentType": 5126,
-      "count": 27580,
-      "max": [
-        1.0,
-        0.9998024106025696,
-        0.999457836151123
-      ],
-      "min": [
-        -1.0,
-        -0.9999659061431885,
-        -0.9999868273735046
-      ],
-      "type": "VEC3"
-    },
-    {
-      "bufferView": 3,
-      "componentType": 5126,
-      "count": 27580,
-      "max": [
-        0.9999305009841919,
-        0.9998630285263062,
-        0.999340832233429,
-        1.0
-      ],
-      "min": [
-        -0.9999302625656128,
-        -0.9999589323997498,
-        -0.9993758797645569,
-        1.0
-      ],
-      "type": "VEC4"
-    },
-    {
-      "bufferView": 1,
-      "componentType": 5126,
-      "count": 27580,
-      "max": [
-        0.9396205544471741,
-        0.9428579807281494
-      ],
-      "min": [
-        0.00390625,
-        0.00390625
-      ],
-      "type": "VEC2"
-    },
-    {
-      "bufferView": 0,
-      "componentType": 5125,
-      "count": 157812,
-      "type": "SCALAR"
-    },
-    {
-      "bufferView": 2,
-      "byteOffset": 661920,
-      "componentType": 5126,
-      "count": 9342,
-      "max": [
-        0.021998805925250053,
-        0.03614543750882149,
-        -0.00948511902242899
-      ],
-      "min": [
-        -0.021998805925250053,
-        -0.004957140423357487,
-        -0.03375038132071495
-      ],
-      "type": "VEC3"
-    },
-    {
-      "bufferView": 2,
-      "byteOffset": 774024,
-      "componentType": 5126,
-      "count": 9342,
-      "max": [
-        1.0,
-        0.9999803304672241,
-        0.999358594417572
-      ],
-      "min": [
-        -1.0,
-        -0.9994676113128662,
-        -0.9995926022529602
-      ],
-      "type": "VEC3"
-    },
-    {
-      "bufferView": 3,
-      "byteOffset": 441280,
-      "componentType": 5126,
-      "count": 9342,
-      "max": [
-        0.9999693632125854,
-        0.9816995859146118,
-        0.9993934631347656,
-        1.0
-      ],
-      "min": [
-        -0.999864935874939,
-        -0.9959824681282043,
-        -0.9993934035301208,
-        -1.0
-      ],
-      "type": "VEC4"
-    },
-    {
-      "bufferView": 1,
-      "byteOffset": 220640,
-      "componentType": 5126,
-      "count": 9342,
-      "max": [
-        0.9957713484764099,
-        0.9750211834907532
-      ],
-      "min": [
-        0.00390625,
-        0.00390625
-      ],
-      "type": "VEC2"
-    },
-    {
-      "bufferView": 0,
-      "byteOffset": 631248,
-      "componentType": 5125,
-      "count": 51744,
-      "type": "SCALAR"
-    },
-    {
-      "bufferView": 2,
-      "byteOffset": 886128,
-      "componentType": 5126,
-      "count": 4070,
-      "max": [
-        0.006000656634569168,
-        0.024001533165574074,
-        -0.018873190507292747
-      ],
-      "min": [
-        -0.006000210531055927,
-        -0.0017515987856313586,
-        -0.047134727239608765
-      ],
-      "type": "VEC3"
-    },
-    {
-      "bufferView": 2,
-      "byteOffset": 934968,
-      "componentType": 5126,
-      "count": 4070,
-      "max": [
-        0.9997568130493164,
-        0.9999110698699951,
-        0.9995641708374023
-      ],
-      "min": [
-        -0.9997711777687073,
-        -0.9898402690887451,
-        -0.998085081577301
-      ],
-      "type": "VEC3"
-    },
-    {
-      "bufferView": 3,
-      "byteOffset": 590752,
-      "componentType": 5126,
-      "count": 4070,
-      "max": [
-        0.9989087581634521,
-        0.9998837113380432,
-        0.9897235631942749,
-        1.0
-      ],
-      "min": [
-        -0.9999842643737793,
-        -0.9990081191062927,
-        -0.9998888969421387,
-        1.0
-      ],
-      "type": "VEC4"
-    },
-    {
-      "bufferView": 1,
-      "byteOffset": 295376,
-      "componentType": 5126,
-      "count": 4070,
-      "max": [
-        0.5911816358566284,
-        0.99609375
-      ],
-      "min": [
-        0.00390625,
-        0.00390625
-      ],
-      "type": "VEC2"
-    },
-    {
-      "bufferView": 0,
-      "byteOffset": 838224,
-      "componentType": 5125,
-      "count": 22992,
-      "type": "SCALAR"
-    }
-  ],
-  "asset": {
-    "extras": {
-      "author": "Ramanan (https://sketchfab.com/Ramanan)",
-      "license": "SKETCHFAB Standard (https://sketchfab.com/licenses)",
-      "source": "https://sketchfab.com/3d-models/human-brain-5bb9149e823746a080c4f52986ee373c",
-      "title": "Human Brain"
-    },
-    "generator": "Sketchfab-14.78.0",
-    "version": "2.0"
-  },
-  "bufferViews": [
-    {
-      "buffer": 0,
-      "byteLength": 930192,
-      "name": "floatBufferViews",
-      "target": 34963
-    },
-    {
-      "buffer": 0,
-      "byteLength": 327936,
-      "byteOffset": 930192,
-      "byteStride": 8,
-      "name": "floatBufferViews",
-      "target": 34962
-    },
-    {
-      "buffer": 0,
-      "byteLength": 983808,
-      "byteOffset": 1258128,
-      "byteStride": 12,
-      "name": "floatBufferViews",
-      "target": 34962
-    },
-    {
-      "buffer": 0,
-      "byteLength": 655872,
-      "byteOffset": 2241936,
-      "byteStride": 16,
-      "name": "floatBufferViews",
-      "target": 34962
-    }
-  ],
-  "buffers": [
-    {
-      "byteLength": 2897808,
-      "uri": "scene.bin"
-    }
-  ],
-  "images": [
-    {
-      "uri": "textures/Brain_baseColor.png"
-    },
-    {
-      "uri": "textures/Brain_metallicRoughness.png"
-    },
-    {
-      "uri": "textures/Brain_normal.png"
-    }
-  ],
-  "materials": [
-    {
-      "doubleSided": true,
-      "name": "Brain",
-      "normalTexture": {
-        "index": 2
-      },
-      "pbrMetallicRoughness": {
-        "baseColorTexture": {
-          "index": 0
-        },
-        "metallicRoughnessTexture": {
-          "index": 1
-        }
-      }
-    }
-  ],
-  "meshes": [
-    {
-      "name": "Brain_low_Brain_0",
-      "primitives": [
-        {
-          "attributes": {
-            "NORMAL": 1,
-            "POSITION": 0,
-            "TANGENT": 2,
-            "TEXCOORD_0": 3
-          },
-          "indices": 4,
-          "material": 0,
-          "mode": 4
-        }
-      ]
-    },
-    {
-      "name": "BrainBack_low_Brain_0",
-      "primitives": [
-        {
-          "attributes": {
-            "NORMAL": 6,
-            "POSITION": 5,
-            "TANGENT": 7,
-            "TEXCOORD_0": 8
-          },
-          "indices": 9,
-          "material": 0,
-          "mode": 4
-        }
-      ]
-    },
-    {
-      "name": "BrainStem_low_Brain_0",
-      "primitives": [
-        {
-          "attributes": {
-            "NORMAL": 11,
-            "POSITION": 10,
-            "TANGENT": 12,
-            "TEXCOORD_0": 13
-          },
-          "indices": 14,
-          "material": 0,
-          "mode": 4
-        }
-      ]
-    }
-  ],
-  "nodes": [
-    {
-      "children": [
-        1
-      ],
-      "matrix": [
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        2.220446049250313e-16,
-        -1.0,
-        0.0,
-        0.0,
-        1.0,
-        2.220446049250313e-16,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "name": "Sketchfab_model"
-    },
-    {
-      "children": [
-        2
-      ],
-      "matrix": [
-        0.009999999776482582,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.009999999776482582,
-        0.0,
-        0.0,
-        -0.009999999776482582,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "name": "Brain.fbx"
-    },
-    {
-      "children": [
-        3
-      ],
-      "name": "RootNode"
-    },
-    {
-      "children": [
-        4,
-        6,
-        8
-      ],
-      "matrix": [
-        350.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        -5.7022237787140995e-05,
-        -349.9999999999954,
-        0.0,
-        0.0,
-        349.9999999999954,
-        -5.7022237787140995e-05,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "name": "Brain"
-    },
-    {
-      "children": [
-        5
-      ],
-      "matrix": [
-        0.3906249403953552,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.3906249403953552,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.3906249403953552,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "name": "Brain_low"
-    },
-    {
-      "mesh": 0,
-      "name": "Brain_low_Brain_0"
-    },
-    {
-      "children": [
-        7
-      ],
-      "matrix": [
-        0.3906249403953552,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.3906249403953552,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.3906249403953552,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "name": "BrainBack_low"
-    },
-    {
-      "mesh": 1,
-      "name": "BrainBack_low_Brain_0"
-    },
-    {
-      "children": [
-        9
-      ],
-      "matrix": [
-        0.3906249403953552,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.3906249403953552,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.3906249403953552,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "name": "BrainStem_low"
-    },
-    {
-      "mesh": 2,
-      "name": "BrainStem_low_Brain_0"
-    }
-  ],
-  "samplers": [
-    {
-      "magFilter": 9729,
-      "minFilter": 9987,
-      "wrapS": 10497,
-      "wrapT": 10497
-    }
-  ],
-  "scene": 0,
-  "scenes": [
-    {
-      "name": "Sketchfab_Scene",
-      "nodes": [
-        0
-      ]
-    }
-  ],
-  "textures": [
-    {
-      "sampler": 0,
-      "source": 0
-    },
-    {
-      "sampler": 0,
-      "source": 1
-    },
-    {
-      "sampler": 0,
-      "source": 2
-    }
-  ]
+	"asset":{
+		"generator":"Khronos glTF Blender I/O v3.6.27",
+		"version":"2.0"
+	},
+	"scene":0,
+	"scenes":[
+		{
+			"name":"Scene",
+			"nodes":[
+				9
+			]
+		}
+	],
+	"nodes":[
+		{
+			"mesh":0,
+			"name":"Brain_low_Brain_0"
+		},
+		{
+			"children":[
+				0
+			],
+			"name":"Brain_low",
+			"scale":[
+				0.39062491059303284,
+				0.39062491059303284,
+				0.39062491059303284
+			]
+		},
+		{
+			"mesh":1,
+			"name":"BrainBack_low_Brain_0"
+		},
+		{
+			"children":[
+				2
+			],
+			"name":"BrainBack_low",
+			"scale":[
+				0.39062491059303284,
+				0.39062491059303284,
+				0.39062491059303284
+			]
+		},
+		{
+			"mesh":2,
+			"name":"BrainStem_low_Brain_0"
+		},
+		{
+			"children":[
+				4
+			],
+			"name":"BrainStem_low",
+			"scale":[
+				0.39062491059303284,
+				0.39062491059303284,
+				0.39062491059303284
+			]
+		},
+		{
+			"children":[
+				1,
+				3,
+				5
+			],
+			"name":"Brain",
+			"rotation":[
+				-0.70710688829422,
+				0,
+				0,
+				0.7071066498756409
+			],
+			"scale":[
+				350,
+				349.9999694824219,
+				349.9999694824219
+			]
+		},
+		{
+			"children":[
+				6
+			],
+			"name":"RootNode"
+		},
+		{
+			"children":[
+				7
+			],
+			"name":"Brain.fbx",
+			"rotation":[
+				0.70710688829422,
+				0,
+				0,
+				0.7071066498756409
+			],
+			"scale":[
+				0.009999998845160007,
+				0.010000000707805157,
+				0.010000000707805157
+			]
+		},
+		{
+			"children":[
+				8
+			],
+			"name":"Sketchfab_model",
+			"rotation":[
+				-0.70710688829422,
+				0,
+				0,
+				0.7071066498756409
+			],
+			"scale":[
+				0.899185299873352,
+				0.8991854786872864,
+				0.8991854786872864
+			]
+		}
+	],
+	"materials":[
+		{
+			"doubleSided":true,
+			"name":"Brain",
+			"normalTexture":{
+				"index":0
+			},
+			"pbrMetallicRoughness":{
+				"baseColorTexture":{
+					"index":1
+				},
+				"metallicRoughnessTexture":{
+					"index":2
+				}
+			}
+		}
+	],
+	"meshes":[
+		{
+			"name":"Brain_low_Brain_0",
+			"primitives":[
+				{
+					"attributes":{
+						"POSITION":0,
+						"NORMAL":1,
+						"TEXCOORD_0":2
+					},
+					"indices":3,
+					"material":0
+				}
+			]
+		},
+		{
+			"name":"BrainBack_low_Brain_0",
+			"primitives":[
+				{
+					"attributes":{
+						"POSITION":4,
+						"NORMAL":5,
+						"TEXCOORD_0":6
+					},
+					"indices":7,
+					"material":0
+				}
+			]
+		},
+		{
+			"name":"BrainStem_low_Brain_0",
+			"primitives":[
+				{
+					"attributes":{
+						"POSITION":8,
+						"NORMAL":9,
+						"TEXCOORD_0":10
+					},
+					"indices":11,
+					"material":0
+				}
+			]
+		}
+	],
+	"textures":[
+		{
+			"sampler":0,
+			"source":0
+		},
+		{
+			"sampler":0,
+			"source":1
+		},
+		{
+			"sampler":0,
+			"source":2
+		}
+	],
+	"images":[
+		{
+			"mimeType":"image/png",
+			"name":"Brain_normal",
+			"uri":"Brain_normal.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"Brain_baseColor",
+			"uri":"Brain_baseColor.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"Brain_metallicRoughness",
+			"uri":"Brain_metallicRoughness.png"
+		}
+	],
+	"accessors":[
+		{
+			"bufferView":0,
+			"componentType":5126,
+			"count":28099,
+			"max":[
+				0.032837945967912674,
+				0.04026167467236519,
+				0.025253280997276306
+			],
+			"min":[
+				-0.032837945967912674,
+				-0.04206560552120209,
+				-0.02620759792625904
+			],
+			"type":"VEC3"
+		},
+		{
+			"bufferView":1,
+			"componentType":5126,
+			"count":28099,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":2,
+			"componentType":5126,
+			"count":28099,
+			"type":"VEC2"
+		},
+		{
+			"bufferView":3,
+			"componentType":5123,
+			"count":157812,
+			"type":"SCALAR"
+		},
+		{
+			"bufferView":4,
+			"componentType":5126,
+			"count":9480,
+			"max":[
+				0.021998805925250053,
+				0.03614543750882149,
+				-0.00948511902242899
+			],
+			"min":[
+				-0.021998805925250053,
+				-0.004957140423357487,
+				-0.03375038132071495
+			],
+			"type":"VEC3"
+		},
+		{
+			"bufferView":5,
+			"componentType":5126,
+			"count":9480,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":6,
+			"componentType":5126,
+			"count":9480,
+			"type":"VEC2"
+		},
+		{
+			"bufferView":7,
+			"componentType":5123,
+			"count":51744,
+			"type":"SCALAR"
+		},
+		{
+			"bufferView":8,
+			"componentType":5126,
+			"count":4070,
+			"max":[
+				0.006000656634569168,
+				0.024001533165574074,
+				-0.018873190507292747
+			],
+			"min":[
+				-0.006000210531055927,
+				-0.0017515987856313586,
+				-0.047134727239608765
+			],
+			"type":"VEC3"
+		},
+		{
+			"bufferView":9,
+			"componentType":5126,
+			"count":4070,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":10,
+			"componentType":5126,
+			"count":4070,
+			"type":"VEC2"
+		},
+		{
+			"bufferView":11,
+			"componentType":5123,
+			"count":22992,
+			"type":"SCALAR"
+		}
+	],
+	"bufferViews":[
+		{
+			"buffer":0,
+			"byteLength":337188,
+			"byteOffset":0,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":337188,
+			"byteOffset":337188,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":224792,
+			"byteOffset":674376,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":315624,
+			"byteOffset":899168,
+			"target":34963
+		},
+		{
+			"buffer":0,
+			"byteLength":113760,
+			"byteOffset":1214792,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":113760,
+			"byteOffset":1328552,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":75840,
+			"byteOffset":1442312,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":103488,
+			"byteOffset":1518152,
+			"target":34963
+		},
+		{
+			"buffer":0,
+			"byteLength":48840,
+			"byteOffset":1621640,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":48840,
+			"byteOffset":1670480,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":32560,
+			"byteOffset":1719320,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":45984,
+			"byteOffset":1751880,
+			"target":34963
+		}
+	],
+	"samplers":[
+		{
+			"magFilter":9729,
+			"minFilter":9987
+		}
+	],
+	"buffers":[
+		{
+			"byteLength":1797864,
+			"uri":"scene.bin"
+		}
+	]
 }

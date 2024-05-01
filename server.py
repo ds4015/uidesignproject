@@ -23,9 +23,9 @@ end_time = datetime.datetime.now()
 learn_data = [
  {
         "id": 1,
-        "title": "<span class='first-letter'>B</span> <span class='text-lg'>" +
+        "title": "<span class='first-letter'>B</span> <span class='heading'>" +
                     "a s i c s </span>&nbsp;&nbsp;-&nbsp;&nbsp; <span class='first-letter'>" +
-                    "C</span> <span class='text-lg'>e l l s</span>" +
+                    "C</span> <span class='heading'>e l l s</span>" +
                     "<div class='row mt-0 pt-0'><div class='col-12 mt-0 pt-0'>" +
                     "<span class='sub-heading'>L e s s o n &nbsp;&nbsp; 1 :&nbsp;&nbsp;" +
                     "N e u r o n s &nbsp;&nbsp; a n d &nbsp;&nbsp; t h e i r &nbsp;&nbsp;" +
@@ -49,9 +49,9 @@ learn_data = [
     }, 
      {
         "id": 2,
-        "title": "<span class='first-letter'>B</span> <span class='text-lg'>" +
+        "title": "<span class='first-letter'>B</span> <span class='heading'>" +
                     "a s i c s </span>&nbsp;&nbsp;-&nbsp;&nbsp; <span class='first-letter'>" +
-                    "N</span> <span class='text-lg'>e u r o t r a n s m i s s i o n</span>" +
+                    "N</span> <span class='heading'>e u r o t r a n s m i s s i o n</span>" +
                     "<div class='row mt-0 pt-0'><div class='col-12 mt-0 pt-0'>" +
                     "<span class='sub-heading'>L e s s o n &nbsp;&nbsp; 2 :&nbsp;&nbsp;" +
                     "C o m m u n i c a t i o n &nbsp;&nbsp; B e t w e e n &nbsp;&nbsp;" +
@@ -75,9 +75,9 @@ learn_data = [
      },
   {
         "id": 3,
-        "title": "<span class='first-letter'>B</span> <span class='text-lg'>" +
+        "title": "<span class='first-letter'>B</span> <span class='heading'>" +
                     "a s i c s </span>&nbsp;&nbsp;-&nbsp;&nbsp; <span class='first-letter'>" +
-                    "N</span> <span class='text-lg'>e u r o t r a n s m i t t e r s</span>" +
+                    "N</span> <span class='heading'>e u r o t r a n s m i t t e r s</span>" +
                     "<div class='row mt-0 pt-0'><div class='col-12 mt-0 pt-0'>" +
                     "<span class='sub-heading'>L e s s o n &nbsp;&nbsp; 3 :&nbsp;&nbsp;" +
                     "G a m m a - a m i n o b u t y r i c &nbsp;&nbsp; a c i d &nbsp;&nbsp;"
@@ -100,9 +100,9 @@ learn_data = [
     },    
   {
         "id": 4,
-        "title": "<span class='first-letter'>B</span> <span class='text-lg'>" +
+        "title": "<span class='first-letter'>B</span> <span class='heading'>" +
                     "a s i c s </span>&nbsp;&nbsp;-&nbsp;&nbsp; <span class='first-letter'>" +
-                    "N</span> <span class='text-lg'>e u r o t r a n s m i t t e r s</span>" +
+                    "N</span> <span class='heading'>e u r o t r a n s m i t t e r s</span>" +
                     "<div class='row mt-0 pt-0'><div class='col-12 mt-0 pt-0'>" +
                     "<span class='sub-heading'>L e s s o n &nbsp;&nbsp; 4 :&nbsp;&nbsp;" +
                     "S e r o t o n i n  &nbsp;&nbsp; a n d &nbsp;&nbsp; M o o d " +
@@ -125,9 +125,9 @@ learn_data = [
     },    
      {
         "id": 5,
-        "title": "<span class='first-letter'>B</span> <span class='text-lg'>" +
+        "title": "<span class='first-letter'>B</span> <span class='heading'>" +
                     "a s i c s </span>&nbsp;&nbsp;-&nbsp;&nbsp; <span class='first-letter'>" +
-                    "N</span> <span class='text-lg'>e u r o t r a n s m i t t e r s</span>" +
+                    "N</span> <span class='heading'>e u r o t r a n s m i t t e r s</span>" +
                     "<div class='row mt-0 pt-0'><div class='col-12 mt-0 pt-0'>" +
                     "<span class='sub-heading'>L e s s o n &nbsp;&nbsp; 5 :&nbsp;&nbsp;" +
                     "D o p a m i n e &nbsp;&nbsp; a n d &nbsp;&nbsp; A t t e n t i o n" +
@@ -142,128 +142,198 @@ learn_data = [
         "nt_effect": "Motivation",
         "nt_dir": "Up",
         "mnemonic":["<span class='first-letter-btn'>D</span>opamaine - ","<span class='first-letter-btn'>D</span>ynamic"],
-        "next": "/quiz/1",
+        "next": "/learn/6",
         "back": "/learn/4",
-        "next_num": "Quiz",
+        "next_num": "Lesson 6",
         "back_num": "Lesson 4",        
         "time": None
     },    
-   {
+       {
         "id": 6,
-        "title": "Senses - Vision",
-        "left_box": "<p class='sub-heading'>Occipital Lobe</p>" + 
-                    "<p>→ Recognize faces</p>" +
-                    "<p>→ Process input from the eyes</p>" +
-                    "<p>→ Color vision</p>" +                                        
-                    "<p>→ Shapes and depth</p>",
-        "right_image":"occipital.png",
-        "model": None, 
-        "concept_title": "Vision",
-        "concept_descr": "Occipital Lobe",
-        "concepts":["faces","colors","shapes"],
+        "title": "<span class='first-letter'>S</span> <span class='heading'>" +
+                    "e n s e s </span>&nbsp;&nbsp;-&nbsp;&nbsp; <span class='first-letter'>" +
+                    "V</span> <span class='heading'>i s i o n</span>" +
+                    "<div class='row mt-0 pt-0'><div class='col-12 mt-0 pt-0'>" +
+                    "<span class='sub-heading'>L e s s o n &nbsp;&nbsp; 6 :&nbsp;&nbsp;" +
+                    "O c c i p i t a l &nbsp;&nbsp; L o b e</span></div></div>",
+        "left_box": "<p>Recognize faces</p><p>Process input from the eyes</p>" +
+                    "<p>Color vision</p><p>Shapes and depth</p>",
+        "right_image": None,
+        "model": "/static/models/occipital_bone/scene.gltf",
+        "model_bg": "0xDDFFF7",
+        "puzzle" : ["UIGBNSRT","HWTI", "YREENG"],
+        "solution": ["BURSTING", "WITH", "ENERGY"],
+        "concept_title" : "Occipital Lobe",
+        "nt_effect": None,
+        "nt_dir": None,
+        "mnemonic":["<span class='first-letter-btn'>O</span>occipital - ","<span class='first-letter-btn'>O</span>cular"],
         "next": "/learn/7",
         "back": "/learn/5",
+        "next_num": "Lesson 7",
+        "back_num": "Lesson 5",        
         "time": None
-    },  
-   {
+    },    
+       {
         "id": 7,
-        "title": "Senses - Hearing",
-        "left_box": "<p class='sub-heading'>Temporal Lobe</p>" + 
-                    "<p>→ Understand music and harmonies</p>" +
-                    "<p>→ Process input from the ears</p>" +
-                    "<p>→ Associated with speech</p>" +                                        
-                    "<p>→ Located behind the ears</p>",
-        "right_image":"temporal.png",
-        "model": None, 
-        "concept_title": "Hearing",
-        "concept_descr": "Temporal Lobe",
-        "concepts":["music","speech","hearing"],
+        "title": "<span class='first-letter'>S</span> <span class='heading'>" +
+                    "e n s e s </span>&nbsp;&nbsp;-&nbsp;&nbsp; <span class='first-letter'>" +
+                    "T</span> <span class='heading'>o u c h</span>" +
+                    "<div class='row mt-0 pt-0'><div class='col-12 mt-0 pt-0'>" +
+                    "<span class='sub-heading'>L e s s o n &nbsp;&nbsp; 7 :&nbsp;&nbsp;" +
+                    "P a r i e t a l &nbsp;&nbsp; L o b e</span></div></div>",
+        "left_box": "<p>Sensation of temperature, pressure, vibration, pain</p>" +
+                    "<p>Writing and precise hand movement</p>" +
+                    "<p>Symbol recognition - reading and math</p><p>Navigation of physical space</p>",
+        "right_image": None,
+        "model": "/static/models/parietal_bone/scene.gltf",
+        "model_bg": "0xDDFFF7",
+        "puzzle" : ["UIGBNSRT","HWTI", "YREENG"],
+        "solution": ["BURSTING", "WITH", "ENERGY"],
+        "concept_title" : "Parietal Lobe",
+        "nt_effect": None,
+        "nt_dir": None,
+        "mnemonic":["<span class='first-letter-btn'>P</span>arietal - ","<span class='first-letter-btn'>P</span>ain"],
         "next": "/learn/8",
         "back": "/learn/6",
+        "next_num": "Lesson 8",
+        "back_num": "Lesson 6",        
         "time": None
-    },  
-   {
+    },   
+
+       {
         "id": 8,
-        "title": "Senses - Touch",
-        "left_box": "<p class='sub-heading'>Parietal Lobe</p>" + 
-                    "<p>→ Sensation of temperature, pressure, vibration, pain</p>" +
-                    "<p>→ Writing and precise hand movements</p>" +
-                    "<p>→ Symbol recognition - reading and math</p>" +                                        
-                    "<p>→ Navigation of physical space</p>",
-        "right_image":"parietal.png",
-        "model": None, 
-        "concept_title": "Touch",
-        "concept_descr": "Parietal Lobe",
-        "concepts":["pain","writing","symbols"],
+        "title": "<span class='first-letter'>S</span> <span class='heading'>" +
+                    "e n s e s </span>&nbsp;&nbsp;-&nbsp;&nbsp; <span class='first-letter'>" +
+                    "H</span> <span class='heading'>e a r i n g</span>" +
+                    "<div class='row mt-0 pt-0'><div class='col-12 mt-0 pt-0'>" +
+                    "<span class='sub-heading'>L e s s o n &nbsp;&nbsp; 8 :&nbsp;&nbsp;" +
+                    "T e m p o r a l &nbsp;&nbsp; L o b e</span></div></div>",
+        "left_box": "<p>Understand music and harmonies</p>" +
+                    "<p>Process input from the ears</p>" +
+                    "<p>Associated with speech</p><p>Located behind the temples</p>",
+        "right_image": None,
+        "model": "/static/models/temporal_bone/scene.gltf",
+        "model_bg": "0xDDFFF7",
+        "puzzle" : ["UIGBNSRT","HWTI", "YREENG"],
+        "solution": ["BURSTING", "WITH", "ENERGY"],
+        "concept_title" : "Temporal Lobe",
+        "nt_effect": None,
+        "nt_dir": None,
+        "mnemonic":["<span class='first-letter-btn'>T</span>temporal - ","<span class='first-letter-btn'>T</span>emples"],
         "next": "/learn/9",
         "back": "/learn/7",
+        "next_num": "Lesson 9",
+        "back_num": "Lesson 7",        
         "time": None
-    },  
-   {
+    },   
+
+       {
         "id": 9,
-        "title": "Intelligence",
-        "left_box": "<p class='sub-heading'>Frontal Lobe</p>" + 
-                    "<p>→ Reasoning and Logical Arguments</p>" +
-                    "<p>→ Planning and making schedules</p>" +
-                    "<p>→ Being able to imagine the future</p>" +                                        
-                    "<p>→ Storage of information in working memory.</p>",
-        "right_image":"frontal.png",
-        "model": None, 
-        "concept_title": "Intelligence",
-        "concept_descr": "Frontal Lobe",
-        "concepts":["reason","planning","imagination"],
+        "title": "<span class='first-letter'>I</span> <span class='heading'>" +
+                    "n t e l l i g e n c e &nbsp;&nbsp; a n d </span>&nbsp;&nbsp; <span class='first-letter'>" +
+                    "R</span> <span class='heading'>e a s o n</span>" +
+                    "<div class='row mt-0 pt-0'><div class='col-12 mt-0 pt-0'>" +
+                    "<span class='sub-heading'>L e s s o n &nbsp;&nbsp; 9 :&nbsp;&nbsp;" +
+                    "F r o n t a l &nbsp;&nbsp; L o b e</span></div></div>",
+        "left_box": "<p>Reasoning and logical arguments</p>" +
+                    "<p>Planning and making schedules</p>" +
+                    "<p>Being able to imagine the future</p>" +
+                    "<p>Storage of information in working memory.</p>",
+        "right_image": None,
+        "model": "/static/models/frontal_bone/scene.gltf",
+        "model_bg": "0xDDFFF7",
+        "puzzle" : ["UIGBNSRT","HWTI", "YREENG"],
+        "solution": ["BURSTING", "WITH", "ENERGY"],
+        "concept_title" : "Frontal Lobe",
+        "nt_effect": None,
+        "nt_dir": None,
+        "mnemonic":["<span class='first-letter-btn'>F</span>rontal - ","<span class='first-letter-btn'>F</span>orethought"],
         "next": "/learn/10",
         "back": "/learn/8",
+        "next_num": "Lesson 10",
+        "back_num": "Lesson 8",        
         "time": None
-    },
-   {
+    },   
+     {
         "id": 10,
-        "title": "Emotions - Fear",
-        "left_box": "<p class='sub-heading'>Amygdala</p>" + 
-                    "<p>→ Small structure in the inner brain</p>" +
-                    "<p>→ Responsible for fear and aggression</p>",
-        "right_image":"amygdala.png",
-        "model": None, 
-        "concept_title": "Emotions",
-        "concept_descr": "Amygdala",
-        "concepts":["fear","anxiety","aggression"],
+        "title": "<span class='first-letter'>E</span> <span class='heading'>" +
+                    "m o t i o n s </span>&nbsp;&nbsp; - <span class='first-letter'>" +
+                    "F</span> <span class='heading'>e a r</span>" +
+                    "<div class='row mt-0 pt-0'><div class='col-12 mt-0 pt-0'>" +
+                    "<span class='sub-heading'>L e s s o n &nbsp;&nbsp; 10 :&nbsp;&nbsp;" +
+                    "T h e &nbsp;&nbsp; A m y g d a l a &nbsp;&nbsp;</span></div></div>",
+        "left_box": "<p>Almond-shaped structure in the inner brain</p>" 
+                    "<p>Located at the end of the hippocampus<p>" +
+                    "<p>Responsbie for fear and aggression</p>",
+        "right_image": None,
+        "model": "/static/models/amygdala/scene.gltf",
+        "model_bg": "0xDDFFF7",
+        "puzzle" : ["UIGBNSRT","HWTI", "YREENG"],
+        "solution": ["BURSTING", "WITH", "ENERGY"],
+        "concept_title" : "Amygdala",
+        "nt_effect": None,
+        "nt_dir": None,
+        "mnemonic":["<span class='first-letter-btn'>A</span>mygdala - ","<span class='first-letter-btn'>A</span>nxiety"],
         "next": "/learn/11",
         "back": "/learn/9",
+        "next_num": "Lesson 11",
+        "back_num": "Lesson 9",        
         "time": None
-    },    
-   {
+    },     
+         {
         "id": 11,
-        "title": "Emotions - Love",
-        "left_box": "<p class='sub-heading'>Hypothalams</p>" + 
-                    "<p>→ Reward center of the brain</p>" +
-                    "<p>→ Love increases dopamine</p>" +
-                    "<p>→ Processed in hypothalamus as reward</p>" +                                        
-                    "<p>→ Also responsible for hunger/thirst</p>",
-        "right_image":"hypothalamus.png",
-        "model": None, 
-        "concept_title": "Emotions",
-        "concept_descr": "Hypothalamus",
-        "concepts":["love","reward","hunger"],
+        "title": "<span class='first-letter'>E</span> <span class='heading'>" +
+                    "m o t i o n s </span>&nbsp;&nbsp; - <span class='first-letter'>" +
+                    "L</span> <span class='heading'>o v e</span>" +
+                    "<div class='row mt-0 pt-0'><div class='col-12 mt-0 pt-0'>" +
+                    "<span class='sub-heading'>L e s s o n &nbsp;&nbsp; 11 :&nbsp;&nbsp;" +
+                    "T h e &nbsp;&nbsp; H y p o t h a l a m u s &nbsp;&nbsp;</span></div></div>",
+        "left_box": "<p>Reward center of the brain</p>" + 
+                    "<p>Love increases dopamaine</p>" +
+                    "<p>Processed in hypothalamus as reward</p>" +
+                    "<p>Also responsible for hunger/thirst/sex drive</p>" +
+                    "<p>Responsible for releasing hormones",
+        "right_image": None,
+        "model": "/static/models/hypothalamus/scene.gltf",
+        "model_bg": "0xDDFFF7",
+        "puzzle" : ["UIGBNSRT","HWTI", "YREENG"],
+        "solution": ["BURSTING", "WITH", "ENERGY"],
+        "concept_title" : "Hypothalamus",
+        "nt_effect": None,
+        "nt_dir": None,
+        "mnemonic":["<span class='first-letter-btn'>H</span>ypothalamus - ","<span class='first-letter-btn'>H</span>ormones"],
         "next": "/learn/12",
         "back": "/learn/10",
+        "next_num": "Lesson 12",
+        "back_num": "Lesson 10",        
         "time": None
-    },    
-   {
+    },
+         {
         "id": 12,
-        "title": "Memory",
-        "left_box": "<p class='sub-heading'>Hippocampus</p>" + 
-                    "<p>→ Long-term memory</p>" +
-                    "<p>→ Spatial/navigational mental maps</p>" +
-                    "<p>→ Important in learning</p>",                                        
-        "right_image":"hippocampus.png",
-        "model": None,         
-        "concept_title": "Memory",
-        "concept_descr": "Hippocampus",
-        "concepts":["mental maps","learning","long-term memory"],
-        "next": "/quiz/1",
+        "title": "<span class='first-letter'>M</span> <span class='heading'>" +
+                    "e m o r y </span>&nbsp;&nbsp;" +
+                    "<div class='row mt-0 pt-0'><div class='col-12 mt-0 pt-0'>" +
+                    "<span class='sub-heading'>L e s s o n &nbsp;&nbsp; 12 :&nbsp;&nbsp;" +
+                    "T h e &nbsp;&nbsp; H i p p o c a m p u s &nbsp;&nbsp;</span></div></div>",
+        "left_box": "<p>Sliver-shaped structure in inner brain</p>" + 
+                    "<p>Long-term memory</p>" +
+                    "<p>Spatial/navigational mental maps</p>" +
+                    "<p>Important in learning</p>",
+        "right_image": None,
+        "model": "/static/models/hippocampus/scene.gltf",
+        "model_bg": "0xDDFFF7",
+        "puzzle" : ["UIGBNSRT","HWTI", "YREENG"],
+        "solution": ["BURSTING", "WITH", "ENERGY"],
+        "concept_title" : "Hippocampus",
+        "nt_effect": None,
+        "nt_dir": None,
+        "mnemonic":["<span class='first-letter-btn'>H</span>ippocampus - ","<span class='first-letter-btn'>H</span>old in Memory"],
+        "next": "/learn/f",
         "back": "/learn/11",
+        "next_num": "Quiz",
+        "back_num": "Lesson 11",        
         "time": None
-    }
+    },
 ]
 
 
@@ -289,6 +359,7 @@ quiz_questions = {
     },
     "2": {
         "quiz_id": "2",
+        "model": '/models/neuron_quiz/scene.gltf',
         "image": 'dendrites.png',
         "question": "What are these called?",
         "options" : ['Neurons', 'Dendrites', 'Limbic System', 'Axons' ],
@@ -302,6 +373,7 @@ quiz_questions = {
     },
     "3": {
         "quiz_id": "3",
+        "model": "models/frontal_quiz/scene.gltf",
         "image": "frontal_lobe.png",
         "question": "Which area of the brain is highlighted here?  What is its function?",
         "options" : ['Occipital lobe - hearing', 'Temporal lobe - sound', 'Occipital lobe - vision', 'Frontal lobe - reasoning'],
@@ -421,7 +493,6 @@ def welcome():
 def learn(lesson_id):
     int(lesson_id)
     end_time = datetime.datetime.now()
-    print(end_time)
     access_time = end_time.strftime("%B %d, %Y at %I:%M %p")
     data = next((item for item in learn_data if item['id'] == lesson_id), None)
     duration = end_time - start_time
@@ -433,10 +504,23 @@ def learn(lesson_id):
         next_text = "Quiz Me"
     return render_template('learn.html', lesson=data, duration=durPrint, title=title, model=model) 
 
+@app.route('/learn/f')
+def learn_done():
+    end_time = datetime.datetime.now()
+    access_time = end_time.strftime("%B %d, %Y at %I:%M %p")
+    duration = end_time - start_time
+    duration = round(duration.seconds/60)
+    title = ('<span class="first-letter">E</span>n d  &nbsp;&nbsp;of' +
+            '&nbsp;&nbsp;<span class="first-letter">L</span> e a r n i n g')
+    return render_template('learn_done.html', minutes=duration, title=title)
 
 
 
 ###################   TBC - Larry  ####################
+
+@app.route('/quiz/models')
+def quiz_models():
+        return render_template('quiz_models.html', title="Quiz Models")    
 
 
 @app.route('/quiz/<quiz_id>', methods=['GET', 'POST'])
