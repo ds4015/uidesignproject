@@ -56,23 +56,51 @@
                     </div>
                     </div>
                         {% endif %}
-                        <div class="row p-4 m-4 box-right light-gray">                        
-                        {% for option in question.options %}
-                        <div class="col-12 option-text">
-                            <label class="rad-container">{{ option }}
-                                <input type="radio" name="option" id="option{{ loop.index }}" value="{{ option }}">
-                                <span class="checkmark"></span>
-                              </label>                            
+                        {% if question.quiz_id == "1" %}
+                        <!-- Matching question -->
+                        <div class="row p-4 m-4 box-right light-gray">
+                            {% for neurotransmitter in question.options %}
+                            <div class="col-12 mb-2">
+                                <label>{{ neurotransmitter }}</label>
+                                <select name="{{ neurotransmitter }}" class="form-select" {% if question.submitted %}disabled{% endif %}>
+                                    <option value="">Select</option>
+                                    {% for description in question.descriptions %}
+                                    <option value="{{ description }}" {% if question.submitted and question.submitted_answers[neurotransmitter] == description %}selected{% endif %}>{{ description }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            {% endfor %}
                         </div>
-                        {% endfor %}
+                        {% else %}
+                        <!-- Multiple choice question -->
+                        <div class="row p-4 m-4 box-right light-gray">                        
+                            {% for option in question.options %}
+                            <div class="col-12 option-text">
+                                <label class="rad-container">{{ option }}
+                                    <input type="radio" name="option" id="option{{ loop.index }}" value="{{ option }}" {% if question.submitted and option == question.submitted_answer %}checked{% endif %} {% if question.submitted %}disabled{% endif %}>
+                                    <span class="checkmark"></span>
+                                </label>                            
+                            </div>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
                     </div>
                 </div>
+                {% if question.feedback %}
+                <div class="feedback-message {{ question.feedback_class }}" style="margin-bottom: 20px;">{{ question.feedback|safe }}</div>
+                {% endif %}
             </div>
         </div>
         <!-- Button moved outside of box -->
         <div class="row justify-content-center mt-4">
             <div class="col-12 text-center">
-                <button type="submit" class="btn btn-primary cinzel-400">Next question</button>
+                {% if not question.submitted %}
+                <button type="submit" class="btn btn-primary cinzel-400">Submit</button>
+                {% elif question.next_question != "end" %}
+                <a href="/quiz/{{ question.next_question }}" class="btn btn-primary cinzel-400">Next Question</a>
+                {% else %}
+                <a href="/results" class="btn btn-primary cinzel-400">Results</a>
+                {% endif %}
             </div>
         </div>
     </form>

@@ -418,9 +418,20 @@ quiz_questions = {
     "1": {
         "quiz_id": "1",
         "image": "",
-        "question": "Which neurotransmitter reduces anxiety and stress?",
-        "options" : ['Serotonin', 'Norepinerpheine', 'GABA', 'Thalamus'],
-        "answer" : "GABA",
+        "question": "Match the neurotransmitters with their functions:",
+        "options": ["Serotonin", "Norepinephrine", "GABA", "Dopamine"],
+        "descriptions": [
+            "Regulates mood, sleep, and digestion",
+            "Increases alertness and arousal",
+            "Reduces stress and anxiety",
+            "Associated with pleasure and motivation"
+        ],
+        "correct_matches": {
+            "Serotonin": "Regulates mood, sleep, and digestion",
+            "Norepinephrine": "Increases alertness and arousal",
+            "GABA": "Reduces stress and anxiety",
+            "Dopamine": "Associated with pleasure and motivation"
+        },
         "next_question": "2",
         # go back to last learning page
         "previous_question": '/learn/12',
@@ -603,23 +614,54 @@ def quiz_models():
 @app.route('/quiz/<quiz_id>', methods=['GET', 'POST'])
 def quiz(quiz_id):
     question = quiz_questions.get(quiz_id)
+
     if request.method == 'POST':
-        user_answer = request.form.get('option')
-        correct_answer = question['answer']
-        if user_answer == correct_answer:
-            session['score'] = session.get('score', 0) + 1
-            flash('Correct! Good job.', 'correct-feedback')
+        feedback = ""
+        feedback_class = ""
+        submitted_answers = {}
+
+        if quiz_id == "1":
+            correct_matches = question["correct_matches"]
+            score = 0
+            for neurotransmitter, description in correct_matches.items():
+                user_answer = request.form.get(neurotransmitter)
+                submitted_answers[neurotransmitter] = user_answer
+                if user_answer == description:
+                    score += 1
+
+            if score == len(correct_matches):
+                feedback = 'Correct! Good job.'
+                feedback_class = 'correct-feedback'
+            else:
+                matches_str = '<br>'.join([f'<strong>{nt}</strong>: {desc}' for nt, desc in correct_matches.items()])
+                flash(f'Incorrect! The correct matches are:<br>{matches_str}', 'incorrect-feedback')
+
         else:
-            flash(f'Incorrect! The correct answer is <strong>{correct_answer}</strong>.', 'incorrect-feedback')
-        if question['next_question'] == "end":
-            return redirect('/results')
-        else:
-            return redirect(f'/quiz/{question["next_question"]}')
+            user_answer = request.form.get('option')
+            submitted_answers['option'] = user_answer
+            correct_answer = question['answer']
+            if user_answer == correct_answer:
+                session['score'] = session.get('score', 0) + 1
+                feedback = 'Correct! Good job.'
+                feedback_class = 'correct-feedback'
+            else:
+                feedback = f'Incorrect! The correct answer is <strong>{correct_answer}</strong>.'
+                feedback_class = 'incorrect-feedback'
+
+        question['submitted'] = True
+        question['submitted_answers'] = submitted_answers
+        question['feedback'] = feedback
+        question['feedback_class'] = feedback_class
+
+        return render_template('quiz.html', question=question, quiz=question, title=question.get('title', 'Quiz Question'))
+
     else:
-        # Extract title from the specific question
-        title = question.get('title', "Quiz Question")  # 
-        # Provide default 'lesson' context as None
-        return render_template('quiz.html', question=question, quiz=question, title=title, lesson=None)
+        question['submitted'] = False
+        question['submitted_answers'] = {}
+        question['feedback'] = ''
+        question['feedback_class'] = ''
+
+        return render_template('quiz.html', question=question, quiz=question, title=question.get('title', 'Quiz Question'))
 
 @app.route('/results')
 def results():
