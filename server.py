@@ -630,56 +630,66 @@ def quiz(quiz_id):
     feedback_class = ""
     submitted_answers = {}
 
+    # Initialize submitted questions list in session
+    if 'submitted_questions' not in session:
+        session['submitted_questions'] = []
+
     if request.method == 'POST':
-        # Matching question
-        if quiz_id == "1":
-            correct_matches = question["correct_matches"]
-            score = 0
-            for neurotransmitter, description in correct_matches.items():
-                user_answer = request.form.get(neurotransmitter)
-                submitted_answers[neurotransmitter] = user_answer
-                if user_answer == description:
-                    score += 1
+        # Check if the question has already been submitted
+        if quiz_id not in session['submitted_questions']:
+            # Matching question
+            if quiz_id == "1":
+                correct_matches = question["correct_matches"]
+                score = 0
+                for neurotransmitter, description in correct_matches.items():
+                    user_answer = request.form.get(neurotransmitter)
+                    submitted_answers[neurotransmitter] = user_answer
+                    if user_answer == description:
+                        score += 1
 
-            if score == len(correct_matches):
-                feedback = 'Correct! Good job.'
-                feedback_class = 'correct-feedback'
-            else:
-                matches_str = '<br>'.join([f'<strong>{nt}</strong>: {desc}' for nt, desc in correct_matches.items()])
-                flash(f'Incorrect! The correct matches are:<br>{matches_str}', 'incorrect-feedback')
-
-        # Fill in the blank question
-        elif quiz_id == "9":
-            is_correct = True
-            for idx, blank in enumerate(question["blanks"]):
-                user_answer = request.form.get(f'blank_{idx}').strip().lower()
-                correct_answer = question["correct_answers"][idx].lower()
-                submitted_answers[f'blank_{idx}'] = user_answer
-                if user_answer == correct_answer:
-                    continue
+                if score == len(correct_matches):
+                    feedback = 'Correct! Good job.'
+                    feedback_class = 'correct-feedback'
+                    session['score'] = session.get('score', 0) + 1
                 else:
-                    is_correct = False
-                    feedback = f'Incorrect! The correct answer is <strong>{question["correct_answers"][idx]}</strong>.'
-                    feedback_class = 'incorrect-feedback'
-                    break
-            
-            if is_correct:
-                session['score'] = session.get('score', 0) + 1
-                feedback = 'Correct! Good job.'
-                feedback_class = 'correct-feedback'
+                    matches_str = '<br>'.join([f'<strong>{nt}</strong>: {desc}' for nt, desc in correct_matches.items()])
+                    flash(f'Incorrect! The correct matches are:<br>{matches_str}', 'incorrect-feedback')
 
-        # Multiple choice question
-        else:
-            user_answer = request.form.get('option')
-            submitted_answers['option'] = user_answer
-            correct_answer = question['answer']
-            if user_answer == correct_answer:
-                session['score'] = session.get('score', 0) + 1
-                feedback = 'Correct! Good job.'
-                feedback_class = 'correct-feedback'
+            # Fill in the blank question
+            elif quiz_id == "9":
+                is_correct = True
+                for idx, blank in enumerate(question["blanks"]):
+                    user_answer = request.form.get(f'blank_{idx}').strip().lower()
+                    correct_answer = question["correct_answers"][idx].lower()
+                    submitted_answers[f'blank_{idx}'] = user_answer
+                    if user_answer == correct_answer:
+                        continue
+                    else:
+                        is_correct = False
+                        feedback = f'Incorrect! The correct answer is <strong>{question["correct_answers"][idx]}</strong>.'
+                        feedback_class = 'incorrect-feedback'
+                        break
+                
+                if is_correct:
+                    session['score'] = session.get('score', 0) + 1
+                    feedback = 'Correct! Good job.'
+                    feedback_class = 'correct-feedback'
+
+            # Multiple choice question
             else:
-                feedback = f'Incorrect! The correct answer is <strong>{correct_answer}</strong>.'
-                feedback_class = 'incorrect-feedback'
+                user_answer = request.form.get('option')
+                submitted_answers['option'] = user_answer
+                correct_answer = question['answer']
+                if user_answer == correct_answer:
+                    session['score'] = session.get('score', 0) + 1
+                    feedback = 'Correct! Good job.'
+                    feedback_class = 'correct-feedback'
+                else:
+                    feedback = f'Incorrect! The correct answer is <strong>{correct_answer}</strong>.'
+                    feedback_class = 'incorrect-feedback'
+
+            # Add the quiz_id to the submitted questions list
+            session['submitted_questions'].append(quiz_id)
 
         question['submitted'] = True
         question['submitted_answers'] = submitted_answers
