@@ -528,7 +528,7 @@ quiz_questions = {
         "question": "Which area of the brain is highlighted here?  What is its function?",
         "options" : ['Occipital lobe - hearing', 'Temporal lobe - sound', 'Occipital lobe - vision', 'Frontal lobe - reasoning'],
         "answer" : "Temporal lobe - sound",
-        "next_question": "end",
+        "next_question": "9",
          "previous_question" : "7",
          "title" : "<span class='first-letter'>Q</span> <span class='text-lg'>" +  "u i z </span>&nbsp;&nbsp;-&nbsp;&nbsp; <span class='first-letter'>Q</span> <span class='text-lg'>" +
               "u e s t i o n &nbsp;&nbsp;N o .&nbsp;8</span>" +
@@ -536,6 +536,17 @@ quiz_questions = {
           "<span class='sub-heading'></span></div></div>"
          
     },
+    "9": {
+        "quiz_id": "9",
+        "image": "",
+        "question": "Fill in the blank: The ___________ is responsible for memory formation.",
+        "blanks": ["Hippocampus"],
+        "correct_answers": ["Hippocampus"],
+        "next_question": "end",
+        "previous_question": "8",
+        "title": "<span class='first-letter'>Q</span> <span class='text-lg'>u i z </span>&nbsp;&nbsp;-&nbsp;&nbsp; " +
+                 "<span class='first-letter'>Q</span> <span class='text-lg'>u e s t i o n &nbsp;&nbsp;N o .&nbsp;9</span>"
+    }
     
 }
     
@@ -615,11 +626,12 @@ def quiz_models():
 def quiz(quiz_id):
     question = quiz_questions.get(quiz_id)
 
-    if request.method == 'POST':
-        feedback = ""
-        feedback_class = ""
-        submitted_answers = {}
+    feedback = ""
+    feedback_class = ""
+    submitted_answers = {}
 
+    if request.method == 'POST':
+        # Matching question
         if quiz_id == "1":
             correct_matches = question["correct_matches"]
             score = 0
@@ -636,6 +648,27 @@ def quiz(quiz_id):
                 matches_str = '<br>'.join([f'<strong>{nt}</strong>: {desc}' for nt, desc in correct_matches.items()])
                 flash(f'Incorrect! The correct matches are:<br>{matches_str}', 'incorrect-feedback')
 
+        # Fill in the blank question
+        elif quiz_id == "9":
+            is_correct = True
+            for idx, blank in enumerate(question["blanks"]):
+                user_answer = request.form.get(f'blank_{idx}').strip().lower()
+                correct_answer = question["correct_answers"][idx].lower()
+                submitted_answers[f'blank_{idx}'] = user_answer
+                if user_answer == correct_answer:
+                    continue
+                else:
+                    is_correct = False
+                    feedback = f'Incorrect! The correct answer is <strong>{question["correct_answers"][idx]}</strong>.'
+                    feedback_class = 'incorrect-feedback'
+                    break
+            
+            if is_correct:
+                session['score'] = session.get('score', 0) + 1
+                feedback = 'Correct! Good job.'
+                feedback_class = 'correct-feedback'
+
+        # Multiple choice question
         else:
             user_answer = request.form.get('option')
             submitted_answers['option'] = user_answer
@@ -676,7 +709,7 @@ def results():
 @app.route('/answers')
 def answers():
     score = session.get('score', 0)
-    total = 8
+    total = 9
     return render_template('answers.html',questions=quiz_questions)
 
 
