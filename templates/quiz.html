@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-12">
             <div class="progress-bar-container">
-                {% for i in range(1, 10) %}
+                {% for i in range(1, 11) %}
                 <div class="progress-bar-item{% if i == question.quiz_id|int %} active{% endif %}"></div>
                 {% endfor %}
             </div>
@@ -56,13 +56,13 @@
                     </div>
                     </div>
                         {% endif %}
-                        {% if question.quiz_id == "1" %}
+                        {% if question.quiz_id == "1" or question.quiz_id == "10" %}
                         <!-- Matching question -->
                         <div class="row p-4 m-4 box-right light-gray">
-                            {% for neurotransmitter in question.options %}
+                            {% for option in question.options %}
                             <div class="col-12 mb-2">
-                                <label>{{ neurotransmitter }}</label>
-                                <select name="{{ neurotransmitter }}" class="form-select" {% if question.submitted %}disabled{% endif %}>
+                                <label>{{ option }}</label>
+                                <select name="{{ option }}" class="form-select" {% if question.submitted %}disabled{% endif %}>
                                     <option value="">Select</option>
                                     {% for description in question.descriptions %}
                                     <option value="{{ description }}" {% if question.submitted and question.submitted_answers.get(neurotransmitter) == description %}selected{% endif %}>{{ description }}</option>

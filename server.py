@@ -421,10 +421,10 @@ quiz_questions = {
         "question": "Match the neurotransmitters with their functions:",
         "options": ["Serotonin", "Norepinephrine", "GABA", "Dopamine"],
         "descriptions": [
-            "Regulates mood, sleep, and digestion",
             "Increases alertness and arousal",
             "Reduces stress and anxiety",
-            "Associated with pleasure and motivation"
+            "Associated with pleasure and motivation",
+            "Regulates mood, sleep, and digestion",
         ],
         "correct_matches": {
             "Serotonin": "Regulates mood, sleep, and digestion",
@@ -542,11 +542,31 @@ quiz_questions = {
         "question": "Fill in the blank: The ___________ is responsible for memory formation.",
         "blanks": ["Hippocampus"],
         "correct_answers": ["Hippocampus"],
-        "next_question": "end",
+        "next_question": "10",
         "previous_question": "8",
         "title": "<span class='first-letter'>Q</span> <span class='text-lg'>u i z </span>&nbsp;&nbsp;-&nbsp;&nbsp; " +
                  "<span class='first-letter'>Q</span> <span class='text-lg'>u e s t i o n &nbsp;&nbsp;N o .&nbsp;9</span>"
-    }
+    }, 
+    "10": {
+    "quiz_id": "10",
+    "question": "Match each lobe of the brain with its associated sense:",
+    "options": ["Parietal", "Occipital", "Temporal"],
+    "descriptions": [
+        "Vision",
+        "Touch",
+        "Hearing"
+    ],
+    "correct_matches": {
+        "Parietal": "Touch",
+        "Occipital": "Vision",
+        "Temporal": "Hearing"
+    },
+    "next_question": "end",
+    "previous_question": "9",
+    "title": "<span class='first-letter'>Q</span> <span class='text-lg'>u i z </span>&nbsp;&nbsp;-&nbsp;&nbsp; " +
+             "<span class='first-letter'>Q</span> <span class='text-lg'>u e s t i o n &nbsp;&nbsp;N o .&nbsp;10</span>"
+}
+
     
 }
     
@@ -637,13 +657,13 @@ def quiz(quiz_id):
     if request.method == 'POST':
         # Check if the question has already been submitted
         if quiz_id not in session['submitted_questions']:
-            # Matching question
-            if quiz_id == "1":
+            # Matching questions
+            if quiz_id == "1" or quiz_id =="10":
                 correct_matches = question["correct_matches"]
                 score = 0
-                for neurotransmitter, description in correct_matches.items():
-                    user_answer = request.form.get(neurotransmitter)
-                    submitted_answers[neurotransmitter] = user_answer
+                for option, description in correct_matches.items():
+                    user_answer = request.form.get(option)
+                    submitted_answers[option] = user_answer
                     if user_answer == description:
                         score += 1
 

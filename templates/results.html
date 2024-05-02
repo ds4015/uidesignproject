@@ -6,20 +6,20 @@
     <div class="row source-code justify-content-center white-text">
         <!-- box to hold the score -->
         <div class="col-6 text-center box-bg score">
-            <p>{{ score }} / 9</p>
+            <p>{{ score }} / 10</p>
         </div>
     </div>
 
     <div class="row source-code justify-content-center white-text mt-2">
         <div class="col-6 text-center">
-            {% if score == 9 %}
+            {% if score == 10 %}
+                <p class="feedback">Excellent Work!</p>
+            {% elif score == 9 %}
                 <p class="feedback">Great work!</p>
             {% elif score == 8 %}
-                <p class="feedback">Good work!</p>
-            {% elif score == 7 %}
                 <p class="feedback">Pretty Good!</p>
-            {% elif score == 6 %}
-                <p class="feedback">Not bad!</p>
+            {% elif score == 7 or score == 6 %}
+                <p class="feedback">Not Bad!</p>
             {% elif score == 5 or score == 4 %}
                 <p class="feedback">Needs work!</p>
             {% elif score == 3 %}
