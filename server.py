@@ -37,7 +37,7 @@ learn_data = [
         "right_image":"cell.png",
         "model": "/static/models/neuron/scene.gltf",
         "model_bg": "0xDDFFF7",
-        "puzzle" : ["IBDLUGIN","KBCOL"],
+        "puzzle" : None,
         "solution": ["BUILDING", "BLOCK"],
         "concept_title" : "Neuron",
         "mnemonic":["<span class='first-letter-btn'>N</span>euron - ","<span class='first-letter-btn'>N</span>erve"],
@@ -341,6 +341,75 @@ learn_data = [
 ]
 
 
+learn_puzzles = [
+    {
+        "id": 1,
+        "html": """ 
+            <script>
+      var puzzleList = "No puzzle";</script>
+    <div class="col-12 col-md-6 col-lg-3 p-4">
+      <div class="row box-right">
+    <div class="puz-container p-4" id="puz-container">
+      <div class="image-container">
+        <img src="/static/neuron_small.png" alt="Neuron" id="puz1">
+        <div class="blank-field-body newsreader-400 p-2 white-text text-center" data-correct="Cell Body"></div>
+        <div class="blank-field-axon newsreader-400 p-2 white-text text-center" data-correct="Axon"></div>
+        <div class="blank-field-dendr newsreader-400 p-2 white-text text-center" data-correct="Dendrites"></div>
+
+        <!-- Add more blank fields as needed -->
+      </div>       
+      <div class="boxes-container">
+        <div class="box" id="axon-box"></div>
+        <div class="box" id="dendr-box"></div>
+        <div class="box" id="body-box"></div>
+      </div>     
+      <div class="words-container">
+        <div class="word-box draggable newsreader-400">Axon</div>
+        <div class="word-box draggable newsreader-400">Dendrites</div>
+        <div class="word-box draggable newsreader-400">Cell Body</div>
+        <!-- Add more draggable words as needed -->
+      </div>
+    </div>
+    </div>"""
+    },
+    { "id": 2,
+        "html": """ 
+            <script>
+      var puzzleList = "No puzzle";</script>
+    <div class="col-12 col-md-6 col-lg-3 p-4">
+      <div class="row box-right">
+    <div class="puz-container p-4" id="puz-container">
+      <div class="image-container">
+        <img src="/static/synapse_small.png" alt="Synapse" id="puz1">'
+        <div class="blank-field-body newsreader-400 p-2 white-text text-center" data-correct="Neurotransmiters"></div>
+        <div class="blank-field-axon newsreader-400 p-2 white-text text-center" data-correct="Synapse"></div>
+        <div class="blank-field-dendr newsreader-400 p-2 white-text text-center" data-correct="Receptors"></div>
+        <div class="blank-field-vesicle newsreader-400 p-2 white-text text-center" data-correct="Vesicle"></div>
+
+        <!-- Add more blank fields as needed -->
+      </div>  
+      <div class="boxes-container">
+        <div class="box" id="nt-box"></div>
+        <div class="box" id="syn-box"></div>
+        <div class="box" id="recept-box"></div>
+        <div class="box" id="vesicle-box"></div>
+      </div>     
+      <div class="words-container">
+        <div class="word-box draggable newsreader-400">Neurotransmitters</div>
+        <div class="word-box draggable newsreader-400">Synapse</div>
+        <div class="word-box draggable newsreader-400">Receptors</div>
+        <div class="word-box draggable newsreader-400">Vesicles</div>        
+        <!-- Add more draggable words as needed -->
+      </div>
+      <div>What purpose does neurotransmission serve?</div>
+    </div>
+    </div>"""
+    },
+    
+
+]
+
+
 
 ###################   TBC - Larry  ##################
 
@@ -499,14 +568,18 @@ def learn(lesson_id):
     end_time = datetime.datetime.now()
     access_time = end_time.strftime("%B %d, %Y at %I:%M %p")
     data = next((item for item in learn_data if item['id'] == lesson_id), None)
+    puzzle_data = next((item for item in learn_puzzles if item['id'] == lesson_id), None)
     duration = end_time - start_time
     duration = round(duration.seconds/60)
     durPrint = 'It is currently ' + access_time + '.  You have been learning' + ' for <b>' + str(duration) + '</b> minutes.'
     model = data['model']    
     title = data['title'] 
+    if (puzzle_data):
+        puzzle_data = puzzle_data['html'].replace("\n", "")    
+        print(puzzle_data)
     if (lesson_id == len(learn_data)):
         next_text = "Quiz Me"
-    return render_template('learn.html', lesson=data, duration=durPrint, title=title, model=model) 
+    return render_template('learn.html', lesson=data, duration=durPrint, title=title, model=model, puzzle=puzzle_data) 
 
 @app.route('/learn/f')
 def learn_done():

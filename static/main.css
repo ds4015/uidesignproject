@@ -329,6 +329,101 @@ input.incorrect {
   background: white;
 } 
 
+/* Drag-drop puzzle */
+.puz-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-container {
+  position: relative;
+  display: inline-block;
+}
+
+.image-container:hover img {
+  transform: none; 
+}
+
+img {
+  max-width: 60%; 
+  height: auto; 
+}
+
+.blank-field-body {
+  position: absolute;
+  top: 0px; /* Adjust position as needed */
+  left: 130px; /* Adjust position as needed */
+  width: 100px; /* Adjust width as needed */
+  height: 40px; /* Adjust height as needed */
+  border: 2px dashed black;
+  z-index: 1;   
+}
+
+.blank-field-axon {
+  position: absolute;
+  top: 75px; /* Adjust position as needed */
+  left: 170px; /* Adjust position as needed */
+  width: 100px; /* Adjust width as needed */
+  height: 40px; /* Adjust height as needed */
+  border: 2px dashed black;
+  z-index: 1;   
+}
+
+.blank-field-dendr {
+  position: absolute;
+  top: 100px; /* Adjust position as needed */
+  left: 0px; /* Adjust position as needed */
+  width: 100px; /* Adjust width as needed */
+  height: 40px; /* Adjust height as needed */
+  border: 2px dashed black;
+  z-index: 1;   
+}
+
+.arrow {
+  position: absolute;
+  border: 1px solid black; /* Change color and style as needed */
+  z-index: 0; /* Ensure arrows are behind blank fields */
+}
+
+#arrow-1 {
+  top: 10px; /* Adjust top position */
+  left: 90px; /* Adjust left position */
+  width: 70px; /* Adjust line length */
+  height: 1px; /* Adjust line thickness */
+  transform-origin: 0, 0;
+  transform: rotate(-25deg); /* Adjust rotation angle */
+}
+#arrow-2 {
+  top: 100px; /* Adjust top position */
+  left: 80px; /* Adjust left position */
+  width: 20px; /* Adjust line length */
+  height: 1px; /* Adjust line thickness */
+  transform-origin: 0 0;
+  transform: rotate(90deg); /* Adjust rotation angle */
+}
+
+
+.word-container {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.word-box {
+  border: 1.5px solid black;
+  display: inline-block;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.word {
+  cursor: pointer;
+}
+
+
+
+
 /* old implementation */
 /* .box-bg {
   background-color: #33658A;
@@ -386,6 +481,11 @@ input.incorrect {
 }
 .text-semi-light {
     color: #d6d6d6;
+}
+
+.draggable {
+  cursor: pointer;
+  font-family: ;
 }
 
 .concept-box {
