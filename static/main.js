@@ -394,66 +394,76 @@ displayWordsAndBlanks();
 // --------------- DRAG/DROP ---------------- \\
 
 $(document).ready(function() {
-
+    var correctPlacements = 0;
+    var totalBlanks = $(".blank").length;
         $(".draggable").draggable({
             revert: "invalid",
-            stop: function(event, ui) {
-                var allCorrect = true;
-                if ($(".blank-field-axon").text() !== "Axon") {
-                    allCorrect = false;
-                }
-                if ($(".blank-field-body").text() !== "Cell Body") {
-                    allCorrect = false;
-                }
-                if ($(".blank-field-dendr").text() !== "Dendrites") {
-                    allCorrect = false;
-                }
-        
-                if (allCorrect) {
-                    // All boxes are correct, show message
-                    var puzzleDiv = document.getElementById('puz-container');
-                    var statusRowDiv = document.createElement('div');
-                    var statusColDiv = document.createElement('div');
-                    statusRowDiv.classList.add("row");
-                    statusRowDiv.classList.add("justify-content-center");
-                    statusColDiv.classList.add("col-12");
-                    statusColDiv.classList.add("box-left");
-                    statusColDiv.classList.add("text-center");
-                    statusColDiv.classList.add("mb-3");
-                    statusColDiv.classList.add("mt-4");                    
-                    statusColDiv.classList.add("p-2");                        
-                    statusColDiv.classList.add("viaoda-libre-regular")
-                    statusColDiv.textContent = "Great Job!";
-                    statusRowDiv.appendChild(statusColDiv);
-                    puzzleDiv.appendChild(statusRowDiv);                    
-
-                }
-            }
+            containment: ".right-box",
         });
     
-        $(".blank-field-body, .blank-field-axon, .blank-field-dendr").droppable({
+        $(".blank").droppable({
             accept: ".draggable",
             drop: function(event, ui) {
-                var $blankBox = $(this);
+                var $droppable = $(this);
                 var $draggedWord = ui.draggable;
-                
+                var correctAnswer = $droppable.data("correct");            
     
-                if ($blankBox.data("correct") === $draggedWord.text()) {
+                if (correctAnswer === $draggedWord.text()) {
                     // Correct drop
-                    $blankBox.text($draggedWord.text());
-                    $blankBox.css("background-color", "green");
+                    $droppable.text($draggedWord.text());
+                    $droppable.css("background-color", "green");
                     $draggedWord.hide();
+                    correctPlacements++;
+
+                    console.log(correctPlacements);
+
+                    if (correctPlacements === totalBlanks) {
+                        // All boxes are correct, show message
+                        var puzzleDiv = document.getElementById('puz-container');
+                        var statusRowDiv = document.createElement('div');
+                        var statusColDiv = document.createElement('div');
+                        statusRowDiv.classList.add("row");
+                        statusRowDiv.classList.add("justify-content-center");
+                        statusColDiv.classList.add("col-7");
+                        statusColDiv.classList.add("box-left");
+                        statusColDiv.classList.add("text-center");
+                        statusColDiv.classList.add("mb-1");
+                        statusColDiv.classList.add("mt-0");                    
+                        statusColDiv.classList.add("p-2");                        
+                        statusColDiv.classList.add("viaoda-libre-regular")
+                        statusColDiv.textContent = "Great Job!";
+                        statusRowDiv.appendChild(statusColDiv);
+                        puzzleDiv.appendChild(statusRowDiv);                    
+    
+                    }
                 } else {
                     // Incorrect drop
-                    $blankBox.text("Wrong!");
-                    $blankBox.css("background-color", "#FF7377");                    
+                    $droppable.text("Wrong!");
+                    $droppable.css("background-color", "#FF7377");                    
                     $draggedWord.draggable("option", "revert", true);
                     setTimeout(function() {
-                        $blankBox.text("");
-                        $blankBox.css("background-color", "");   
+                        $droppable.text("");
+                        $droppable.css("background-color", "");   
                     }, 2000);
                 }
             }
         });
 
+
+        $("#check-answer").on("click", function() {
+            var userAnswer = $("#answer").val().trim().toLowerCase();
+            var correctWords = ["information", "signal", "transmit", "transmission", "transmitting", "process", "processing", "communicate", "communication", "neurons"];
+    
+            var isCorrect = correctWords.some(function(correctWord) {
+                return userAnswer.includes(correctWord.toLowerCase());
+            });
+    
+            if (isCorrect) {
+                $("#result").text("Correct!");
+            } else {
+                $("#result").text("Try again!");
+            }
+        });
 });
+
+

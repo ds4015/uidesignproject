@@ -1,7 +1,7 @@
 # Dallas Scott - ds4015
 # Larry Chen - Lc3718
 # UI Design - Spring 2024
-# HW 11 Main
+# HW 12 Main
 
 from flask import Flask
 from flask import render_template
@@ -86,8 +86,9 @@ learn_data = [
         "right_image":"gaba.png",
         "model": "/static/models/gaba/scene.gltf",
         "model_bg": "0xDDFFF7",        
-        "puzzle" : ["MGMMA","OBCONYMIIART","DCIA"],
-        "solution": ["GAMMA", "AMINOBUTYRIC", "ACID"],
+        "puzzle" : ["LVSEREIE","NTXAYIE"],
+        "solution": ["RELIEVES", "ANXIETY"],
+        "hint": "What does GABA do?",
         "concept_title" : "GABA",
         "nt_effect": "Stress and anxiety",
         "nt_dir": "Down",
@@ -111,8 +112,9 @@ learn_data = [
         "right_image":"serotonin.png",
         "model": "/static/models/serotonin2/scene.gltf",
         "model_bg": "0xDDFFF7",
-        "puzzle" : ["NROOEINST","OSNTLOCR","ISHPAENPS"],
-        "solution": ["SEROTONIN", "CONTROLS", "HAPPINESS"],
+        "puzzle" : ["MVSIPROE","ODOM"],
+        "solution": ["IMPROVES", "MOOD"],
+        "hint": "What does serotonin do?",
         "concept_title" : "Serotonin",
         "nt_effect": "Depression",
         "nt_dir": "Down",
@@ -136,8 +138,9 @@ learn_data = [
         "right_image":"dopamine.png",
         "model": "/static/models/dopamine/scene.gltf",
         "model_bg": "0xDDFFF7",
-        "puzzle" : ["UIGBNSRT","HWTI", "YREENG"],
-        "solution": ["BURSTING", "WITH", "ENERGY"],
+        "puzzle" : ["SNCIERAES","NOTEATNIT",],
+        "solution": ["INCREASES", "ATTENTION"],
+        "hint": "What does dopamine do?",
         "concept_title" : "Dopamine",
         "nt_effect": "Motivation",
         "nt_dir": "Up",
@@ -350,11 +353,11 @@ learn_puzzles = [
     <div class="col-12 col-md-6 col-lg-3 p-4">
       <div class="row box-right">
     <div class="puz-container p-4" id="puz-container">
-      <div class="image-container">
-        <img src="/static/neuron_small.png" alt="Neuron" id="puz1">
-        <div class="blank-field-body newsreader-400 p-2 white-text text-center" data-correct="Cell Body"></div>
-        <div class="blank-field-axon newsreader-400 p-2 white-text text-center" data-correct="Axon"></div>
-        <div class="blank-field-dendr newsreader-400 p-2 white-text text-center" data-correct="Dendrites"></div>
+      <div class="image-container d-flex justify-content-center align-items-center">
+        <img src="/static/neuron_small.png" class="mb-3" alt="Neuron" id="puz1">
+        <div class="blank blank-field-body newsreader-400 p-2 white-text text-center" data-correct="Cell Body"></div>
+        <div class="blank blank-field-axon newsreader-400 p-2 white-text text-center" data-correct="Axon"></div>
+        <div class="blank blank-field-dendr newsreader-400 p-2 white-text text-center" data-correct="Dendrites"></div>
 
         <!-- Add more blank fields as needed -->
       </div>       
@@ -364,9 +367,9 @@ learn_puzzles = [
         <div class="box" id="body-box"></div>
       </div>     
       <div class="words-container">
-        <div class="word-box draggable newsreader-400">Axon</div>
-        <div class="word-box draggable newsreader-400">Dendrites</div>
-        <div class="word-box draggable newsreader-400">Cell Body</div>
+        <div class="word-box draggable text-center newsreader-400 text-sm">Axon</div>
+        <div class="word-box draggable text-center newsreader-400 text-sm">Dendrites</div>
+        <div class="word-box draggable text-center newsreader-400 text-sm">Cell Body</div>
         <!-- Add more draggable words as needed -->
       </div>
     </div>
@@ -377,14 +380,14 @@ learn_puzzles = [
             <script>
       var puzzleList = "No puzzle";</script>
     <div class="col-12 col-md-6 col-lg-3 p-4">
-      <div class="row box-right">
+      <div class="row box-right" id="right-box">
     <div class="puz-container p-4" id="puz-container">
       <div class="image-container">
-        <img src="/static/synapse_small.png" alt="Synapse" id="puz1">'
-        <div class="blank-field-body newsreader-400 p-2 white-text text-center" data-correct="Neurotransmiters"></div>
-        <div class="blank-field-axon newsreader-400 p-2 white-text text-center" data-correct="Synapse"></div>
-        <div class="blank-field-dendr newsreader-400 p-2 white-text text-center" data-correct="Receptors"></div>
-        <div class="blank-field-vesicle newsreader-400 p-2 white-text text-center" data-correct="Vesicle"></div>
+        <img src="/static/synapse_small.png" alt="Synapse" id="puz1">
+        <div class="blank blank-field-synapse newsreader-400 p-2 white-text text-center" data-correct="Synapse"></div>
+        <div class="blank blank-field-receptor newsreader-400 p-2 white-text text-center" data-correct="Receptors"></div>
+        <div class="blank blank-field-nt newsreader-400 p-2 white-text text-center" data-correct="Transmitters"></div>
+        <div class="blank blank-field-vesicle newsreader-400 p-2 white-text text-center" data-correct="Vesicles"></div>
 
         <!-- Add more blank fields as needed -->
       </div>  
@@ -395,20 +398,31 @@ learn_puzzles = [
         <div class="box" id="vesicle-box"></div>
       </div>     
       <div class="words-container">
-        <div class="word-box draggable newsreader-400">Neurotransmitters</div>
-        <div class="word-box draggable newsreader-400">Synapse</div>
-        <div class="word-box draggable newsreader-400">Receptors</div>
-        <div class="word-box draggable newsreader-400">Vesicles</div>        
+        <div class="word-box draggable text-center newsreader-400">Transmitters</div>
+        <div class="word-box draggable text-center newsreader-400">Synapse</div>
+        <div class="word-box draggable text-center newsreader-400">Receptors</div>
+        <div class="word-box draggable text-center newsreader-400">Vesicles</div>        
         <!-- Add more draggable words as needed -->
       </div>
-      <div>What purpose does neurotransmission serve?</div>
+      <div class="newsreader-400 text-center mt-3">What purpose does neurotransmission serve?</div>
+      <input class="newsreader-400" type="text" id="answer" placeholder="Enter your answer">
+      <div class="row">
+      <div class="col-4">
+            <button class="btn btn-primary custom-btn-sm text-sm mt-3 newsreader-400" id="check-answer">Check</button>
+      </div>
+      <div class="col-6 mt-3 mb-0 text-right">
+      <span class="newsreader-400" id="result"></span>      
+        </div>
+    </div>
+      
+
+
     </div>
     </div>"""
     },
     
 
 ]
-
 
 
 ###################   TBC - Larry  ##################
