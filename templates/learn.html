@@ -8,40 +8,44 @@
 {% if lesson.id >= 6 and lesson.id <=9 %} <div class="row pt-1 pb-1 custom-muted-bg">
   <div class="col-3 col-md-3 col-lg-3 text-center">
     <a href="/learn/6">
-    <div class="image-container-bar">
-    <img src="/static/eye.png" class="img-fluid custom-col m-0" alt="Vision">
-    <div class="overlay">
-      <div class="overlay-text">Vision</div>
-    </div>
-    </div></a>
+      <div class="image-container-bar">
+        <img src="/static/eye.png" class="img-fluid custom-col m-0" alt="Vision">
+        <div class="overlay">
+          <div class="overlay-text">Vision</div>
+        </div>
+      </div>
+    </a>
   </div>
   <div class="col-3 col-md-3 col-lg-3 text-center">
     <a href="/learn/8">
-    <div class="image-container-bar">
-    <img src="/static/ear.png" class="img-fluid custom-col" alt="Hearing">
-    <div class="overlay">
-      <div class="overlay-text">Sound</div>
-    </div></a>
+      <div class="image-container-bar">
+        <img src="/static/ear.png" class="img-fluid custom-col" alt="Hearing">
+        <div class="overlay">
+          <div class="overlay-text">Sound</div>
+        </div>
+    </a>
   </div>
   </div>
   <div class="col-3 col-md-3 col-lg-3 text-center">
     <a href="/learn/7">
-    <div class="image-container-bar">
-    <img src="/static/finger.png" class="img-fluid darker-image custom-col" alt="Touch">
-    <div class="overlay">
-      <div class="overlay-text">Touch</div>
-    </div>
-  </div></a>
-  </div>  
+      <div class="image-container-bar">
+        <img src="/static/finger.png" class="img-fluid darker-image custom-col" alt="Touch">
+        <div class="overlay">
+          <div class="overlay-text">Touch</div>
+        </div>
+      </div>
+    </a>
+  </div>
   <div class="col-3 col-md-3 col-lg-3 text-center">
     <a href="/learn/9">
-    <div class="image-container-bar">
-    <img src="/static/thinker.png" class="img-fluid lighter-image custom-col" alt="Intelligence">
-    <div class="overlay">
-      <div class="overlay-text">Int</div>
-    </div>
+      <div class="image-container-bar">
+        <img src="/static/thinker.png" class="img-fluid lighter-image custom-col" alt="Intelligence">
+        <div class="overlay">
+          <div class="overlay-text">Int</div>
+        </div>
 
-  </div></a>
+      </div>
+    </a>
   </div>
   </div>
   {%endif%}
@@ -106,17 +110,17 @@
       <div class="row">
         <div class="col model-height mb-5" id="model" data-path='{{ model }}'>
         </div>
-      <div class="row tool-box justify-content-center">
-        <div class="col-3 tool-box">
-          <img class="tool-box" src="/static/leftclick.png">Rotate
+        <div class="row tool-box justify-content-center">
+          <div class="col-3 tool-box">
+            <img class="tool-box" src="/static/leftclick.png">Rotate
+          </div>
+          <div class="col-3 tool-box">
+            <img class="tool-box" src="/static/rightclick.png">Pan
+          </div>
+          <div class="col-3 tool-box">
+            <img class="tool-box" src="/static/magnify.png">Zoom
+          </div>
         </div>
-        <div class="col-3 tool-box">
-          <img class="tool-box" src="/static/rightclick.png">Pan
-        </div>        
-        <div class="col-3 tool-box">
-          <img class="tool-box" src="/static/magnify.png">Zoom
-        </div>        
-      </div>        
       </div>
     </div>
     {% elif lesson.video %}
@@ -131,58 +135,73 @@
     </div>
     {% endif %}
 
-    {% if puzzle %}
+    {% if lesson.puzzle == "Cup" %}
     <script>var puzzleList = "No puzzle";</script>
-    {{ puzzle | safe }}
-
-    {% else %}
-
-    {% if lesson.puzzle %}
-    <div class="col-12 col-md-6 col-lg-3 p-4">
-
+    <div class="col-12 col-md-6 col-lg-5 p-4">
       <div class="row box-right">
-        {% if lesson.hint %}
-        <div class="pt-2 quintessential-regular text-center text-md"><b>Hint</b>:  {{ lesson.hint }}</div>
-        {% endif %}
-        <div class="col-12 cinzel-400 text-md pt-3" id="puzzle">
+        <div class="col-12">
+          tysjlsfd
+          <div class="cups-container">
+            <span class="cup" id="cup1" data-index="0"></span>
+            <span class="cup" id="cup2" data-index="1"></span>
+            <span class="cup" id="cup3" data-index="2"></span>
+          </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-12 text-center viaoda-libre-regular text-md p-2" id="status"></div>
-      </div>
-      {% endif %}
 
       {%endif%}
+      {% if lesson.puzzle == "Match" %}
+      <script>var puzzleList = "No puzzle";</script>
+      {{ puzzle | safe }}
 
-      {% if lesson.mnemonic %}
-      <div class="row justify-content-center">
-        <div class="col-10 concept-box mt-4 pt-2 pl-3 concept-text">
-          <div clas="row">
-            <div class="col-12 quintessential-regular text-sm">Mnemonic</div>
-          </div>
-          <div class="row">
-            <div class="col-12 text-center cinzel-400 p-2 text-sm">
-              {% for m in lesson.mnemonic %}
-              {{m | safe}}
-              {%endfor%}
-            </div>
-          </div>
+      {% else %}
 
+      {% if lesson.puzzle != "Cup" and lesson.puzzle != "Match" %}
+      <div class="col-12 col-md-6 col-lg-3 p-4">
+
+        <div class="row box-right">
+          {% if lesson.hint %}
+          <div class="pt-2 quintessential-regular text-center text-md"><b>Hint</b>: {{ lesson.hint }}</div>
+          {% endif %}
+          <div class="col-12 cinzel-400 text-md pt-3" id="puzzle">
+          </div>
         </div>
+        <div class="row">
+          <div class="col-12 text-center viaoda-libre-regular text-md p-2" id="status"></div>
+        </div>
+        {% endif %}
+
         {%endif%}
 
+        {% if lesson.mnemonic %}
+        <div class="row justify-content-center">
+          <div class="col-10 concept-box mt-4 pt-2 pl-3 concept-text">
+            <div clas="row">
+              <div class="col-12 quintessential-regular text-sm">Mnemonic</div>
+            </div>
+            <div class="row">
+              <div class="col-12 text-center cinzel-400 p-2 text-sm">
+                {% for m in lesson.mnemonic %}
+                {{m | safe}}
+                {%endfor%}
+              </div>
+            </div>
 
+          </div>
+          {%endif%}
+
+
+        </div>
+      </div>
+
+
+    </div>
+    <div class="row p-3 pt-5 justify-content-center">
+      <div class="col-12 viaoda-libre-regular text-center text-md text-muted">
+        {{ duration | safe }}
       </div>
     </div>
 
 
-  </div>
-  <div class="row p-3 pt-5 justify-content-center">
-    <div class="col-12 viaoda-libre-regular text-center text-md text-muted">
-      {{ duration | safe }}
-    </div>
-  </div>
 
-
-
-  {% endblock %}
+    {% endblock %}

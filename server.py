@@ -37,7 +37,7 @@ learn_data = [
         "right_image":"cell.png",
         "model": "/static/models/neuron/scene.gltf",
         "model_bg": "0xDDFFF7",
-        "puzzle" : None,
+        "puzzle" : "Match",
         "solution": ["BUILDING", "BLOCK"],
         "concept_title" : "Neuron",
         "mnemonic":["<span class='first-letter-btn'>N</span>euron - ","<span class='first-letter-btn'>N</span>erve"],
@@ -63,7 +63,7 @@ learn_data = [
         "right_image": None,
         "model": "/static/models/synapse/scene.gltf",
         "model_bg": "0xDDFFF7",
-        "puzzle" : ["ETFGRRIEFTEH","TGIERWREOHTE"],
+        "puzzle" : "Match",
         "solution": ["FIRETOGETHER", "WIRETOGETHER"],
         "concept_title" : "Transmission",
         "mnemonic":["<span class='first-letter-btn'>T</span>ransmission - ","<span class='first-letter-btn'>T</span>hinking"],
@@ -166,8 +166,9 @@ learn_data = [
         "right_image": None,
         "model": "/static/models/occipital_bone/scene.gltf",
         "model_bg": "0xDDFFF7",
-        "puzzle" : ["UIGBNSRT","HWTI", "YREENG"],
-        "solution": ["BURSTING", "WITH", "ENERGY"],
+        "puzzle" : ["POCLICAIT", "NI", "KBCA"],
+        "solution": ["OCCIPITAL", "IN", "BACK"],
+        "hint" : "Eyes in front, _____",
         "concept_title" : "Occipital Lobe",
         "nt_effect": None,
         "nt_dir": None,
@@ -193,8 +194,9 @@ learn_data = [
         "right_image": None,
         "model": "/static/models/parietal_bone/scene.gltf",
         "model_bg": "0xDDFFF7",
-        "puzzle" : ["UIGBNSRT","HWTI", "YREENG"],
-        "solution": ["BURSTING", "WITH", "ENERGY"],
+        "puzzle" : ["RMWA", "FTOS", "NSIK"],
+        "solution": ["WARM", "SOFT", "SKIN"],
+        "hint" : "The parietal lobe lets you feel it.",
         "concept_title" : "Parietal Lobe",
         "nt_effect": None,
         "nt_dir": None,
@@ -221,8 +223,9 @@ learn_data = [
         "right_image": None,
         "model": "/static/models/temporal_bone/scene.gltf",
         "model_bg": "0xDDFFF7",
-        "puzzle" : ["UIGBNSRT","HWTI", "YREENG"],
-        "solution": ["BURSTING", "WITH", "ENERGY"],
+         "puzzle" : ["DHBINE", "MSPTLEE"],
+        "solution": ["BEHIND", "TEMPLES"],
+        "hint" : "Where is the temporal lobe located?",
         "concept_title" : "Temporal Lobe",
         "nt_effect": None,
         "nt_dir": None,
@@ -249,8 +252,9 @@ learn_data = [
         "right_image": None,
         "model": "/static/models/frontal_bone/scene.gltf",
         "model_bg": "0xDDFFF7",
-        "puzzle" : ["UIGBNSRT","HWTI", "YREENG"],
-        "solution": ["BURSTING", "WITH", "ENERGY"],
+        "puzzle" : ["DIFEAL","OLHCOS"],
+        "solution": ["FAILED", "SCHOOL",],
+        "hint": "I fell on my face and then I...",
         "concept_title" : "Frontal Lobe",
         "nt_effect": None,
         "nt_dir": None,
@@ -275,8 +279,9 @@ learn_data = [
         "right_image": None,
         "model": "/static/models/amygdala/scene.gltf",
         "model_bg": "0xDDFFF7",
-        "puzzle" : ["UIGBNSRT","HWTI", "YREENG"],
-        "solution": ["BURSTING", "WITH", "ENERGY"],
+        "puzzle" : ["NRIEN", "NBIRA", "RFEA"],
+        "solution": ["INNER", "BRAIN", "FEAR"],
+        "hint": "The oldest human feeling.",
         "concept_title" : "Amygdala",
         "nt_effect": None,
         "nt_dir": None,
@@ -303,8 +308,9 @@ learn_data = [
         "right_image": None,
         "model": "/static/models/hypothalamus/scene.gltf",
         "model_bg": "0xDDFFF7",
-        "puzzle" : ["UIGBNSRT","HWTI", "YREENG"],
-        "solution": ["BURSTING", "WITH", "ENERGY"],
+        "puzzle" : ["LTHYAOPHUSMA","RFGNII"],
+        "solution": ["HYPOTHALAMUS", "FIRING"],
+        "hint": "She said she loved me, but I knew what it was.",
         "concept_title" : "Hypothalamus",
         "nt_effect": None,
         "nt_dir": None,
@@ -329,8 +335,9 @@ learn_data = [
         "right_image": None,
         "model": "/static/models/hippocampus/scene.gltf",
         "model_bg": "0xDDFFF7",
-        "puzzle" : ["UIGBNSRT","HWTI", "YREENG"],
-        "solution": ["BURSTING", "WITH", "ENERGY"],
+        "puzzle" : ["UMPIPASPHOOT", "NO", "PSCMAU"],
+        "solution": ["HIPPOPOTAMUS", "ON", "CAMPUS"],
+        "hint": "Remember this absurd sight.",
         "concept_title" : "Hippocampus",
         "nt_effect": None,
         "nt_dir": None,
@@ -349,7 +356,7 @@ learn_puzzles = [
         "id": 1,
         "html": """ 
             <script>
-      var puzzleList = "No puzzle";</script>
+      var puzzleList = "Match";</script>
     <div class="col-12 col-md-6 col-lg-3 p-4">
       <div class="row box-right">
     <div class="puz-container p-4" id="puz-container">
@@ -358,7 +365,8 @@ learn_puzzles = [
         <div class="blank blank-field-body newsreader-400 p-2 white-text text-center" data-correct="Cell Body"></div>
         <div class="blank blank-field-axon newsreader-400 p-2 white-text text-center" data-correct="Axon"></div>
         <div class="blank blank-field-dendr newsreader-400 p-2 white-text text-center" data-correct="Dendrites"></div>
-
+        <div class="arrow" id="arrow-1"></div>
+        <div class="arrow" id="arrow-2"></div>        
         <!-- Add more blank fields as needed -->
       </div>       
       <div class="boxes-container">
@@ -378,7 +386,7 @@ learn_puzzles = [
     { "id": 2,
         "html": """ 
             <script>
-      var puzzleList = "No puzzle";</script>
+      var puzzleList = "Match";</script>
     <div class="col-12 col-md-6 col-lg-3 p-4">
       <div class="row box-right" id="right-box">
     <div class="puz-container p-4" id="puz-container">
@@ -388,7 +396,10 @@ learn_puzzles = [
         <div class="blank blank-field-receptor newsreader-400 p-2 white-text text-center" data-correct="Receptors"></div>
         <div class="blank blank-field-nt newsreader-400 p-2 white-text text-center" data-correct="Transmitters"></div>
         <div class="blank blank-field-vesicle newsreader-400 p-2 white-text text-center" data-correct="Vesicles"></div>
-
+        <div class="arrow" id="arrow-3"></div>
+        <div class="arrow" id="arrow-4"></div>        
+        <div class="arrow" id="arrow-5"></div>
+        <div class="arrow" id="arrow-6"></div>        
         <!-- Add more blank fields as needed -->
       </div>  
       <div class="boxes-container">
@@ -419,8 +430,7 @@ learn_puzzles = [
 
     </div>
     </div>"""
-    },
-    
+    }    
 
 ]
 

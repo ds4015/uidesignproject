@@ -467,3 +467,127 @@ $(document).ready(function() {
 });
 
 
+
+
+// Cup game  
+
+
+if (puzzleList == "Cup") {
+const cups = document.querySelectorAll('.cup');
+
+function random(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function swapCups() {
+    let interval = setInterval(function() {
+    // Generate random indices
+    if (swapCounter > 0) {
+    let index1 = Math.floor(Math.random() * 3); // 0, 1, or 2
+    let index2 = Math.floor(Math.random() * 3); // 0, 1, or 2
+  
+    // Ensure the indices are different
+    while (index1 === index2) {
+      index2 = Math.floor(Math.random() * 3);
+    }
+  
+    // Get the cup elements
+    let cup1 = $(".cups-container .cup[data-index='" + index1 + "']");
+    let cup2 = $(".cups-container .cup[data-index='" + index2 + "']");
+  
+    // Animate the swap
+    let tempLeft = cup1.position().left;
+    cup1.animate({ left: cup2.position().left }, 300);
+    cup2.animate({ left: tempLeft }, 300);
+  
+    // Update indices for next swap
+    cup1.attr("data-index", index2);
+    cup2.attr("data-index", index1);
+
+    console.log("cups: ", index1, " ", index2);
+
+    if (currentHippoIndex === index1) {
+        currentHippoIndex = index2;
+      } else if (currentHippoIndex === index2) {
+        currentHippoIndex = index1;
+      }
+
+      console.log("current hippo index: ", currentHippoIndex);
+
+      // Decrement the swap counter
+  swapCounter--;
+} else {
+  // Check if the swaps should stop
+  clearInterval(interval);
+  setTimeout(function() {
+    alert("All swaps are done! Please select a cup.");
+  }, 100); // 1000 milliseconds = 1 second
+
+  }
+}, 1000);
+  }
+  
+
+// Initially, cups are parallel along the x-axis
+cups[0].style.left = '0px'; // Position cup1 50px from the left
+cups[0].style.top = '0px'; // Position cup1 50px from the top
+
+cups[1].style.left = '100px'; // Position cup2 150px from the left
+cups[1].style.top = '0px'; // Position cup2 50px from the top
+
+cups[2].style.left = '200px'; // Position cup3 250px from the left
+cups[2].style.top = '0px'; // Position cup3 50px from the top
+
+let originalHippoIndex = 0;
+let currentHippoIndex = originalHippoIndex;
+let swapCounter = 6;
+let hippoFound = false;
+
+function placeHippo() {
+    // Generate a random index for the cup
+    originalHippoIndex = Math.floor(Math.random() * 3); // 0, 1, or 2
+    currentHippoIndex = originalHippoIndex;
+    console.log("current hippo index: ", currentHippoIndex);
+    
+    // Get the cup element at the random index
+    let cupWithHippo = $(".cups-container .cup[data-index='" + originalHippoIndex + "']");
+  
+    // Get the hippo element
+    let hippo = $("<img src='/static/hippo.png' class='hippo' alt='Hippo'>");
+  
+    // Append the hippo to the cup
+    cupWithHippo.append(hippo);
+
+    // Position the hippo a little lower
+  hippo.css("margin-top", "30px");
+  hippo.css("margin-left", "20px");
+  
+  cupWithHippo.css("opacity", "0.5"); 
+  
+    // Wait for a few seconds before making the cup opaque again
+
+        setTimeout(function() {
+            cupWithHippo.css("opacity", "1")
+          hippo.css("opacity", "0");
+          swapCups();
+        }, 2000); // 500 milliseconds = 0.5 seconds
+    }
+  
+  // Call placeHippo to place the hippo in a random cup
+  placeHippo();
+  $(".cup").click(function() {
+    if (!hippoFound) {
+    // Check if the hippo is under the clicked cup
+    let clickedIndex = $(this).data("index");
+    if (clickedIndex === currentHippoIndex) {
+      // Make the cup transparent to reveal the hippo
+      $(this).find(".hippo").css("opacity", "1");
+      $(this).css("opacity", "0.5");
+      alert("You found the hippo!");
+    } else {
+        alert("Sorry, the hippo is not here.");
+    }
+    hippoFound = true;
+}
+});
+}

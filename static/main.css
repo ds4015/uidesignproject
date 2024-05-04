@@ -381,8 +381,7 @@ img {
 .puz-container {
   position: relative;
   width: 100%; 
-  max-width: 400px; 
-  height: auto; 
+  height: 100%; 
 }
 
 .image-container {  
@@ -396,6 +395,7 @@ img {
   max-width: 50%;
   height: auto;
   align-items: center;  
+  object-fit: contain;
 }
 
 
@@ -435,7 +435,7 @@ img {
 }
 
 .blank-field-dendr {
-  top: 35%;
+  top: 45%;
   left: 0%;
   width: 45%; 
   height: 37px; 
@@ -450,21 +450,23 @@ img {
 }
 
 #arrow-1 {
-  top: 10px; 
-  left: 90px; 
-  width: 70px; 
+  top: 10%; 
+  left: 40%; 
+  width: 21%; 
   height: 1px; 
   transform-origin: 0, 0;
   transform: rotate(-25deg); 
 }
 #arrow-2 {
-  top: 100px; 
-  left: 80px; 
-  width: 20px; 
+  top: 26%; 
+  left: 30%; 
+  width: 15%; 
   height: 1px; 
   transform-origin: 0 0;
   transform: rotate(90deg); 
 }
+
+
 
 
 .word-container {
@@ -498,7 +500,7 @@ img {
 
 .blank-field-synapse {
   top: 50%;
-  left: 40%;
+  left: 55%;
   width: 45%; 
   height: 37px; 
   border: 1.5px dashed black;
@@ -506,15 +508,15 @@ img {
 
 .blank-field-receptor {
   top: 75%;
-  left: 45%;
+  left: 55%;
   width: 45%; 
   height: 37px; 
   border: 1.5px dashed black;
 }
 
 .blank-field-vesicle {
-  top: 25%;
-  left: 30%;
+  top: 24.8%;
+  left: 55%;
   width: 45%; 
   height: 37px; 
   border: 1.5px dashed black;
@@ -522,7 +524,7 @@ img {
 
 .blank-field-nt {
   top: 0%;
-  left: 40%;
+  left: 55%;
   width: 45%; 
   height: 37px; 
   border: 1.5px dashed black;
@@ -660,6 +662,29 @@ a:hover {
   color:white;
 }
 
+.cups-container {
+  position: relative; /* Ensure the container is positioned relative */
+  width: 100%; /* Total width of all cups */
+  margin: 0 auto; /* Center the container */
+  display:flex;
+}
+
+
+.cup {
+  width: 100px;
+  height: 100px;
+  position:absolute;
+  background-image: url('/static/cup.png');
+  background-size: cover;
+  transition: transform 0.5s;
+}
+
+
+.cup:hover {
+  background-color: #ffeb3b; /* lighter yellow on hover */
+}
+
+
 .image-container-bar:hover .overlay {
   opacity: 1;
 }
@@ -743,6 +768,42 @@ a:hover {
   min-height: 450px;
   max-height: 500px;
 }
+
+#arrow-3 {
+  top: 25%; 
+  left: 27%; 
+  width: 32%; 
+  height: 1px; 
+  transform-origin: 0, 0;
+  transform: rotate(-25deg); 
+}
+#arrow-4 {
+  top: 37%; 
+  left: 38%; 
+  width: 17%; 
+  height: 1px; 
+  transform-origin: 0 0;
+  transform: rotate(0deg); 
+}
+
+#arrow-5 {
+  top: 52%; 
+  left: 29%; 
+  width: 27%; 
+  height: 1px; 
+  transform-origin: 0 0;
+  transform: rotate(15deg); 
+}
+
+#arrow-6 {
+  top: 70%; 
+  left: 27%; 
+  width: 31%; 
+  border: 1px solid gray; 
+  height: 1px; 
+  transform-origin: 0 0;
+  transform: rotate(25deg); 
+}
   
 }
 
@@ -782,6 +843,42 @@ a:hover {
   .model-height {
     min-height: 500px;
     max-height: 550px;
+  }
+
+  #arrow-3 {
+    top: 25%; 
+    left: 25%; 
+    width: 32%; 
+    height: 1px; 
+    transform-origin: 0, 0;
+    transform: rotate(-33deg); 
+  }
+  #arrow-4 {
+    top: 43%; 
+    left: 36%; 
+    width: 19%; 
+    height: 1px; 
+    transform-origin: 0 0;
+    transform: rotate(-15deg); 
+  }
+  
+  #arrow-5 {
+    top: 60%; 
+    left: 33%; 
+    width: 23%; 
+    height: 1px; 
+    transform-origin: 0 0;
+    transform: rotate(0deg); 
+  }
+  
+  #arrow-6 {
+    top: 69%; 
+    left: 31%; 
+    width: 27%; 
+    border: 1px solid gray; 
+    height: 1px; 
+    transform-origin: 0 0;
+    transform: rotate(25deg); 
   }
 
 }
