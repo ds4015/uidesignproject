@@ -254,7 +254,7 @@ learn_data = [
         "model_bg": "0xDDFFF7",
         "puzzle" : ["DIFEAL","OLHCOS"],
         "solution": ["FAILED", "SCHOOL",],
-        "hint": "I fell on my face and then I...",
+        "hint": "I fell on my forehead, broke my frontal lobe and then I...",
         "concept_title" : "Frontal Lobe",
         "nt_effect": None,
         "nt_dir": None,
