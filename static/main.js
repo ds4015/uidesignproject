@@ -63,7 +63,7 @@ if (lessonModel !== "no_model") {
     const spotLight = new THREE.SpotLight(0xffffff);
     const spotLight2 = new THREE.SpotLight(0xffffff);
     const spotLight3 = new THREE.SpotLight(0xffffff);
-    const spotLight4 = new THREE.SpotLight(0xffffff);    
+    const spotLight4 = new THREE.SpotLight(0xffffff);
     spotLight.position.set(1, 1, 0);
     spotLight2.position.set(1, -1, 0)
     spotLight3.position.set(-1, 1, 0);
@@ -137,277 +137,279 @@ if (lessonModel !== "no_model") {
 
 
 // puzzle display and solving
-if (puzzleList != "No puzzle") {
+if (puzzleType == "Word") {
 
-var wordBlanks = puzzleList.map(function (word) {
-    return Array(word.length).fill('_');
-});
-
-
-function displayWordsAndBlanks() {
-    var wordsDiv = document.getElementById('puzzle');
-    wordsDiv.innerHTML = '';
-    var wordDivs = [];
-    var blankDivs = [];
-    var spanList = [];
-
-    var lettersFound = 0;
-    var totalLetters = 0;
-
-    puzzleList.forEach(function (word, index) {
-        totalLetters += word.length;
+    var wordBlanks = puzzleList.map(function (word) {
+        return Array(word.length).fill('_');
     });
 
-    puzzleList.forEach(function (word, index) {
-        var wordDiv = document.createElement('div');
-        wordDiv.classList.add("p-2");
-        wordDiv.classList.add("text-center");
-        wordDiv.classList.add("text-md");
-        wordDivs.push(wordDiv);
-        var blanksDiv = document.createElement('div');
-        blanksDiv.classList.add("p-2");
-        blanksDiv.classList.add("p-2");
-        blanksDiv.classList.add("pb-0");
-        blanksDiv.classList.add("text-center");
-        blanksDiv.classList.add("mb-4");
 
-        blanksDiv.classList.add('blanks');
+    function displayWordsAndBlanks() {
+        var wordsDiv = document.getElementById('puzzle');
+        wordsDiv.innerHTML = '';
+        var wordDivs = [];
+        var blankDivs = [];
+        var spanList = [];
 
-        word.split('').forEach(function (letter) {
-            var span = document.createElement('span');
-            span.textContent = letter;
-            wordDiv.appendChild(span);
+        var lettersFound = 0;
+        var totalLetters = 0;
+
+        puzzleList.forEach(function (word, index) {
+            totalLetters += word.length;
         });
 
-        wordBlanks[index].forEach(function (blank, i) {
-            var input = document.createElement('input');
-            input.classList.add('puzzle');
-            input.classList.add('blank');
-            input.setAttribute('type', 'text');
-            input.setAttribute('maxlength', '1');
-            input.setAttribute('size', '1');
+        puzzleList.forEach(function (word, index) {
+            var wordDiv = document.createElement('div');
+            wordDiv.classList.add("p-2");
+            wordDiv.classList.add("text-center");
+            wordDiv.classList.add("text-md");
+            wordDivs.push(wordDiv);
+            var blanksDiv = document.createElement('div');
+            blanksDiv.classList.add("p-2");
+            blanksDiv.classList.add("p-2");
+            blanksDiv.classList.add("pb-0");
+            blanksDiv.classList.add("text-center");
+            blanksDiv.classList.add("mb-4");
 
-            input.addEventListener('keydown', function (event) {
+            blanksDiv.classList.add('blanks');
 
-                if (event.key === 'Backspace' && this.value === '') {
-                    var inputs = blanksDiv.children;
-                    var currentIndex = 0;
-                    for (var j = 0; j < inputs.length; j++) {
-                        var input2 = inputs[j];
-                        if (input2 === this) {
-                            currentIndex = j;
-                            break;
-                        }
-                    }
-                    var previousIndex = currentIndex - 1;
-                    while (previousIndex >= 1) {
-                        if (inputs[previousIndex].tagName.toLowerCase() === 'input') {
-                            break;
-                        }
-                        previousIndex--;
-                    }
-                    if (previousIndex > 0) {
-                        inputs[previousIndex].value = '';
-                        inputs[previousIndex].classList.remove('correct');
-                        inputs[previousIndex].classList.remove('incorrect');
-                        wordBlanks[index][previousIndex] = '_';
-                        blanksDiv.children[previousIndex].focus();
-
-                    } else {
-                        inputs[0].value = '';
-                        inputs[0].classList.remove('correct');
-                        inputs[0].classList.remove('incorrect');
-                        wordBlanks[index][0] = '_';
-                        blanksDiv.children[0].focus();
-                    }
-
-                    event.preventDefault();
-                } else if (event.key === 'Backspace') {
-                    var inputs = blanksDiv.children;
-                    var currentIndex = 0;
-                    for (var j = 0; j < inputs.length; j++) {
-                        var input2 = inputs[j];
-                        if (input2 === this) {
-                            currentIndex = j;
-                            break;
-                        }
-                    }
-
-                    var previousIndex = currentIndex - 1;
-                    while (previousIndex >= 1) {
-                        if (inputs[previousIndex].tagName.toLowerCase() === 'input') {
-                            break;
-                        }
-                        previousIndex--;
-                    }
-
-                    if (previousIndex > 0) {
-                        blanksDiv.children[previousIndex].focus();
-                    }
-                    inputs[currentIndex].value = '';
-                    inputs[currentIndex].classList.remove('correct');
-                    inputs[currentIndex].classList.remove('incorrect');
-                    wordBlanks[index][i] = '_';
-                    event.preventDefault();
-                }
-
-                if (event.key === 'ArrowRight') {
-                    var inputs = blanksDiv.children;
-                    var currentIndex = 0;
-                    for (var j = 0; j < inputs.length; j++) {
-                        var input2 = inputs[j];
-                        if (input2 === this) {
-                            currentIndex = j;
-                            break;
-                        }
-                    }
-
-                    var nextIndex = currentIndex + 1;
-                    while (nextIndex < inputs.length) {
-                        if (inputs[nextIndex].tagName.toLowerCase() === 'input') {
-                            inputs[nextIndex].focus();
-                            break;
-                        }
-                        nextIndex++;
-                    }
-
-                } else if (event.key === 'ArrowLeft') {
-                    var inputs = blanksDiv.children;
-                    var currentIndex = 0;
-                    for (var j = 0; j < inputs.length; j++) {
-                        var input2 = inputs[j];
-                        if (input2 === this) {
-                            currentIndex = j;
-                            break;
-                        }
-                    }
-                    var previousIndex = currentIndex - 1;
-                    while (previousIndex >= 0) {
-                        if (inputs[previousIndex].tagName.toLowerCase() === 'input') {
-                            inputs[previousIndex].focus();
-                            break;
-                        }
-                        previousIndex--;
-                    }
-
-                }
+            word.split('').forEach(function (letter) {
+                var span = document.createElement('span');
+                span.textContent = letter;
+                wordDiv.appendChild(span);
             });
 
-            input.addEventListener('input', function () {
-                this.value = this.value.toUpperCase().replace(/[^A-Z]/g, '');
-                var letter = this.value;
-                var inputs = blanksDiv.children;
-                var currentIndex = Array.from(this.parentNode.children).indexOf(this);
+            wordBlanks[index].forEach(function (blank, i) {
+                var input = document.createElement('input');
+                input.classList.add('puzzle');
+                input.classList.add('blank');
+                input.setAttribute('type', 'text');
+                input.setAttribute('maxlength', '1');
+                input.setAttribute('size', '1');
 
-                var nextIndex = currentIndex + 1;
-                if (solution[index][currentIndex] != letter) {
-                    this.classList.add('incorrect');
+                input.addEventListener('keydown', function (event) {
 
-                    while (nextIndex < inputs.length) {
-                        if (inputs[nextIndex].tagName.toLowerCase() === 'input') {
-                            inputs[nextIndex].focus();
-                            break;
+                    if (event.key === 'Backspace' && this.value === '') {
+                        var inputs = blanksDiv.children;
+                        var currentIndex = 0;
+                        for (var j = 0; j < inputs.length; j++) {
+                            var input2 = inputs[j];
+                            if (input2 === this) {
+                                currentIndex = j;
+                                break;
+                            }
                         }
-                        nextIndex++;
-                    }
-                }
+                        var previousIndex = currentIndex - 1;
+                        while (previousIndex >= 1) {
+                            if (inputs[previousIndex].tagName.toLowerCase() === 'input') {
+                                break;
+                            }
+                            previousIndex--;
+                        }
+                        if (previousIndex > 0) {
+                            inputs[previousIndex].value = '';
+                            inputs[previousIndex].classList.remove('correct');
+                            inputs[previousIndex].classList.remove('incorrect');
+                            wordBlanks[index][previousIndex] = '_';
+                            blanksDiv.children[previousIndex].focus();
 
-                if (solution[index][currentIndex] === letter) {
-                    var span = document.createElement('span');
-                    span.classList.add("d-inline-block");                    
-                    span.classList.add("p-2");
-                    span.textContent = letter;
-                    for (var j = 0; j < solution[index].length; j++) {
-                        if (wordDiv.querySelector('span:nth-child(' + (j + 1) + ')').textContent === letter && !wordDiv.querySelector('span:nth-child(' + (j + 1) + ')').classList.contains('crossed')) {
-                            wordDiv.querySelector('span:nth-child(' + (j + 1) + ')').classList.add('crossed');
-                            break;
+                        } else {
+                            inputs[0].value = '';
+                            inputs[0].classList.remove('correct');
+                            inputs[0].classList.remove('incorrect');
+                            wordBlanks[index][0] = '_';
+                            blanksDiv.children[0].focus();
+                        }
+
+                        event.preventDefault();
+                    } else if (event.key === 'Backspace') {
+                        var inputs = blanksDiv.children;
+                        var currentIndex = 0;
+                        for (var j = 0; j < inputs.length; j++) {
+                            var input2 = inputs[j];
+                            if (input2 === this) {
+                                currentIndex = j;
+                                break;
+                            }
+                        }
+
+                        var previousIndex = currentIndex - 1;
+                        while (previousIndex >= 1) {
+                            if (inputs[previousIndex].tagName.toLowerCase() === 'input') {
+                                break;
+                            }
+                            previousIndex--;
+                        }
+
+                        if (previousIndex > 0) {
+                            blanksDiv.children[previousIndex].focus();
+                        }
+                        inputs[currentIndex].value = '';
+                        inputs[currentIndex].classList.remove('correct');
+                        inputs[currentIndex].classList.remove('incorrect');
+                        wordBlanks[index][i] = '_';
+                        event.preventDefault();
+                    }
+
+                    if (event.key === 'ArrowRight') {
+                        var inputs = blanksDiv.children;
+                        var currentIndex = 0;
+                        for (var j = 0; j < inputs.length; j++) {
+                            var input2 = inputs[j];
+                            if (input2 === this) {
+                                currentIndex = j;
+                                break;
+                            }
+                        }
+
+                        var nextIndex = currentIndex + 1;
+                        while (nextIndex < inputs.length) {
+                            if (inputs[nextIndex].tagName.toLowerCase() === 'input') {
+                                inputs[nextIndex].focus();
+                                break;
+                            }
+                            nextIndex++;
+                        }
+
+                    } else if (event.key === 'ArrowLeft') {
+                        var inputs = blanksDiv.children;
+                        var currentIndex = 0;
+                        for (var j = 0; j < inputs.length; j++) {
+                            var input2 = inputs[j];
+                            if (input2 === this) {
+                                currentIndex = j;
+                                break;
+                            }
+                        }
+                        var previousIndex = currentIndex - 1;
+                        while (previousIndex >= 0) {
+                            if (inputs[previousIndex].tagName.toLowerCase() === 'input') {
+                                inputs[previousIndex].focus();
+                                break;
+                            }
+                            previousIndex--;
                         }
 
                     }
+                });
+
+                input.addEventListener('input', function () {
+                    this.value = this.value.toUpperCase().replace(/[^A-Z]/g, '');
+                    var letter = this.value;
                     var inputs = blanksDiv.children;
+                    var currentIndex = Array.from(this.parentNode.children).indexOf(this);
+
                     var nextIndex = currentIndex + 1;
-                    while (nextIndex < inputs.length) {
-                        if (inputs[nextIndex].tagName.toLowerCase() === 'input') {
-                            inputs[nextIndex].focus();
-                            break;
-                        }
-                        nextIndex++;
-                    }
-                    spanList.push(span);
-                    this.parentNode.replaceChild(span, this);
-                    lettersFound++;
+                    if (solution[index][currentIndex] != letter) {
+                        this.classList.add('incorrect');
 
-                    var inputs = blanksDiv.querySelectorAll('input');
-
-                    if (totalLetters == lettersFound) {
-                        var puzzleDiv = document.getElementById('puzzle');
-                        var statusRowDiv = document.createElement('div');
-                        var statusColDiv = document.createElement('div');
-                        statusRowDiv.classList.add("row");
-                        statusRowDiv.classList.add("justify-content-center");
-                        statusColDiv.classList.add("col-5");
-                        statusColDiv.classList.add("box-left");
-                        statusColDiv.classList.add("text-center");
-                        statusColDiv.classList.add("mb-4");
-                        statusColDiv.classList.add("p-2");                        
-                        statusColDiv.classList.add("viaoda-libre-regular")
-                        statusColDiv.textContent = "Great Job!";
-                        statusRowDiv.appendChild(statusColDiv);
-                        puzzleDiv.appendChild(statusRowDiv);
-                    }
-
-                    if (inputs.length === 0) {
-                        for (var s = 0; s < spanList.length; s++) {
-                            spanList[s].classList.add('green');
+                        while (nextIndex < inputs.length) {
+                            if (inputs[nextIndex].tagName.toLowerCase() === 'input') {
+                                inputs[nextIndex].focus();
+                                break;
+                            }
+                            nextIndex++;
                         }
                     }
 
-                    if (nextIndex < inputs.length) {
-                        blanksDiv.children[nextIndex].focus();
+                    if (solution[index][currentIndex] === letter) {
+                        var span = document.createElement('span');
+                        span.classList.add("d-inline-block");
+                        span.classList.add("p-2");
+                        span.textContent = letter;
+                        for (var j = 0; j < solution[index].length; j++) {
+                            if (wordDiv.querySelector('span:nth-child(' + (j + 1) + ')').textContent === letter && !wordDiv.querySelector('span:nth-child(' + (j + 1) + ')').classList.contains('crossed')) {
+                                wordDiv.querySelector('span:nth-child(' + (j + 1) + ')').classList.add('crossed');
+                                break;
+                            }
+
+                        }
+                        var inputs = blanksDiv.children;
+                        var nextIndex = currentIndex + 1;
+                        while (nextIndex < inputs.length) {
+                            if (inputs[nextIndex].tagName.toLowerCase() === 'input') {
+                                inputs[nextIndex].focus();
+                                break;
+                            }
+                            nextIndex++;
+                        }
+                        spanList.push(span);
+                        this.parentNode.replaceChild(span, this);
+                        lettersFound++;
+
+                        var inputs = blanksDiv.querySelectorAll('input');
+
+                        if (totalLetters == lettersFound) {
+                            var puzzleDiv = document.getElementById('puzzle');
+                            var statusRowDiv = document.createElement('div');
+                            var statusColDiv = document.createElement('div');
+                            statusRowDiv.classList.add("row");
+                            statusRowDiv.classList.add("justify-content-center");
+                            statusColDiv.classList.add("col-5");
+                            statusColDiv.classList.add("box-left");
+                            statusColDiv.classList.add("text-center");
+                            statusColDiv.classList.add("mb-4");
+                            statusColDiv.classList.add("p-2");
+                            statusColDiv.classList.add("viaoda-libre-regular")
+                            statusColDiv.textContent = "Great Job!";
+                            statusRowDiv.appendChild(statusColDiv);
+                            puzzleDiv.appendChild(statusRowDiv);
+                        }
+
+                        if (inputs.length === 0) {
+                            for (var s = 0; s < spanList.length; s++) {
+                                spanList[s].classList.add('green');
+                            }
+                        }
+
+                        if (nextIndex < inputs.length) {
+                            blanksDiv.children[nextIndex].focus();
+                        } else {
+                            blanksDiv.children[currentIndex].focus();
+                        }
+
                     } else {
-                        blanksDiv.children[currentIndex].focus();
+                        wordBlanks[index][currentIndex] = letter;
+
                     }
 
-                } else {
-                    wordBlanks[index][currentIndex] = letter;
+                });
 
-                }
-
+                blanksDiv.appendChild(input);
             });
-
-            blanksDiv.appendChild(input);
+            blankDivs.push(blanksDiv);
         });
-        blankDivs.push(blanksDiv);
-    });
-    wordDivs.forEach(function (wordDiv) {
-        wordsDiv.appendChild(wordDiv);
-    });
-    blankDivs.forEach(function (blankDiv) {
-        wordsDiv.appendChild(blankDiv);
-    });
-}
+        wordDivs.forEach(function (wordDiv) {
+            wordsDiv.appendChild(wordDiv);
+        });
+        blankDivs.forEach(function (blankDiv) {
+            wordsDiv.appendChild(blankDiv);
+        });
+    }
 
 
-displayWordsAndBlanks();
+    displayWordsAndBlanks();
 }
 
 // --------------- DRAG/DROP ---------------- \\
 
-$(document).ready(function() {
-    var correctPlacements = 0;
-    var totalBlanks = $(".blank").length;
+if (puzzleType == "Match") {
+
+    $(document).ready(function () {
+        var correctPlacements = 0;
+        var totalBlanks = $(".blank").length;
         $(".draggable").draggable({
             revert: "invalid",
             containment: ".right-box",
         });
-    
+
         $(".blank").droppable({
             accept: ".draggable",
-            drop: function(event, ui) {
+            drop: function (event, ui) {
                 var $droppable = $(this);
                 var $draggedWord = ui.draggable;
-                var correctAnswer = $droppable.data("correct");            
-    
+                var correctAnswer = $droppable.data("correct");
+
                 if (correctAnswer === $draggedWord.text()) {
                     // Correct drop
                     $droppable.text($draggedWord.text());
@@ -428,43 +430,44 @@ $(document).ready(function() {
                         statusColDiv.classList.add("box-left");
                         statusColDiv.classList.add("text-center");
                         statusColDiv.classList.add("mb-1");
-                        statusColDiv.classList.add("mt-0");                    
-                        statusColDiv.classList.add("p-2");                        
+                        statusColDiv.classList.add("mt-0");
+                        statusColDiv.classList.add("p-2");
                         statusColDiv.classList.add("viaoda-libre-regular")
                         statusColDiv.textContent = "Great Job!";
                         statusRowDiv.appendChild(statusColDiv);
-                        puzzleDiv.appendChild(statusRowDiv);                    
-    
+                        puzzleDiv.appendChild(statusRowDiv);
+
                     }
                 } else {
                     // Incorrect drop
                     $droppable.text("Wrong!");
-                    $droppable.css("background-color", "#FF7377");                    
+                    $droppable.css("background-color", "#FF7377");
                     $draggedWord.draggable("option", "revert", true);
-                    setTimeout(function() {
+                    setTimeout(function () {
                         $droppable.text("");
-                        $droppable.css("background-color", "");   
+                        $droppable.css("background-color", "");
                     }, 2000);
                 }
             }
         });
 
 
-        $("#check-answer").on("click", function() {
+        $("#check-answer").on("click", function () {
             var userAnswer = $("#answer").val().trim().toLowerCase();
             var correctWords = ["information", "signal", "transmit", "transmission", "transmitting", "process", "processing", "communicate", "communication", "neurons"];
-    
-            var isCorrect = correctWords.some(function(correctWord) {
+
+            var isCorrect = correctWords.some(function (correctWord) {
                 return userAnswer.includes(correctWord.toLowerCase());
             });
-    
+
             if (isCorrect) {
                 $("#result").text("Correct!");
             } else {
                 $("#result").text("Try again!");
             }
         });
-});
+    });
+}
 
 
 
@@ -472,122 +475,122 @@ $(document).ready(function() {
 // Cup game  
 
 
-if (puzzleList == "Cup") {
-const cups = document.querySelectorAll('.cup');
+if (puzzleType == "Cup") {
+    const cups = document.querySelectorAll('.cup');
 
-function random(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-function swapCups() {
-    let interval = setInterval(function() {
-    // Generate random indices
-    if (swapCounter > 0) {
-    let index1 = Math.floor(Math.random() * 3); // 0, 1, or 2
-    let index2 = Math.floor(Math.random() * 3); // 0, 1, or 2
-  
-    // Ensure the indices are different
-    while (index1 === index2) {
-      index2 = Math.floor(Math.random() * 3);
+    function random(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
     }
-  
-    // Get the cup elements
-    let cup1 = $(".cups-container .cup[data-index='" + index1 + "']");
-    let cup2 = $(".cups-container .cup[data-index='" + index2 + "']");
-  
-    // Animate the swap
-    let tempLeft = cup1.position().left;
-    cup1.animate({ left: cup2.position().left }, 300);
-    cup2.animate({ left: tempLeft }, 300);
-  
-    // Update indices for next swap
-    cup1.attr("data-index", index2);
-    cup2.attr("data-index", index1);
 
-    console.log("cups: ", index1, " ", index2);
+    function swapCups() {
+        let interval = setInterval(function () {
+            // Generate random indices
+            if (swapCounter > 0) {
+                let index1 = Math.floor(Math.random() * 3); // 0, 1, or 2
+                let index2 = Math.floor(Math.random() * 3); // 0, 1, or 2
 
-    if (currentHippoIndex === index1) {
-        currentHippoIndex = index2;
-      } else if (currentHippoIndex === index2) {
-        currentHippoIndex = index1;
-      }
+                // Ensure the indices are different
+                while (index1 === index2) {
+                    index2 = Math.floor(Math.random() * 3);
+                }
 
-      console.log("current hippo index: ", currentHippoIndex);
+                // Get the cup elements
+                let cup1 = $(".cups-container .cup[data-index='" + index1 + "']");
+                let cup2 = $(".cups-container .cup[data-index='" + index2 + "']");
 
-      // Decrement the swap counter
-  swapCounter--;
-} else {
-  // Check if the swaps should stop
-  clearInterval(interval);
-  setTimeout(function() {
-    alert("All swaps are done! Please select a cup.");
-  }, 100); // 1000 milliseconds = 1 second
+                // Animate the swap
+                let tempLeft = cup1.position().left;
+                cup1.animate({ left: cup2.position().left }, 300);
+                cup2.animate({ left: tempLeft }, 300);
 
-  }
-}, 1000);
-  }
-  
+                // Update indices for next swap
+                cup1.attr("data-index", index2);
+                cup2.attr("data-index", index1);
 
-// Initially, cups are parallel along the x-axis
-cups[0].style.left = '0px'; // Position cup1 50px from the left
-cups[0].style.top = '0px'; // Position cup1 50px from the top
+                console.log("cups: ", index1, " ", index2);
 
-cups[1].style.left = '100px'; // Position cup2 150px from the left
-cups[1].style.top = '0px'; // Position cup2 50px from the top
+                if (currentHippoIndex === index1) {
+                    currentHippoIndex = index2;
+                } else if (currentHippoIndex === index2) {
+                    currentHippoIndex = index1;
+                }
 
-cups[2].style.left = '200px'; // Position cup3 250px from the left
-cups[2].style.top = '0px'; // Position cup3 50px from the top
+                console.log("current hippo index: ", currentHippoIndex);
 
-let originalHippoIndex = 0;
-let currentHippoIndex = originalHippoIndex;
-let swapCounter = 6;
-let hippoFound = false;
+                // Decrement the swap counter
+                swapCounter--;
+            } else {
+                // Check if the swaps should stop
+                clearInterval(interval);
+                setTimeout(function () {
+                    alert("All swaps are done! Please select a cup.");
+                }, 100); // 1000 milliseconds = 1 second
 
-function placeHippo() {
-    // Generate a random index for the cup
-    originalHippoIndex = Math.floor(Math.random() * 3); // 0, 1, or 2
-    currentHippoIndex = originalHippoIndex;
-    console.log("current hippo index: ", currentHippoIndex);
-    
-    // Get the cup element at the random index
-    let cupWithHippo = $(".cups-container .cup[data-index='" + originalHippoIndex + "']");
-  
-    // Get the hippo element
-    let hippo = $("<img src='/static/hippo.png' class='hippo' alt='Hippo'>");
-  
-    // Append the hippo to the cup
-    cupWithHippo.append(hippo);
+            }
+        }, 1000);
+    }
 
-    // Position the hippo a little lower
-  hippo.css("margin-top", "30px");
-  hippo.css("margin-left", "20px");
-  
-  cupWithHippo.css("opacity", "0.5"); 
-  
-    // Wait for a few seconds before making the cup opaque again
 
-        setTimeout(function() {
+    // Initially, cups are parallel along the x-axis
+    cups[0].style.left = '0px'; // Position cup1 50px from the left
+    cups[0].style.top = '0px'; // Position cup1 50px from the top
+
+    cups[1].style.left = '100px'; // Position cup2 150px from the left
+    cups[1].style.top = '0px'; // Position cup2 50px from the top
+
+    cups[2].style.left = '200px'; // Position cup3 250px from the left
+    cups[2].style.top = '0px'; // Position cup3 50px from the top
+
+    let originalHippoIndex = 0;
+    let currentHippoIndex = originalHippoIndex;
+    let swapCounter = 6;
+    let hippoFound = false;
+
+    function placeHippo() {
+        // Generate a random index for the cup
+        originalHippoIndex = Math.floor(Math.random() * 3); // 0, 1, or 2
+        currentHippoIndex = originalHippoIndex;
+        console.log("current hippo index: ", currentHippoIndex);
+
+        // Get the cup element at the random index
+        let cupWithHippo = $(".cups-container .cup[data-index='" + originalHippoIndex + "']");
+
+        // Get the hippo element
+        let hippo = $("<img src='/static/hippo.png' class='hippo' alt='Hippo'>");
+
+        // Append the hippo to the cup
+        cupWithHippo.append(hippo);
+
+        // Position the hippo a little lower
+        hippo.css("margin-top", "30px");
+        hippo.css("margin-left", "20px");
+
+        cupWithHippo.css("opacity", "0.5");
+
+        // Wait for a few seconds before making the cup opaque again
+
+        setTimeout(function () {
             cupWithHippo.css("opacity", "1")
-          hippo.css("opacity", "0");
-          swapCups();
+            hippo.css("opacity", "0");
+            swapCups();
         }, 2000); // 500 milliseconds = 0.5 seconds
     }
-  
-  // Call placeHippo to place the hippo in a random cup
-  placeHippo();
-  $(".cup").click(function() {
-    if (!hippoFound) {
-    // Check if the hippo is under the clicked cup
-    let clickedIndex = $(this).data("index");
-    if (clickedIndex === currentHippoIndex) {
-      // Make the cup transparent to reveal the hippo
-      $(this).find(".hippo").css("opacity", "1");
-      $(this).css("opacity", "0.5");
-      alert("You found the hippo!");
-    } else {
-        alert("Sorry, the hippo is not here.");
-    }
-    hippoFound = true;
-}
-});
+
+    // Call placeHippo to place the hippo in a random cup
+    placeHippo();
+    $(".cup").click(function () {
+        if (!hippoFound) {
+            // Check if the hippo is under the clicked cup
+            let clickedIndex = $(this).data("index");
+            if (clickedIndex === currentHippoIndex) {
+                // Make the cup transparent to reveal the hippo
+                $(this).find(".hippo").css("opacity", "1");
+                $(this).css("opacity", "0.5");
+                alert("You found the hippo!");
+            } else {
+                alert("Sorry, the hippo is not here.");
+            }
+            hippoFound = true;
+        }
+    });
 }

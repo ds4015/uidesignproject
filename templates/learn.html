@@ -1,10 +1,7 @@
 <!-- Dallas Scott - ds4015 -->
 {% extends "layout.html" %}
 {% block content %}
-<script>
-  var puzzleList = {{ lesson['puzzle'] | tojson }};
-  var solution = {{ lesson['solution'] | tojson }};
-</script>
+
 {% if lesson.id >= 6 and lesson.id <=9 %} <div class="row pt-1 pb-1 custom-muted-bg">
   <div class="col-3 col-md-3 col-lg-3 text-center">
     <a href="/learn/6">
@@ -135,7 +132,8 @@
     </div>
     {% endif %}
 
-    {% if lesson.puzzle == "Cup" %}
+    {% if lesson.puzzle_type == "Cup" %}
+    <script>var puzzleType = "Cup";</script>
     <script>var puzzleList = "No puzzle";</script>
     <div class="col-12 col-md-6 col-lg-5 p-4">
       <div class="row box-right">
@@ -150,15 +148,20 @@
       </div>
 
       {%endif%}
-      {% if lesson.puzzle == "Match" %}
+      {% if lesson.puzzle_type == "Match" %}
       <script>var puzzleList = "No puzzle";</script>
+      <script>var puzzleType = "Match";</script>      
       {{ puzzle | safe }}
 
       {% else %}
 
-      {% if lesson.puzzle != "Cup" and lesson.puzzle != "Match" %}
+      {% if lesson.puzzle_type == "Word" %}
+      <script>
+        var puzzleList = {{ lesson['puzzle'] | tojson }};
+        var solution = {{ lesson['solution'] | tojson }};
+      </script>      
+      <script>var puzzleType = "Word";</script>      
       <div class="col-12 col-md-6 col-lg-3 p-4">
-
         <div class="row box-right">
           {% if lesson.hint %}
           <div class="pt-2 quintessential-regular text-center text-md"><b>Hint</b>: {{ lesson.hint }}</div>

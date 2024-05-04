@@ -37,7 +37,7 @@ learn_data = [
         "right_image":"cell.png",
         "model": "/static/models/neuron/scene.gltf",
         "model_bg": "0xDDFFF7",
-        "puzzle" : "Match",
+        "puzzle_type": "Match",
         "solution": ["BUILDING", "BLOCK"],
         "concept_title" : "Neuron",
         "mnemonic":["<span class='first-letter-btn'>N</span>euron - ","<span class='first-letter-btn'>N</span>erve"],
@@ -63,7 +63,7 @@ learn_data = [
         "right_image": None,
         "model": "/static/models/synapse/scene.gltf",
         "model_bg": "0xDDFFF7",
-        "puzzle" : "Match",
+        "puzzle_type" : "Match",
         "solution": ["FIRETOGETHER", "WIRETOGETHER"],
         "concept_title" : "Transmission",
         "mnemonic":["<span class='first-letter-btn'>T</span>ransmission - ","<span class='first-letter-btn'>T</span>hinking"],
@@ -85,7 +85,8 @@ learn_data = [
         "left_box": "<p><img class='bpoint' src='/static/bulletpoint.png'>Reduces the amount of activity a cell can transmit</p>",
         "right_image":"gaba.png",
         "model": "/static/models/gaba/scene.gltf",
-        "model_bg": "0xDDFFF7",        
+        "model_bg": "0xDDFFF7",       
+        "puzzle_type": "Word", 
         "puzzle" : ["LVSEREIE","NTXAYIE"],
         "solution": ["RELIEVES", "ANXIETY"],
         "hint": "What does GABA do?",
@@ -112,6 +113,7 @@ learn_data = [
         "right_image":"serotonin.png",
         "model": "/static/models/serotonin2/scene.gltf",
         "model_bg": "0xDDFFF7",
+        "puzzle_type" : "Word",        
         "puzzle" : ["MVSIPROE","ODOM"],
         "solution": ["IMPROVES", "MOOD"],
         "hint": "What does serotonin do?",
@@ -138,6 +140,7 @@ learn_data = [
         "right_image":"dopamine.png",
         "model": "/static/models/dopamine/scene.gltf",
         "model_bg": "0xDDFFF7",
+        "puzzle_type" : "Word",        
         "puzzle" : ["SNCIERAES","NOTEATNIT",],
         "solution": ["INCREASES", "ATTENTION"],
         "hint": "What does dopamine do?",
@@ -166,6 +169,7 @@ learn_data = [
         "right_image": None,
         "model": "/static/models/occipital_bone/scene.gltf",
         "model_bg": "0xDDFFF7",
+        "puzzle_type" : "Word",        
         "puzzle" : ["POCLICAIT", "NI", "KBCA"],
         "solution": ["OCCIPITAL", "IN", "BACK"],
         "hint" : "Eyes in front, _____",
@@ -194,6 +198,7 @@ learn_data = [
         "right_image": None,
         "model": "/static/models/parietal_bone/scene.gltf",
         "model_bg": "0xDDFFF7",
+        "puzzle_type" : "Word",        
         "puzzle" : ["RMWA", "FTOS", "NSIK"],
         "solution": ["WARM", "SOFT", "SKIN"],
         "hint" : "The parietal lobe lets you feel it.",
@@ -223,6 +228,7 @@ learn_data = [
         "right_image": None,
         "model": "/static/models/temporal_bone/scene.gltf",
         "model_bg": "0xDDFFF7",
+        "puzzle_type" : "Word",        
          "puzzle" : ["DHBINE", "MSPTLEE"],
         "solution": ["BEHIND", "TEMPLES"],
         "hint" : "Where is the temporal lobe located?",
@@ -252,6 +258,7 @@ learn_data = [
         "right_image": None,
         "model": "/static/models/frontal_bone/scene.gltf",
         "model_bg": "0xDDFFF7",
+        "puzzle_type" : "Word",        
         "puzzle" : ["DIFEAL","OLHCOS"],
         "solution": ["FAILED", "SCHOOL",],
         "hint": "I fell on my forehead, broke my frontal lobe and then I...",
@@ -279,6 +286,7 @@ learn_data = [
         "right_image": None,
         "model": "/static/models/amygdala/scene.gltf",
         "model_bg": "0xDDFFF7",
+        "puzzle_type" : "Word",        
         "puzzle" : ["NRIEN", "NBIRA", "RFEA"],
         "solution": ["INNER", "BRAIN", "FEAR"],
         "hint": "The oldest human feeling.",
@@ -308,6 +316,7 @@ learn_data = [
         "right_image": None,
         "model": "/static/models/hypothalamus/scene.gltf",
         "model_bg": "0xDDFFF7",
+        "puzzle_type" : "Word",        
         "puzzle" : ["LTHYAOPHUSMA","RFGNII"],
         "solution": ["HYPOTHALAMUS", "FIRING"],
         "hint": "She said she loved me, but I knew what it was.",
@@ -335,6 +344,7 @@ learn_data = [
         "right_image": None,
         "model": "/static/models/hippocampus/scene.gltf",
         "model_bg": "0xDDFFF7",
+        "puzzle_type" : "Word",        
         "puzzle" : ["UMPIPASPHOOT", "NO", "PSCMAU"],
         "solution": ["HIPPOPOTAMUS", "ON", "CAMPUS"],
         "hint": "Remember this absurd sight.",
@@ -355,8 +365,6 @@ learn_puzzles = [
     {
         "id": 1,
         "html": """ 
-            <script>
-      var puzzleList = "Match";</script>
     <div class="col-12 col-md-6 col-lg-3 p-4">
       <div class="row box-right">
     <div class="puz-container p-4" id="puz-container">
@@ -385,8 +393,6 @@ learn_puzzles = [
     },
     { "id": 2,
         "html": """ 
-            <script>
-      var puzzleList = "Match";</script>
     <div class="col-12 col-md-6 col-lg-3 p-4">
       <div class="row box-right" id="right-box">
     <div class="puz-container p-4" id="puz-container">
