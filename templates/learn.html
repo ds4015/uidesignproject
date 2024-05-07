@@ -135,76 +135,67 @@
     {% if lesson.puzzle_type == "Cup" %}
     <script>var puzzleType = "Cup";</script>
     <script>var puzzleList = "No puzzle";</script>
-    <div class="col-12 col-md-6 col-lg-5 p-4">
+    <div class="col-12 col-md-6 col-lg-3 p-4">
       <div class="row box-right">
-        <div class="col-12">
-          tysjlsfd
-          <div class="cups-container">
-            <span class="cup" id="cup1" data-index="0"></span>
-            <span class="cup" id="cup2" data-index="1"></span>
-            <span class="cup" id="cup3" data-index="2"></span>
-          </div>
+        {% if lesson.hint %}
+        <div class="pt-2 quintessential-regular text-center text-md"><b>Hint</b>: {{ lesson.hint }}</div>
+        {% endif %}
+    
+    {{ puzzle | safe }}
+
+    {% elif lesson.puzzle_type == "Match" %}
+    <script>var puzzleList = "No puzzle";</script>
+    <script>var puzzleType = "Match";</script>
+    {{ puzzle | safe }}
+
+    {% elif lesson.puzzle_type == "Word" %}
+    <script>
+      var puzzleList = {{ lesson['puzzle'] | tojson }};
+      var solution = {{ lesson['solution'] | tojson }};
+    </script>
+    <script>var puzzleType = "Word";</script>
+    <div class="col-12 col-md-6 col-lg-3 p-4">
+      <div class="row box-right">
+        {% if lesson.hint %}
+        <div class="pt-2 quintessential-regular text-center text-md"><b>Hint</b>: {{ lesson.hint }}</div>
+        {% endif %}
+        <div class="col-12 cinzel-400 text-md pt-3" id="puzzle">
         </div>
       </div>
+      <div class="row">
+        <div class="col-12 text-center viaoda-libre-regular text-md p-2" id="status"></div>
+      </div>
+      {% endif %}
 
-      {%endif%}
-      {% if lesson.puzzle_type == "Match" %}
-      <script>var puzzleList = "No puzzle";</script>
-      <script>var puzzleType = "Match";</script>      
-      {{ puzzle | safe }}
-
-      {% else %}
-
-      {% if lesson.puzzle_type == "Word" %}
-      <script>
-        var puzzleList = {{ lesson['puzzle'] | tojson }};
-        var solution = {{ lesson['solution'] | tojson }};
-      </script>      
-      <script>var puzzleType = "Word";</script>      
-      <div class="col-12 col-md-6 col-lg-3 p-4">
-        <div class="row box-right">
-          {% if lesson.hint %}
-          <div class="pt-2 quintessential-regular text-center text-md"><b>Hint</b>: {{ lesson.hint }}</div>
-          {% endif %}
-          <div class="col-12 cinzel-400 text-md pt-3" id="puzzle">
+      {% if lesson.mnemonic %}
+      <div class="row justify-content-center">
+        <div class="col-10 concept-box mt-4 pt-2 pl-3 concept-text">
+          <div clas="row">
+            <div class="col-12 quintessential-regular text-sm">Mnemonic</div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-12 text-center viaoda-libre-regular text-md p-2" id="status"></div>
-        </div>
-        {% endif %}
+          <div class="row">
+            <div class="col-12 text-center cinzel-400 p-2 text-sm">
+              {% for m in lesson.mnemonic %}
+              {{m | safe}}
+              {%endfor%}
+            </div>
+          </div>
 
+        </div>
         {%endif%}
 
-        {% if lesson.mnemonic %}
-        <div class="row justify-content-center">
-          <div class="col-10 concept-box mt-4 pt-2 pl-3 concept-text">
-            <div clas="row">
-              <div class="col-12 quintessential-regular text-sm">Mnemonic</div>
-            </div>
-            <div class="row">
-              <div class="col-12 text-center cinzel-400 p-2 text-sm">
-                {% for m in lesson.mnemonic %}
-                {{m | safe}}
-                {%endfor%}
-              </div>
-            </div>
 
-          </div>
-          {%endif%}
-
-
-        </div>
-      </div>
-
-
-    </div>
-    <div class="row p-3 pt-5 justify-content-center">
-      <div class="col-12 viaoda-libre-regular text-center text-md text-muted">
-        {{ duration | safe }}
       </div>
     </div>
 
 
+  </div>
+  <div class="row p-3 pt-5 justify-content-center">
+    <div class="col-12 viaoda-libre-regular text-center text-md text-muted">
+      {{ duration | safe }}
+    </div>
+  </div>
 
-    {% endblock %}
+
+
+  {% endblock %}

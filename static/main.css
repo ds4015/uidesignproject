@@ -231,6 +231,42 @@ span.crossed::before {
   display: block;
 }
 
+.hipResult {
+  border: 1px dashed #2F4858;
+  padding: 0.5em;
+  width: 70%;
+  justify-content: center;
+}
+
+.btn-group {
+  display: flex;
+  align-items: center;
+}
+
+.no-border {
+  border: none;
+}
+
+.btn-1 {
+  margin-right: 5px;
+  background-color: #ebf5ee; 
+  color: #6c757d; 
+  border: 2px solid #f5c6cb; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+}
+
+.btn.custom-btn-sm {
+  background-color: #ebf5ee; 
+  color: #6c757d; 
+  justify-content: center;
+  padding: 20px 40px; 
+  border: 2px solid #f5c6cb; 
+  border-radius: 10px; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width:90%;
+}
+
 .btn.custom-btn {
   background-color: #ebf5ee; 
   color: #6c757d; 
@@ -663,25 +699,26 @@ a:hover {
 }
 
 .cups-container {
-  position: relative; /* Ensure the container is positioned relative */
-  width: 100%; /* Total width of all cups */
-  margin: 0 auto; /* Center the container */
-  display:flex;
+  position: relative;
+  width: 100%; 
+  margin: 0 auto; 
+  justify-content: space-around; 
 }
 
-
 .cup {
-  width: 100px;
-  height: 100px;
-  position:absolute;
+  width: 75px;
+  height: 75px;
+  position: absolute;
+  display: inline-block;
   background-image: url('/static/cup.png');
   background-size: cover;
   transition: transform 0.5s;
 }
 
 
+
 .cup:hover {
-  background-color: #ffeb3b; /* lighter yellow on hover */
+  background-color: #f0f0f0; 
 }
 
 
@@ -921,6 +958,7 @@ a:hover {
 .box-right {
   background-color: #DDFFF7;
   border: 1.5px dashed #07393cff;
+  position:relative;
 }
 
   

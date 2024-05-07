@@ -477,6 +477,7 @@ if (puzzleType == "Match") {
 
 if (puzzleType == "Cup") {
     const cups = document.querySelectorAll('.cup');
+    let gameEnded = false;
 
     function random(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -523,35 +524,89 @@ if (puzzleType == "Cup") {
                 // Check if the swaps should stop
                 clearInterval(interval);
                 setTimeout(function () {
-                    alert("All swaps are done! Please select a cup.");
-                }, 100); // 1000 milliseconds = 1 second
+                    $("#startButton").prop("disabled", false);
+                    $(".message").text("Please select a cup.");
+                    selectCup();
+                }, 100);
 
             }
-        }, 1000);
+        }, speed);
     }
 
 
     // Initially, cups are parallel along the x-axis
-    cups[0].style.left = '0px'; // Position cup1 50px from the left
-    cups[0].style.top = '0px'; // Position cup1 50px from the top
+    cups[0].style.left = '0%'; 
+    cups[0].style.top = '0px'; 
 
-    cups[1].style.left = '100px'; // Position cup2 150px from the left
-    cups[1].style.top = '0px'; // Position cup2 50px from the top
+    cups[1].style.left = '38%'; 
+    cups[1].style.top = '0px'; 
 
-    cups[2].style.left = '200px'; // Position cup3 250px from the left
-    cups[2].style.top = '0px'; // Position cup3 50px from the top
+    cups[2].style.left = '78%'; 
+    cups[2].style.top = '0px'; 
 
     let originalHippoIndex = 0;
     let currentHippoIndex = originalHippoIndex;
     let swapCounter = 6;
+    let numSwaps = 6;
     let hippoFound = false;
+    let speed = 1000;
+    let speedSetting = 1000;
+
+
+    function updateSpeedDisplay() {
+        $("#speed").text((1000 - speedSetting)/100 + 1);
+    }
+
+    function updateSwapsDisplay() {
+        $("#swaps").text(numSwaps);
+    }
+
+    $("#speedDown").click(function () {
+        speed += 100;
+        speedSetting += 100;
+        if (speedSetting > 1000) {
+            speed = 1000;
+            speedSetting =1000;
+        }
+        updateSpeedDisplay();
+    });
+
+    $("#speedUp").click(function () {
+        speed -= 100;
+        speedSetting -= 100;        
+        if (speedSetting <= 200) {
+            speed = 300;
+            speedSetting = 300;
+        }
+        updateSpeedDisplay();
+    });
+
+    $("#swapsDown").click(function () {
+        swapCounter--;
+        numSwaps--;
+        if (numSwaps < 1) {
+            swapCounter = 1;
+            numSwaps = 1;
+        }
+        updateSwapsDisplay();
+    });
+
+    $("#swapsUp").click(function () {
+        swapCounter++;
+        numSwaps++;
+        if (numSwaps > 15) {
+            swapCounter = 15;
+            numSwaps = 15;
+        }
+        updateSwapsDisplay();
+    });
+
 
     function placeHippo() {
         // Generate a random index for the cup
         originalHippoIndex = Math.floor(Math.random() * 3); // 0, 1, or 2
         currentHippoIndex = originalHippoIndex;
-        console.log("current hippo index: ", currentHippoIndex);
-
+        hipResult.addClass("no-border");
         // Get the cup element at the random index
         let cupWithHippo = $(".cups-container .cup[data-index='" + originalHippoIndex + "']");
 
@@ -563,9 +618,9 @@ if (puzzleType == "Cup") {
 
         // Position the hippo a little lower
         hippo.css("margin-top", "30px");
-        hippo.css("margin-left", "20px");
+        hippo.css("margin-left", "0%");
 
-        cupWithHippo.css("opacity", "0.5");
+        cupWithHippo.css("opacity", "0.7");
 
         // Wait for a few seconds before making the cup opaque again
 
@@ -576,21 +631,69 @@ if (puzzleType == "Cup") {
         }, 2000); // 500 milliseconds = 0.5 seconds
     }
 
+    function resetGame() {
+        // Reset the game state
+        $(".hippo").remove(); // Remove the hippo from the cup
+        $(".cup").css("opacity", "1"); // Make all cups opaque again
+        swapCounter = numSwaps; // Reset the swap counter
+        speed = speedSetting;
+        hippoFound = false; // Reset the hippoFound flag
+        $(".message").text(""); // Clear any message
+        $(".hipResult").text("");
+        hipResult.addClass("no-border");
+        hipResult.css("background-color", "");        
+        cups[0].style.left = '0%'; 
+        cups[0].style.top = '0px'; 
+    
+        cups[1].style.left = '38%'; 
+        cups[1].style.top = '0px'; 
+    
+        cups[2].style.left = '78%'; 
+        cups[2].style.top = '0px'; 
+    }
+
+    var hipResult = $(".hipResult");
+    if (hipResult.text().trim() === "") {
+      hipResult.addClass("no-border");
+    }
+
     // Call placeHippo to place the hippo in a random cup
-    placeHippo();
+    $("#startButton").click(function () {
+        resetGame();
+        $(".message").text("");
+        gameEnded = false;
+        $("#startButton").prop("disabled", true);        
+        placeHippo();
+    });    
+    function selectCup() {
     $(".cup").click(function () {
-        if (!hippoFound) {
+        if (!hippoFound && !gameEnded) {
             // Check if the hippo is under the clicked cup
             let clickedIndex = $(this).data("index");
+            $(".hipResult").css("background-color:", "");                       
             if (clickedIndex === currentHippoIndex) {
                 // Make the cup transparent to reveal the hippo
-                $(this).find(".hippo").css("opacity", "1");
-                $(this).css("opacity", "0.5");
-                alert("You found the hippo!");
+                $(".hipResult").removeClass("no-border");   
+                $(this).find(".hippo").css("opacity", "0.8");
+                $(this).css("opacity", "0.8");         
+                hipResult.css("background-color", "green");
+                hipResult.css("color", "white");   
+                $(".hipResult").text("You found the hippo!");        
+                gameEnded = true;
             } else {
-                alert("Sorry, the hippo is not here.");
+                $(".cup[data-index='" + currentHippoIndex + "']").css("opacity", "0.8");
+                $(".cup[data-index='" + currentHippoIndex + "']").find(".hippo").css("opacity", "0.8");
+                $(this).css("opacity", "0.8");         
+                $(".hipResult").removeClass("no-border");                   
+                $(".hipResult").text("Try again!");    
+                hipResult.css("background-color", "lightcoral");
+                hipResult.css("color", "white");   
+                gameEnded = true;                
             }
             hippoFound = true;
+
+            setTimeout(resetGame, 3000);
         }
     });
+}
 }

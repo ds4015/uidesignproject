@@ -344,10 +344,10 @@ learn_data = [
         "right_image": None,
         "model": "/static/models/hippocampus/scene.gltf",
         "model_bg": "0xDDFFF7",
-        "puzzle_type" : "Word",        
+        "puzzle_type" : "Cup",        
         "puzzle" : ["UMPIPASPHOOT", "NO", "PSCMAU"],
         "solution": ["HIPPOPOTAMUS", "ON", "CAMPUS"],
-        "hint": "Remember this absurd sight.",
+        "hint": "Use your hippocampus to find the hippo!",
         "concept_title" : "Hippocampus",
         "nt_effect": None,
         "nt_dir": None,
@@ -424,18 +424,61 @@ learn_puzzles = [
       <div class="newsreader-400 text-center mt-3">What purpose does neurotransmission serve?</div>
       <input class="newsreader-400" type="text" id="answer" placeholder="Enter your answer">
       <div class="row">
-      <div class="col-4">
+      <div class="col-5">
             <button class="btn btn-primary custom-btn-sm text-sm mt-3 newsreader-400" id="check-answer">Check</button>
       </div>
       <div class="col-6 mt-3 mb-0 text-right">
       <span class="newsreader-400" id="result"></span>      
         </div>
     </div>
-      
-
-
     </div>
     </div>"""
+
+
+    },
+   { "id": 12,
+        "html": """ 
+        <div class="row justify-content-center">
+          <div class="col-12 col-lg-12 text-center">
+            <div class="cups-container mt-3 mb-5 d-flex justify-content-center">
+              <span class="cup" id="cup1" data-index="0"></span>
+              <span class="cup" id="cup2" data-index="1"></span>
+              <span class="cup" id="cup3" data-index="2"></span>
+            </div>
+          </div>
+        </div>
+        <div class="flex-row justify-content-center">
+          <div class="col-12 mt-5 text-center">
+            <div class="message text-center viaoda-libre-regular"></div>
+          </div>
+        </div>
+        <div class="flex-row justify-content-center">
+          <div class="col-12 text-center d-flex mt-0">
+            <button class="btn btn-primary d-flex mb-3 custom-btn-sm text-md newsreader-400" id="startButton">Start
+              Shuffling</button>
+          </div>
+        </div>
+        <div class="flex-row justify-content-center">
+          <div class="col-12 pb-2 d-flex text-center justify-content-center">
+            <div class="hipResult ml-0 d-flex text-center viaoda-libre-regular"></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6 text-center viaoda-libre-regular">Speed</div>
+          <div class="col-6 text-center viaoda-libre-regular">Swaps</div>
+          <div class="btn-group">
+            <button class="btn-1 m-3" id="speedDown">-</button>
+            <span class="viaoda-libre-regular" id="speed">1</span>
+            <button class="  btn-1 m-3" id="speedUp">+</button>
+
+            <button class="  btn-1 m-3" id="swapsDown">-</button>
+            <span class="viaoda-libre-regular" id="swaps">6</span>
+            <button class="  btn-1 m-3" id="swapsUp">+</button>
+          </div>
+        </div>
+      </div>
+    """    
+
     }    
 
 ]
@@ -515,6 +558,7 @@ quiz_questions = {
     },
     "5": {
         "quiz_id": "5",
+        "model": '/models/amygdala_quiz/scene.gltf',        
         "image": "amygdala_quiz.png",
         "question": "What is this structure called?",
         "options" : ['Amygdala', 'Cell Body', 'Thalamus ', 'Hippocampus'],
@@ -554,6 +598,7 @@ quiz_questions = {
     },
     "8": {
         "quiz_id": "8",
+        "model": '/models/temporal_quiz/scene.gltf',        
         "image": "temporal_lobe.png",
         "question": "Which area of the brain is highlighted here?  What is its function?",
         "options" : ['Occipital lobe - hearing', 'Temporal lobe - sound', 'Occipital lobe - vision', 'Frontal lobe - reasoning'],
