@@ -782,9 +782,10 @@ def quiz(quiz_id):
                 else:
                     feedback = f'Incorrect! The correct answer is <strong>{correct_answer}</strong>.'
                     feedback_class = 'incorrect-feedback'
-
+            # print("Appending to session: ", quiz_id)
             # Add the quiz_id to the submitted questions list
             session['submitted_questions'].append(quiz_id)
+            session.modified = True 
 
         question['submitted'] = True
         question['submitted_answers'] = submitted_answers
@@ -794,10 +795,18 @@ def quiz(quiz_id):
         return render_template('quiz.html', question=question, quiz=question, title=question.get('title', 'Quiz Question'))
 
     else:
-        question['submitted'] = False
-        question['submitted_answers'] = {}
-        question['feedback'] = ''
-        question['feedback_class'] = ''
+        if quiz_id in session['submitted_questions']:
+            # print(session['submitted_questions'])
+            feedback = "You've already answered this question!"
+            feedback_class = "alert-info"
+        else:
+            question['submitted'] = False
+            question['submitted_answers'] = {}
+            feedback = ''
+            question['feedback_class'] = ''
+
+        question['feedback'] = feedback
+        question['feedback_class'] = feedback_class
 
         return render_template('quiz.html', question=question, quiz=question, title=question.get('title', 'Quiz Question'))
 

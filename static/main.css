@@ -40,6 +40,11 @@
   background-color: #f44336; /* Red for incorrect */
 }
 
+/* already answered feedback */
+.alert-info {
+  background-color: orange;
+}
+
 /* for next question buton */
 .btn-primary {
   color: black;
