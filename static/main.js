@@ -395,6 +395,10 @@ if (puzzleType == "Word") {
 
 if (puzzleType == "Match") {
 
+    var quizQuery = document.querySelector('#quizQ').value;
+    var totalDrops = 0;
+    var correctDrops = 0;
+
     $(document).ready(function () {
         var correctPlacements = 0;
         var totalBlanks = $(".blank").length;
@@ -408,66 +412,93 @@ if (puzzleType == "Match") {
             drop: function (event, ui) {
                 var $droppable = $(this);
                 var $draggedWord = ui.draggable;
-                var correctAnswer = $droppable.data("correct");
+                totalDrops++;
 
+                var correctAnswer = $droppable.data("correct");
                 if (correctAnswer === $draggedWord.text()) {
                     // Correct drop
-                    $droppable.text($draggedWord.text());
-                    $droppable.css("background-color", "green");
-                    $draggedWord.hide();
                     correctPlacements++;
+                    correctDrops++;
+                    console.log('correct');
+                    if (quizQuery == "no") {
+                        console.log('correct');
+                        $droppable.text($draggedWord.text());
+                        $droppable.css("background-color", "green");
+                        $draggedWord.hide();
 
-                    console.log(correctPlacements);
 
-                    if (correctPlacements === totalBlanks) {
-                        // All boxes are correct, show message
-                        var puzzleDiv = document.getElementById('puz-container');
-                        var statusRowDiv = document.createElement('div');
-                        var statusColDiv = document.createElement('div');
-                        statusRowDiv.classList.add("row");
-                        statusRowDiv.classList.add("justify-content-center");
-                        statusColDiv.classList.add("col-7");
-                        statusColDiv.classList.add("box-left");
-                        statusColDiv.classList.add("text-center");
-                        statusColDiv.classList.add("mb-1");
-                        statusColDiv.classList.add("mt-0");
-                        statusColDiv.classList.add("p-2");
-                        statusColDiv.classList.add("viaoda-libre-regular")
-                        statusColDiv.textContent = "Great Job!";
-                        statusRowDiv.appendChild(statusColDiv);
-                        puzzleDiv.appendChild(statusRowDiv);
-
+                        if (correctPlacements === totalBlanks) {
+                            // All boxes are correct, show message
+                            var puzzleDiv = document.getElementById('puz-container');
+                            var statusRowDiv = document.createElement('div');
+                            var statusColDiv = document.createElement('div');
+                            statusRowDiv.classList.add("row");
+                            statusRowDiv.classList.add("justify-content-center");
+                            statusColDiv.classList.add("col-7");
+                            statusColDiv.classList.add("box-left");
+                            statusColDiv.classList.add("text-center");
+                            statusColDiv.classList.add("mb-1");
+                            statusColDiv.classList.add("mt-0");
+                            statusColDiv.classList.add("p-2");
+                            statusColDiv.classList.add("viaoda-libre-regular")
+                            statusColDiv.textContent = "Great Job!";
+                            statusRowDiv.appendChild(statusColDiv);
+                            puzzleDiv.appendChild(statusRowDiv);
+                        }
                     }
                 } else {
-                    // Incorrect drop
-                    $droppable.text("Wrong!");
-                    $droppable.css("background-color", "#FF7377");
-                    $draggedWord.draggable("option", "revert", true);
-                    setTimeout(function () {
-                        $droppable.text("");
-                        $droppable.css("background-color", "");
-                    }, 2000);
+                    if (quizQuery == "no") {
+                        // Incorrect drop
+                        $droppable.text("Wrong!");
+                        $droppable.css("background-color", "#FF7377");
+                        $draggedWord.draggable("option", "revert", true);
+                        setTimeout(function () {
+                            $droppable.text("");
+                            $droppable.css("background-color", "");
+                        }, 2000);
+                    }
                 }
             }
         });
 
-
-        $("#check-answer").on("click", function () {
-            var userAnswer = $("#answer").val().trim().toLowerCase();
-            var correctWords = ["information", "signal", "transmit", "transmission", "transmitting", "process", "processing", "communicate", "communication", "neurons"];
-
-            var isCorrect = correctWords.some(function (correctWord) {
-                return userAnswer.includes(correctWord.toLowerCase());
-            });
-
-            if (isCorrect) {
-                $("#result").text("Correct!");
-            } else {
-                $("#result").text("Try again!");
-            }
-        });
     });
-}
+
+
+
+
+
+    $('#subQ').click(function () {
+        let formData = new FormData();
+        let cd = parseInt(correctDrops);
+        let td = parseInt(totalDrops);
+
+        if (!isNaN(cd) && !isNaN(td)) {
+            $('#correctDropsInput').val(cd);
+            $('#totalDropsInput').val(td);
+
+            // Submit the form
+            $('#resultsForm').submit();
+        }
+    });
+
+
+
+    $("#check-answer").on("click", function () {
+        var userAnswer = $("#answer").val().trim().toLowerCase();
+        var correctWords = ["information", "signal", "transmit", "transmission", "transmitting", "process", "processing", "communicate", "communication", "neurons"];
+
+        var isCorrect = correctWords.some(function (correctWord) {
+            return userAnswer.includes(correctWord.toLowerCase());
+        });
+
+        if (isCorrect) {
+            $("#result").text("Correct!");
+        } else {
+            $("#result").text("Try again!");
+        }
+    });
+};
+
 
 
 
@@ -535,14 +566,14 @@ if (puzzleType == "Cup") {
 
 
     // Initially, cups are parallel along the x-axis
-    cups[0].style.left = '0%'; 
-    cups[0].style.top = '0px'; 
+    cups[0].style.left = '0%';
+    cups[0].style.top = '0px';
 
-    cups[1].style.left = '38%'; 
-    cups[1].style.top = '0px'; 
+    cups[1].style.left = '38%';
+    cups[1].style.top = '0px';
 
-    cups[2].style.left = '78%'; 
-    cups[2].style.top = '0px'; 
+    cups[2].style.left = '78%';
+    cups[2].style.top = '0px';
 
     let originalHippoIndex = 0;
     let currentHippoIndex = originalHippoIndex;
@@ -554,7 +585,7 @@ if (puzzleType == "Cup") {
 
 
     function updateSpeedDisplay() {
-        $("#speed").text((1000 - speedSetting)/100 + 1);
+        $("#speed").text((1000 - speedSetting) / 100 + 1);
     }
 
     function updateSwapsDisplay() {
@@ -566,14 +597,14 @@ if (puzzleType == "Cup") {
         speedSetting += 100;
         if (speedSetting > 1000) {
             speed = 1000;
-            speedSetting =1000;
+            speedSetting = 1000;
         }
         updateSpeedDisplay();
     });
 
     $("#speedUp").click(function () {
         speed -= 100;
-        speedSetting -= 100;        
+        speedSetting -= 100;
         if (speedSetting <= 200) {
             speed = 300;
             speedSetting = 300;
@@ -641,20 +672,20 @@ if (puzzleType == "Cup") {
         $(".message").text(""); // Clear any message
         $(".hipResult").text("");
         hipResult.addClass("no-border");
-        hipResult.css("background-color", "");        
-        cups[0].style.left = '0%'; 
-        cups[0].style.top = '0px'; 
-    
-        cups[1].style.left = '38%'; 
-        cups[1].style.top = '0px'; 
-    
-        cups[2].style.left = '78%'; 
-        cups[2].style.top = '0px'; 
+        hipResult.css("background-color", "");
+        cups[0].style.left = '0%';
+        cups[0].style.top = '0px';
+
+        cups[1].style.left = '38%';
+        cups[1].style.top = '0px';
+
+        cups[2].style.left = '78%';
+        cups[2].style.top = '0px';
     }
 
     var hipResult = $(".hipResult");
     if (hipResult.text().trim() === "") {
-      hipResult.addClass("no-border");
+        hipResult.addClass("no-border");
     }
 
     // Call placeHippo to place the hippo in a random cup
@@ -662,38 +693,334 @@ if (puzzleType == "Cup") {
         resetGame();
         $(".message").text("");
         gameEnded = false;
-        $("#startButton").prop("disabled", true);        
+        $("#startButton").prop("disabled", true);
         placeHippo();
-    });    
+    });
     function selectCup() {
-    $(".cup").click(function () {
-        if (!hippoFound && !gameEnded) {
-            // Check if the hippo is under the clicked cup
-            let clickedIndex = $(this).data("index");
-            $(".hipResult").css("background-color:", "");                       
-            if (clickedIndex === currentHippoIndex) {
-                // Make the cup transparent to reveal the hippo
-                $(".hipResult").removeClass("no-border");   
-                $(this).find(".hippo").css("opacity", "0.8");
-                $(this).css("opacity", "0.8");         
-                hipResult.css("background-color", "green");
-                hipResult.css("color", "white");   
-                $(".hipResult").text("You found the hippo!");        
-                gameEnded = true;
-            } else {
-                $(".cup[data-index='" + currentHippoIndex + "']").css("opacity", "0.8");
-                $(".cup[data-index='" + currentHippoIndex + "']").find(".hippo").css("opacity", "0.8");
-                $(this).css("opacity", "0.8");         
-                $(".hipResult").removeClass("no-border");                   
-                $(".hipResult").text("Try again!");    
-                hipResult.css("background-color", "lightcoral");
-                hipResult.css("color", "white");   
-                gameEnded = true;                
-            }
-            hippoFound = true;
+        $(".cup").click(function () {
+            if (!hippoFound && !gameEnded) {
+                // Check if the hippo is under the clicked cup
+                let clickedIndex = $(this).data("index");
+                $(".hipResult").css("background-color:", "");
+                if (clickedIndex === currentHippoIndex) {
+                    // Make the cup transparent to reveal the hippo
+                    $(".hipResult").removeClass("no-border");
+                    $(this).find(".hippo").css("opacity", "0.8");
+                    $(this).css("opacity", "0.8");
+                    hipResult.css("background-color", "green");
+                    hipResult.css("color", "white");
+                    $(".hipResult").text("You found the hippo!");
+                    gameEnded = true;
+                } else {
+                    $(".cup[data-index='" + currentHippoIndex + "']").css("opacity", "0.8");
+                    $(".cup[data-index='" + currentHippoIndex + "']").find(".hippo").css("opacity", "0.8");
+                    $(this).css("opacity", "0.8");
+                    $(".hipResult").removeClass("no-border");
+                    $(".hipResult").text("Try again!");
+                    hipResult.css("background-color", "lightcoral");
+                    hipResult.css("color", "white");
+                    gameEnded = true;
+                }
+                hippoFound = true;
 
-            setTimeout(resetGame, 3000);
+                setTimeout(resetGame, 3000);
+            }
+        });
+    }
+}
+
+// =================== Audio Quiz =================== \\
+
+if (puzzleType == "Audio") {
+
+    let currentClipIndex = 0;
+    let remainingTime = 20;
+    let score = 0;
+
+    const audioPlayer = document.getElementById('audioPlayer');
+    const userInput = document.getElementById('userInput');
+    const result = document.getElementById('result');
+    const nextButton = document.getElementById('nextButton');
+    let showScore = document.getElementById('showScore');
+    const timerDisplay = document.getElementById('timer');
+    let timerInterval;
+
+    startButton.classList.add('flash');
+    nextButton.style.display = 'none';
+
+    function playNextClip(currentClipIndex) {
+        console.log("playing next clip");
+        if (currentClipIndex < audioClips.length) {
+            audioPlayer.src = audioClips[currentClipIndex].src;
+            audioPlayer.play();
+        } else {
+            alert('All clips played');
+        }
+    }
+
+    function checkAnswer() {
+        const answer = userInput.value.trim().toLowerCase();
+        const correctAnswer = audioClips[currentClipIndex].answer.toLowerCase();
+
+        let resultMessage = 'Incorrect.';
+        if (answer === correctAnswer) {
+            resultMessage = 'Correct!';
+            score++;
+            showScore.textContent = score;
+            userInput.value = '';
+            userInput.focus();
+
+
+            result.textContent = resultMessage;
+            userInput.value = '';
+            userInput.focus();
+
+            if (currentClipIndex < audioClips.length - 1) {
+                console.log("out of clips");
+                currentClipIndex++;
+                playNextClip(currentClipIndex);
+                startTimer();
+            } else {
+                shuffle(audioClips);
+                currentClipIndex = 0;
+                playNextClip(currentClipIndex);
+                startTimer();
+            }
+        } else {
+            shuffle(audioClips);
+            result.classList.add('audio-wrong');
+            resultMessage = 'Ouch! Try again?';
+            nextButton.style.display = 'none';
+            startButton.style.display = 'block';
+            startButton.classList.add('flash');
+            result.textContent = resultMessage;
+            clearInterval(timerInterval);
+            score = 0;
+            currentClipIndex = 0;
+            startButton.disabled = false;
+        }
+
+    }
+
+
+    function shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
+
+    shuffle(audioClips);
+
+    function startTimer() {
+        clearInterval(timerInterval);
+        startButton.disabled = true;
+        if (score >= 50) {
+            remainingTime = 2;
+        } else
+            if (score >= 40) {
+                remainingTime = 3;
+            } else
+                if (score >= 30) {
+                    remainingTime = 5;
+                } else
+                    if (score >= 20) {
+                        remainingTime = 5;
+                    } else
+                        if (score >= 15) {
+                            remainingTime = 8;
+                        } else
+                            if (score >= 10) {
+                                remainingTime = 10;
+                            } else if (score >= 5) {
+                                remainingTime = 15;
+                            } else if (score >= 3) {
+                                remainingTime = 17;
+                            } else {
+                                remainingTime = 20;
+                            }
+
+        let time = remainingTime;
+
+        timerInterval = setInterval(() => {
+            timerDisplay.textContent = time + 'seconds';
+
+            if (time <= 0) {
+                clearInterval(timerInterval);
+                checkAnswer();
+            } else {
+                $("#timer").text(time);
+                time--;
+            }
+        }, 1000);
+    }
+
+    function startNextWord() {
+        clearInterval(timerInterval);
+        remainingTime = 20;
+        $("#timer").text(remainingTime);
+        startTimer();
+    }
+
+    startButton.addEventListener('click', () => {
+        if (!startButton.disabled) {
+            result.textContent = '';
+            result.classList.remove('audio-wrong');
+            userInput.value = '';
+            userInput.focus();
+            showScore.textContent = score;
+            playNextClip(currentClipIndex);
+            startTimer();
+            nextButton.style.display = 'block';
+            nextButton.disabled = false;
+            startButton.style.display = 'none';
+            startButton.classList.remove('flash');
+        }
+
+    });
+
+    nextButton.addEventListener('click', () => {
+        checkAnswer();
+    });
+
+    userInput.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            checkAnswer();
+        }
+        if (event.key === 'Escape') {
+            clearInterval(timerInterval);
+            nextButton.style.display = 'none';
+            result.textContent = '';
+            startButton.style.display = 'block';
+            startButton.classList.add('flash');
+            showScore.textContent = '';
+            score = 0;
+            currentClipIndex = 0;
+            startButton.disabled = false;
         }
     });
+
 }
+
+
+//    Crossword    \\
+
+if (puzzleType == "Crossword") {
+
+      console.log(puzzleGrid);
+  
+      function createGrid() {
+
+        const puzzleDiv = document.getElementById('crossword');
+        for (let i = 0; i < solutionGrid.length; i++) {
+          const rowDiv = document.createElement('div');
+          rowDiv.classList.add('row');
+          for (let j = 0; j < solutionGrid[i].length; j++) {
+                           
+            const cellDiv = document.createElement('div');
+            cellDiv.classList.add('cell', 'col');
+            const input = document.createElement('input');
+            input.classList.add('cell-input');
+            input.maxLength = 1;
+            input.dataset.row = i;
+            input.dataset.col = j;
+            if (puzzleGrid[i][j] != ' ' && puzzleGrid[i][j] != '.') {
+                input.value = solutionGrid[i][j]; 
+                input.readOnly = true; 
+              }            
+            input.addEventListener('input', checkInput);
+            if (puzzleGrid[i][j] === '.') {  
+                input.classList.add('cell-empty');
+                input.readOnly = true;                 
+            }
+
+            cellDiv.appendChild(input);
+            rowDiv.appendChild(cellDiv);
+            console.log(rowDiv);            
+          }
+           puzzleDiv.appendChild(rowDiv);
+        }
+      }
+
+      
+      function checkInput(event) {
+        const row = parseInt(event.target.dataset.row);
+        const col = parseInt(event.target.dataset.col);
+
+        const userInput = event.target.value.toUpperCase();
+        event.target.value = userInput; 
+        let nextCol = (col + 1) % solutionGrid[row].length;
+        let nextRow = row + Math.floor((col + 1) / solutionGrid[row].length);  
+
+        while (puzzleGrid[nextRow][nextCol] != " ") {
+            nextCol++;
+            if (nextCol >= solutionGrid[nextRow].length) {
+              nextCol = 0;
+              nextRow++;
+            }
+            if (nextRow >= solutionGrid.length) {
+              break; 
+            }
+          }
+
+        const nextInput = document.querySelector(`[data-row="${nextRow}"][data-col="${nextCol}"]`);
+        if (nextInput && !nextInput.readOnly) {
+            setTimeout(() => {
+              nextInput.focus();
+            }, 0);   
+        }     
+
+        if (userInput === solutionGrid[row][col]) {
+          puzzleGrid[row][col] = userInput;            
+          event.target.classList.add('pre-filled');
+          event.target.disabled = true;
+        } else {
+          event.target.classList.add('incorrect-cross');
+          setTimeout(() => {
+            event.target.classList.remove('incorrect-cross');
+            event.target.value = '';
+          }, 1000);
+        }
+        console.log(puzzleGrid);
+        console.log(solutionGrid);
+        if (isPuzzleSolved()) {
+            var puzzleDiv = document.getElementById('success');
+            var statusRowDiv = document.createElement('div');
+            var statusColDiv = document.createElement('div');
+            statusRowDiv.classList.add("row");
+            statusRowDiv.classList.add("justify-content-center");
+            statusColDiv.classList.add("col-5");
+            statusColDiv.classList.add("box-left");
+            statusColDiv.classList.add("text-center");
+            statusColDiv.classList.add("mb-4");
+            statusColDiv.classList.add("p-2");
+            statusColDiv.classList.add("viaoda-libre-regular")
+            statusColDiv.textContent = "Great Job!";
+            statusRowDiv.appendChild(statusColDiv);
+            puzzleDiv.appendChild(statusRowDiv);
+
+
+            console.log('Puzzle is solved!');
+          } else {
+            console.log('Puzzle is not solved yet.');
+          }        
+
+      }
+
+      createGrid();
+
+
+      function isPuzzleSolved() {
+        for (let i = 0; i < puzzleGrid.length; i++) {
+          for (let j = 0; j < puzzleGrid.length; j++) {
+            if (puzzleGrid[i][j] !== solutionGrid[i][j]) {
+              return false; 
+            }
+          }
+        }
+        return true; 
+      }
+
 }

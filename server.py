@@ -169,7 +169,7 @@ learn_data = [
         "right_image": None,
         "model": "/static/models/occipital_bone/scene.gltf",
         "model_bg": "0xDDFFF7",
-        "puzzle_type" : "Word",        
+        "puzzle_type" : "Audio",        
         "puzzle" : ["POCLICAIT", "NI", "KBCA"],
         "solution": ["OCCIPITAL", "IN", "BACK"],
         "hint" : "Eyes in front, _____",
@@ -198,7 +198,7 @@ learn_data = [
         "right_image": None,
         "model": "/static/models/parietal_bone/scene.gltf",
         "model_bg": "0xDDFFF7",
-        "puzzle_type" : "Word",        
+        "puzzle_type" : "Audio",        
         "puzzle" : ["RMWA", "FTOS", "NSIK"],
         "solution": ["WARM", "SOFT", "SKIN"],
         "hint" : "The parietal lobe lets you feel it.",
@@ -228,7 +228,7 @@ learn_data = [
         "right_image": None,
         "model": "/static/models/temporal_bone/scene.gltf",
         "model_bg": "0xDDFFF7",
-        "puzzle_type" : "Word",        
+        "puzzle_type" : "Audio",        
          "puzzle" : ["DHBINE", "MSPTLEE"],
         "solution": ["BEHIND", "TEMPLES"],
         "hint" : "Where is the temporal lobe located?",
@@ -258,7 +258,7 @@ learn_data = [
         "right_image": None,
         "model": "/static/models/frontal_bone/scene.gltf",
         "model_bg": "0xDDFFF7",
-        "puzzle_type" : "Word",        
+        "puzzle_type" : "Audio",        
         "puzzle" : ["DIFEAL","OLHCOS"],
         "solution": ["FAILED", "SCHOOL",],
         "hint": "I fell on my forehead, broke my frontal lobe and then I...",
@@ -286,9 +286,27 @@ learn_data = [
         "right_image": None,
         "model": "/static/models/amygdala/scene.gltf",
         "model_bg": "0xDDFFF7",
-        "puzzle_type" : "Word",        
-        "puzzle" : ["NRIEN", "NBIRA", "RFEA"],
-        "solution": ["INNER", "BRAIN", "FEAR"],
+        "puzzle_type" : "Crossword",        
+        "puzzle" :  [[' ', '.', '.', '.', '.','.','.','.','.','.'],
+                     [' ', '.', '.', '.', '.','.','.','.','.','.'],
+                     ['A', ' ', ' ', ' ', 'I',' ','.','.','.','.'],
+                     [' ', '.', '.', ' ', '.','.',' ','A',' ',' '],
+                     ['.', '.', '.', ' ', '.','.','.',' ','.','.'],
+                     ['.', '.', '.', ' ', '.','.','.',' ','.','.'],                                                                                    
+                     ['.', ' ', 'R', 'E', ' ',' ',' ',' ','.','.'],
+                     ['.', '.', '.', ' ', '.','.','.','R','.','.'],
+                     ['.', '.', '.', 'Y', '.','.','.','.','.','.']],
+       
+        "solution": [['F', '.', '.', '.', '.','.','.','.','.','.'],
+                     ['E', '.', '.', '.', '.','.','.','.','.','.'],
+                     ['A', 'F', 'R', 'A', 'I','D','.','.','.','.'],
+                     ['R', '.', '.', 'N', '.','.','R','A','G','E'],
+                     ['.', '.', '.', 'X', '.','.','.','N','.','.'],
+                     ['.', '.', '.', 'I', '.','.','.','G','.','.'],                                                                                    
+                     ['.', 'T', 'R', 'E', 'M','B','L','E','.','.'],
+                     ['.', '.', '.', 'T', '.','.','.','R','.','.'],
+                     ['.', '.', '.', 'Y', '.','.','.','.','.','.']],
+        "crosswords": ["Fear", "Afraid", 'Rage', 'Anger', 'Tremble', 'Anxiety'],
         "hint": "The oldest human feeling.",
         "concept_title" : "Amygdala",
         "nt_effect": None,
@@ -316,9 +334,34 @@ learn_data = [
         "right_image": None,
         "model": "/static/models/hypothalamus/scene.gltf",
         "model_bg": "0xDDFFF7",
-        "puzzle_type" : "Word",        
-        "puzzle" : ["LTHYAOPHUSMA","RFGNII"],
-        "solution": ["HYPOTHALAMUS", "FIRING"],
+        "puzzle_type" : "Crossword",        
+        "puzzle" :  [['.', '.', '.', '.', '.','.','.','.',' ','.','.','.'],
+                     ['.', '.', '.', '.', '.','.',' ',' ','M',' ',' ',' '],
+                     ['.', '.', '.', '.', '.','.','.','.',' ','.','.','.'],
+                     ['.', '.', '.', '.', ' ',' ','W',' ',' ',' ','.','.'],
+                     ['.', '.', '.', '.', '.','.','.','.','O','.','.','.'],
+                     ['.', '.', '.', '.', '.',' ','.','.',' ','.','.','.'],                                                                                   
+                     ['.', 'H', ' ', ' ', 'M',' ',' ','E',' ','.','.','.'],
+                     ['.', ' ', '.', '.', '.','V','.','.','.','.','.','.'],
+                     ['.', ' ', '.', '.', '.',' ','.','.','.','.','.','.'],
+                     ['.', ' ', '.', '.', '.','.','.','.','.','.','.','.'],
+                     ['S', ' ', ' ', '.', '.','.','.','.','.','.','.','.'],
+                     ['.', 'R', '.', '.', '.','.','.','.','.','.','.','.']],
+       
+        "solution": [['.', '.', '.', '.', '.','.','.','.','A','.','.','.'],
+                     ['.', '.', '.', '.', '.','.','L','I','M','B','I','C'],
+                     ['.', '.', '.', '.', '.','.','.','.','O','.','.','.'],
+                     ['.', '.', '.', '.', 'R','E','W','A','R','D','.','.'],
+                     ['.', '.', '.', '.', '.','.','.','.','O','.','.','.'],
+                     ['.', '.', '.', '.', '.','L','.','.','U','.','.','.'],                                                                                   
+                     ['.', 'H', 'O', 'R', 'M','O','N','E','S','.','.','.'],
+                     ['.', 'U', '.', '.', '.','V','.','.','.','.','.','.'],
+                     ['.', 'N', '.', '.', '.','E','.','.','.','.','.','.'],
+                     ['.', 'G', '.', '.', '.','.','.','.','.','.','.','.'],
+                     ['S', 'E', 'X', '.', '.','.','.','.','.','.','.','.'],
+                     ['.', 'R', '.', '.', '.','.','.','.','.','.','.','.']],
+
+        "crosswords": ["Reward", "Love", 'Amorous', 'Hunger', 'Sex', 'Hormones', 'Limbic'],
         "hint": "She said she loved me, but I knew what it was.",
         "concept_title" : "Hypothalamus",
         "nt_effect": None,
@@ -436,6 +479,73 @@ learn_puzzles = [
 
 
     },
+   { "id": 6,
+      "audioClips": [
+        { 'src': '/static/audio_files/occipital1.mp3', 'answer': 'occipital' },
+        { 'src': '/static/audio_files/occipital2.mp3', 'answer': 'occipital lobe' },
+        { 'src': '/static/audio_files/occipital3.mp3', 'answer': 'seeing' },
+        { 'src': '/static/audio_files/occipital4.mp3', 'answer': 'eyes' },
+        { 'src': '/static/audio_files/occipital5.mp3', 'answer': 'eyeballs' },
+        { 'src': '/static/audio_files/occipital6.mp3', 'answer': 'sight' },
+        { 'src': '/static/audio_files/occipital7.mp3', 'answer': 'vision' },
+        { 'src': '/static/audio_files/occipital8.mp3', 'answer': 'visionary' },
+        { 'src': '/static/audio_files/occipital9.mp3', 'answer': 'I see with my occiput' },
+        { 'src': '/static/audio_files/occipital10.mp3','answer': 'ocular' },
+        { 'src': '/static/audio_files/occipital11.mp3', 'answer': 'ocularly occipital' },
+        { 'src': '/static/audio_files/occipital12.mp3', 'answer': 'color vision' },
+    ],
+  },
+
+   { "id": 7,
+      "audioClips": [
+        { 'src': '/static/audio_files/parietal1.mp3', 'answer': 'vibration' },
+        { 'src': '/static/audio_files/parietal2.mp3', 'answer': 'touch' },
+        { 'src': '/static/audio_files/parietal3.mp3', 'answer': 'pain' },
+        { 'src': '/static/audio_files/parietal4.mp3', 'answer': 'sensation' },
+        { 'src': '/static/audio_files/parietal5.mp3', 'answer': 'touching' },
+        { 'src': '/static/audio_files/parietal6.mp3', 'answer': 'pain in the parietal' },
+        { 'src': '/static/audio_files/parietal7.mp3', 'answer': 'physical space' },
+        { 'src': '/static/audio_files/parietal8.mp3', 'answer': 'it feels hot' },
+        { 'src': '/static/audio_files/parietal9.mp3', 'answer': 'parietal lobe' },
+        { 'src': '/static/audio_files/parietal10.mp3','answer': 'parietal' },
+        { 'src': '/static/audio_files/parietal11.mp3', 'answer': 'fingers' },
+        { 'src': '/static/audio_files/parietal12.mp3', 'answer': 'precision' },
+    ],
+  },  
+
+   { "id": 8,
+      "audioClips": [
+        { 'src': '/static/audio_files/temporal1.mp3', 'answer': 'temporal' },
+        { 'src': '/static/audio_files/temporal2.mp3', 'answer': 'lobe' },
+        { 'src': '/static/audio_files/temporal3.mp3', 'answer': 'hear' },
+        { 'src': '/static/audio_files/temporal4.mp3', 'answer': 'hearing' },
+        { 'src': '/static/audio_files/temporal5.mp3', 'answer': 'temporal lobe' },
+        { 'src': '/static/audio_files/temporal6.mp3', 'answer': 'can you hear me?' },
+        { 'src': '/static/audio_files/temporal7.mp3', 'answer': 'listen' },
+        { 'src': '/static/audio_files/temporal8.mp3', 'answer': 'music' },
+        { 'src': '/static/audio_files/temporal9.mp3', 'answer': 'hear me' },
+        { 'src': '/static/audio_files/temporal10.mp3','answer': 'temporally' },
+        { 'src': '/static/audio_files/temporal11.mp3', 'answer': 'temples' },
+        { 'src': '/static/audio_files/temporal12.mp3', 'answer': 'ears' },
+    ],
+  },
+   { "id": 9,
+      "audioClips": [
+        { 'src': '/static/audio_files/frontal1.mp3', 'answer': 'frontal lobe' },
+        { 'src': '/static/audio_files/frontal2.mp3', 'answer': 'frontal' },
+        { 'src': '/static/audio_files/frontal3.mp3', 'answer': 'forethought' },
+        { 'src': '/static/audio_files/frontal4.mp3', 'answer': 'reason' },
+        { 'src': '/static/audio_files/frontal5.mp3', 'answer': 'intelligence' },
+        { 'src': '/static/audio_files/frontal6.mp3', 'answer': 'planning' },
+        { 'src': '/static/audio_files/frontal7.mp3', 'answer': 'rationality' },
+        { 'src': '/static/audio_files/frontal8.mp3', 'answer': 'imagination of future' },
+        { 'src': '/static/audio_files/frontal9.mp3', 'answer': 'reasoning from the front' },
+        { 'src': '/static/audio_files/frontal10.mp3','answer': 'argument' },
+        { 'src': '/static/audio_files/frontal11.mp3', 'answer': 'working memory' },
+        { 'src': '/static/audio_files/frontal12.mp3', 'answer': 'frontal future' },
+    ],
+  },
+
    { "id": 12,
         "html": """ 
         <div class="row justify-content-center">
@@ -479,10 +589,9 @@ learn_puzzles = [
       </div>
     """    
 
-    }    
+    }
 
 ]
-
 
 ###################   TBC - Larry  ##################
 
@@ -692,8 +801,8 @@ def learn(lesson_id):
     model = data['model']    
     title = data['title'] 
     if (puzzle_data):
+      if 'html' in puzzle_data:        
         puzzle_data = puzzle_data['html'].replace("\n", "")    
-        print(puzzle_data)
     if (lesson_id == len(learn_data)):
         next_text = "Quiz Me"
     return render_template('learn.html', lesson=data, duration=durPrint, title=title, model=model, puzzle=puzzle_data) 

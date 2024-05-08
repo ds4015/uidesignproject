@@ -19,6 +19,34 @@
   width: 100%;
 }
 
+@keyframes flash {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.flash {
+  animation: flash 1s infinite;
+}
+
+.audioScore {
+  color: red;
+  font-size: 55px;
+  text-align: center;
+}
+
+.smallTimer {
+  color: red;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+
+#timerRow {
+  margin-top: 0;
+  padding-top: 0;
+}
 
 
 /* for feedback message */
@@ -40,10 +68,7 @@
   background-color: #f44336; /* Red for incorrect */
 }
 
-/* already answered feedback */
-.alert-info {
-  background-color: orange;
-}
+
 
 /* for next question buton */
 .btn-primary {
@@ -311,6 +336,31 @@ span.crossed::before {
   text-align: justify
 }
 
+.audio-wrong {
+  background-color: red;
+  width: 65%;
+  padding: 0.5em;
+  color: #FFFFFF;
+  border: 1px dashed #000;
+  margin: 5% auto; 
+}
+
+.incorrect-cross {
+  background-color: red;
+  text-align: center;
+  color: #FFFF;
+  width: 90px; /* Set a fixed width for incorrect cells */
+  border: 1px solid black; /* Add a border for better visibility */
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+}
+.white {
+  background-color: #fff;
+  text-align: center;
+  border: 1px dashed black;
+}
+
 /* letter input styling for puzzle */
 input.puzzle {
   background-color: #ebf5ee;
@@ -349,6 +399,13 @@ img {
   height: auto; 
 }
 
+.custom-input {
+  width:90%;
+  border: 1px solid #ccc; 
+  border-radius: 5px; 
+  padding: 8px 12px; 
+  color: #333; 
+}
 
 /* radio button customization */
 
@@ -443,6 +500,9 @@ img {
 .boxes-container,
 .words-container {
   position: relative;
+  margin: 0 auto;
+  justify-content: center;
+  width: 95%;
 }
 
 .box {
@@ -459,11 +519,46 @@ img {
   z-index: 1;
 }
 
-.blank-field-body {
-  top: 0%;
-  left: 60%;
-  width: 40%; 
-  height: 37px;
+
+.blank-field-pariet,
+.blank-field-frontal,
+.blank-field-occip,
+.blank-field-tempor {
+  position: absolute;
+  text-align: center;
+  z-index: 1;
+}
+
+.blank-field-pariet {
+  top: 10%;
+  left: 50%;
+  height: 18%;
+  width: 20%;
+  border: 1.5px dashed black;
+}
+
+.blank-field-frontal {
+  top: 20%;
+  left: 25%;
+  width: 20%;
+  height: 18%; 
+  border: 1.5px dashed black;
+}
+
+.blank-field-occip {
+  top: 35%;
+  left: 70%;
+  width: 20%; 
+  height: 18%; 
+  border: 1.5px dashed black;
+}
+
+
+.blank-field-tempor {
+  top: 45%;
+  left: 45%;
+  width: 20%; 
+  height: 18%;
   border: 1.5px dashed black;
 }
 
@@ -482,7 +577,45 @@ img {
   height: 37px; 
   border: 1.5px dashed black;
 }
+.cell-empty {
+  background-color: #15073c;
+  opacity: 0.3;
+}
+.cell {
+  width: 2em;
+  height: 2em;
+  text-align: center;
+  margin: 0.5%;
+  border: 1px dashed black;
+  display: inline-block;
+  padding: 0;
+}
+.cell-input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  text-align: center;
+  font-size: 14px;
+}
 
+.black {
+  background-color: #ebf5ee;;
+}
+
+.pre-filled {
+  background-color: #073c2a;
+  text-align: center;
+  color: #FFF;
+  border: 1px solid #000; 
+}
+
+.blank-field-body {
+  top: 0%;
+  left: 60%;
+  width: 40%; 
+  height: 37px; 
+  border: 1.5px dashed black;
+}
 
 .arrow {
   position: absolute;
@@ -523,6 +656,18 @@ img {
   width: 45%;
   margin-bottom: 10px;
   margin-top: 10%;
+  z-index: 2;
+}
+
+.word-boxQ {
+  border: 1.5px solid black;
+  display: inline-block;
+  margin: 2%;
+  width: 20%;
+  height: 10%;
+  padding: 1.5%;
+  margin-bottom: 5%;
+  margin-top: 5%;
   z-index: 2;
 }
 
@@ -657,7 +802,8 @@ a:hover {
 
 
 .score-size {
-  font-size: 65px;
+  font-size: 60px;
+
 }
 
 .image-container {
@@ -675,6 +821,20 @@ a:hover {
 .image-container:hover img {
   transform: scale(1.1);
 }
+
+.image-container2 {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.image-container2-bar img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+
 
 .overlay {
   position: absolute;
