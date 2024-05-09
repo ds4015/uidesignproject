@@ -68,6 +68,13 @@
   background-color: #f44336; /* Red for incorrect */
 }
 
+/* same question feedback */
+.alert-info {
+  background-color: orange;
+}
+
+
+
 
 
 /* for next question buton */
